@@ -22,3 +22,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Example .gitignore for a Vite project
+node_modules/
+.vite/
+dist/
+*.log
+.env
