@@ -7,7 +7,6 @@ import * as path from 'path'; // <--- Import the path module
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: "/https://github.com/crizzdevs/portfolio.git/",
   // --- ADD THIS resolve BLOCK ---
   resolve: {
     alias: {
