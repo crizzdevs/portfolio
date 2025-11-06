@@ -2,7 +2,7 @@
   "name": "crizzdevs-portfolio",
   "version": "1.0.0",
   "type": "module",
-  "homepage": "https://crizzdevs.github.io/crizzdevs-portfolio/",
+  "homepage": "https://github.com/crizzdevs/portfolio.git",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
