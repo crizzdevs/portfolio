@@ -1,79 +1,109 @@
+import { motion } from "framer-motion";
+import { Music, Palette, Utensils, Code, Zap, Coffee, Atom } from "lucide-react";  // Added imports for icons
 import { PixelCard } from "../PixelCard";
 
+const interests = [
+  {
+    title: "Music",
+    description: "Playing guitar to express creativity and focus through rhythm and melody.",
+    icon: <Music className="w-6 h-6 text-accent" />,  // Replaced emoji with icon
+  },
+  {
+    title: "Art",
+    description: "Translating imagination into visuals that influence design and coding aesthetics.",
+    icon: <Palette className="w-6 h-6 text-primary" />,  // Replaced emoji with icon
+  },
+  {
+    title: "Food",
+    description: "Exploring new cuisines as a way to appreciate culture and creativity in life.",
+    icon: <Utensils className="w-6 h-6 text-secondary" />,  // Replaced emoji with icon
+  },
+];
+
 const skills = [
-  { name: "HTML", icon: "⚡", color: "text-accent" },
-  { name: "CSS", icon: "🎨", color: "text-primary" },
-  { name: "JAVASCRIPT", icon: "⭐", color: "text-secondary" },
-  { name: "JAVA", icon: "☕", color: "text-accent" },
-  { name: "REACT", icon: "⚛️", color: "text-secondary" },
+  { name: "HTML", icon: <Code className="w-6 h-6 text-accent" />, color: "text-accent" },  // Replaced emoji with icon
+  { name: "CSS", icon: <Palette className="w-6 h-6 text-primary" />, color: "text-primary" },  // Replaced emoji with icon (reused Palette for CSS)
+  { name: "JAVASCRIPT", icon: <Zap className="w-6 h-6 text-secondary" />, color: "text-secondary" },  // Replaced emoji with icon
+  { name: "JAVA", icon: <Coffee className="w-6 h-6 text-accent" />, color: "text-accent" },  // Replaced emoji with icon
+  { name: "REACT", icon: <Atom className="w-6 h-6 text-secondary" />, color: "text-secondary" },  // Replaced emoji with icon
 ];
 
 export const AboutSection = () => {
   return (
-    <section id="about" className="py-20 relative">
+    <section id="about" className="py-20 text-white relative">  {/* Matched EducationSection's className (removed bg-neutral-950 if present) */}
       <div className="container mx-auto px-4">
         {/* Section title */}
-        <div className="text-center mb-12">
-          <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-foreground mb-2 tracking-wide">
+        <motion.div
+          className="text-center mb-12"
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <h2 className="text-4xl font-bold text-blue-400 mb-2 tracking-wide">  {/* Matched EducationSection's title styling */}
             About
           </h2>
           <div className="h-1 w-16 bg-primary mx-auto rounded-full opacity-80" />
-        </div>
+        </motion.div>
 
         {/* Interests */}
-        <PixelCard variant="quest" className="mb-12">
-          <h3 className="text-lg sm:text-xl font-semibold text-foreground mb-6 text-center">
+        <PixelCard variant="quest" className="mb-12 p-6 bg-neutral-900/60 border border-blue-900/40 rounded-2xl">  {/* Added PixelCard wrapper with styling like EducationSection */}
+          <h3 className="text-xl font-semibold text-blue-300 mb-6 text-center">  {/* Matched EducationSection's subtitle styling */}
             Interests
           </h3>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
-            <div className="hover:scale-105 transition-all">
-              <div className="text-3xl mb-3 text-accent">🎸</div>
-              <h4 className="text-foreground font-semibold text-lg">Music</h4>
-              <p className="text-muted-foreground text-sm">
-                Playing guitar to express creativity and focus through rhythm and melody.
-              </p>
-            </div>
-
-            <div className="hover:scale-105 transition-all">
-              <div className="text-3xl mb-3 text-primary">🎨</div>
-              <h4 className="text-foreground font-semibold text-lg">Art</h4>
-              <p className="text-muted-foreground text-sm">
-                Translating imagination into visuals that influence design and coding aesthetics.
-              </p>
-            </div>
-
-            <div className="hover:scale-105 transition-all">
-              <div className="text-3xl mb-3 text-secondary">🍱</div>
-              <h4 className="text-foreground font-semibold text-lg">Food</h4>
-              <p className="text-muted-foreground text-sm">
-                Exploring new cuisines as a way to appreciate culture and creativity in life.
-              </p>
-            </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">  {/* Changed to grid layout like EducationSection */}
+            {interests.map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.15 }}
+              >
+                <PixelCard className="p-6 text-left bg-neutral-900/60 border border-blue-900/40 rounded-2xl hover:scale-105 hover:border-blue-400/70 transition-all duration-300">  {/* Matched EducationSection's PixelCard styling */}
+                  <div className="flex items-center mb-3 space-x-3">
+                    {item.icon}
+                    <h4 className="text-xl font-semibold text-blue-300">  {/* Matched EducationSection's title styling */}
+                      {item.title}
+                    </h4>
+                  </div>
+                  <p className="text-gray-400 text-sm mt-2">  {/* Matched EducationSection's description styling */}
+                    {item.description}
+                  </p>
+                </PixelCard>
+              </motion.div>
+            ))}
           </div>
         </PixelCard>
 
         {/* Technical Skills */}
-        <div>
-          <h3 className="text-xl sm:text-2xl font-semibold text-foreground mb-6 text-center">
+        <PixelCard variant="quest" className="p-6 bg-neutral-900/60 border border-blue-900/40 rounded-2xl">  {/* Added PixelCard wrapper */}
+          <h3 className="text-xl font-semibold text-blue-300 mb-6 text-center">  {/* Matched subtitle styling */}
             Technical Skills
           </h3>
 
-          <div className="flex flex-wrap justify-center gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">  {/* Changed to grid layout like EducationSection */}
             {skills.map((skill, index) => (
-              <PixelCard
+              <motion.div
                 key={index}
-                variant="quest"
-                className="w-44 text-center hover:scale-105 transition-all cursor-pointer"
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.15 }}
               >
-                <div className="text-3xl mb-2">{skill.icon}</div>
-                <div className={`text-sm font-medium ${skill.color}`}>
-                  {skill.name}
-                </div>
-              </PixelCard>
+                <PixelCard
+                  variant="quest"
+                  className="p-6 text-center bg-neutral-900/60 border border-blue-900/40 rounded-2xl hover:scale-105 hover:border-blue-400/70 transition-all duration-300"  {/* Matched PixelCard styling */}
+                >
+                  <div className="flex items-center justify-center mb-2 space-x-3">  {/* Added flex for icon + name alignment */}
+                    {skill.icon}
+                  </div>
+                  <div className={`text-sm font-medium ${skill.color}`}>  {/* Kept original color classes */}
+                    {skill.name}
+                  </div>
+                </PixelCard>
+              </motion.div>
             ))}
           </div>
-        </div>
+        </PixelCard>
       </div>
     </section>
   );
