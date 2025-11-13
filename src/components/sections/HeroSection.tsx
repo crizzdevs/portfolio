@@ -75,9 +75,9 @@ export const HeroSection = () => {
           </div>
 
           {/* ================= RIGHT SIDE ================= */}
-          <div className="flex justify-center md:justify-end relative">
+          <div className="flex flex-col items-center relative">
             {/* Profile Image */}
-            <div className="relative">
+            <div className="relative z-10">
               <div className="absolute inset-0 rounded-full border-4 border-primary blur-md opacity-50 animate-pulse"></div>
               <img
                 src={pixelCharacter}
@@ -86,11 +86,11 @@ export const HeroSection = () => {
               />
             </div>
 
-            {/* Code Editor Overlapping Image */}
+            {/* Code Editor Overlapping but Lower */}
             <div
-              className="absolute bottom-[-2rem] md:bottom-[-3rem] translate-y-[-15%] right-4 sm:right-8 md:right-10 
+              className="absolute top-[80%] sm:top-[82%] md:top-[85%] 
                          bg-[#1e1e1e]/95 text-gray-200 border border-border rounded-xl shadow-2xl 
-                         w-[320px] sm:w-[380px] md:w-[440px] p-5 font-mono z-20 backdrop-blur-sm"
+                         w-[320px] sm:w-[380px] md:w-[460px] p-5 font-mono z-20 backdrop-blur-sm"
             >
               {/* Top bar (dots) */}
               <div className="flex gap-2 mb-3">
@@ -137,7 +137,7 @@ export const HeroSection = () => {
                 </code>
               </pre>
 
-              {/* Soft glow effect */}
+              {/* Soft glow */}
               <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 via-accent/10 to-secondary/10 blur-3xl pointer-events-none" />
             </div>
           </div>
