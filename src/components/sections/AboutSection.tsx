@@ -44,7 +44,8 @@ export const AboutSection = () => {
           <div className="h-1 w-16 bg-primary mx-auto rounded-full opacity-80" />
         </motion.div>
 
-        <PixelCard variant="quest" className="mb-12 p-6 bg-neutral-900/60 border border-blue-900/40 rounded-2xl">
+        {/* Interests */}
+        <div className="mb-12">
           <h3 className="text-xl font-semibold text-blue-300 mb-6 text-center">
             Interests
           </h3>
@@ -71,20 +72,22 @@ export const AboutSection = () => {
               </motion.div>
             ))}
           </div>
-        </PixelCard>
+        </div>
 
-        <PixelCard variant="quest" className="p-6 bg-neutral-900/60 border border-blue-900/40 rounded-2xl">
+        {/* Technical Skills */}
+        <div>
           <h3 className="text-xl font-semibold text-blue-300 mb-6 text-center">
             Technical Skills
           </h3>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <div className="flex flex-wrap justify-center gap-6 max-w-5xl mx-auto">  {/* Changed to flex for horizontal alignment */}
             {skills.map((skill, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.15 }}
+                className="flex-1 min-w-0"  {/* Ensures even spacing in flex */}
               >
                 <PixelCard
                   variant="quest"
@@ -100,7 +103,7 @@ export const AboutSection = () => {
               </motion.div>
             ))}
           </div>
-        </PixelCard>
+        </div>
       </div>
     </section>
   );
