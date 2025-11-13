@@ -5,15 +5,15 @@ import { PixelCard } from "@/components/PixelCard.tsx";
 export default function EducationSection() {
   const education = [
     {
-      year: "2024 - Present",
-      title: "Senior High School (STEM Strand)",
-      institution: "Mallig National High School",
+      year: "2018",
+      title: "Elementary",
+      institution: "Olango Elementary School",
       description:
-        "Currently pursuing STEM track with a focus on science and research-based learning.",
+        "Completed foundational education with strong academic performance",
       icon: <School className="w-6 h-6 text-blue-500" />,
     },
     {
-      year: "2020 - 2024",
+      year: "2023",
       title: "Junior High School",
       institution: "Mallig National High School",
       description:
@@ -21,25 +21,25 @@ export default function EducationSection() {
       icon: <BookOpen className="w-6 h-6 text-green-500" />,
     },
     {
-      year: "2014 - 2020",
-      title: "Elementary",
-      institution: "Mallig Central Elementary School",
+      year: "2025",
+      title: "Senior High School (HUMSS Strand)",
+      institution: "Mallig National High School",
       description:
-        "Built strong academic foundations and developed teamwork and communication skills.",
+        "Developed strong analytical, communication, and leadership skills through research and collaborative projects.",
       icon: <GraduationCap className="w-6 h-6 text-purple-500" />,
     },
     {
-      year: "Achievements",
-      title: "Awards & Recognition",
-      institution: "",
+      year: "2025 - Present",
+      title: "Bachelor of Science in Computer Science",
+      institution: "University of the Cordilleras",
       description:
-        "Recipient of multiple academic awards and recognized for leadership and discipline.",
+        "Focusing on learning different types of Programming Languages",
       icon: <Award className="w-6 h-6 text-yellow-500" />,
     },
   ];
 
   return (
-    <section id="education" className="py-20 bg-neutral-950 text-white relative">
+    <section id="education" className="py-20 text-white relative">  {/* Removed bg-neutral-950 */}
       <div className="container mx-auto text-center px-6">
         <motion.h2
           className="text-4xl font-bold mb-12 text-blue-400"
