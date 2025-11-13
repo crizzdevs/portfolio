@@ -15,7 +15,7 @@ export const AboutSection = () => {
         {/* Section title */}
         <div className="text-center mb-12">
           <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-foreground mb-2 tracking-wide">
-            more about me
+            About
           </h2>
           <div className="h-1 w-16 bg-primary mx-auto rounded-full opacity-80" />
         </div>
