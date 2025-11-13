@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { GraduationCap, BookOpen, Award, School } from "lucide-react";
-import { PixelCard } from "@/components/ui/pixel-card";
+import { PixelCard } from "@/components/PixelCard.tsx";
 
 export default function EducationSection() {
   const education = [
