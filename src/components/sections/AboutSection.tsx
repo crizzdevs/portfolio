@@ -80,14 +80,14 @@ export const AboutSection = () => {
             Technical Skills
           </h3>
 
-          <div className="flex flex-wrap justify-center gap-6 max-w-5xl mx-auto">  {/* Changed to flex for horizontal alignment */}
+          <div className="flex flex-wrap justify-center gap-6 max-w-5xl mx-auto">
             {skills.map((skill, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.15 }}
-                className="flex-1 min-w-0"  {/* Ensures even spacing in flex */}
+                className="flex-1 min-w-0"
               >
                 <PixelCard
                   variant="quest"
