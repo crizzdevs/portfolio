@@ -1,11 +1,9 @@
 import EducationSection from "@/components/sections/EducationSection";
 
-const EducationPage: React.FC = () => {
-  return (
-    <main>
-      <EducationSection />
-    </main>
-  );
-};
+const EducationPage = () => (
+  <main>
+    <EducationSection />
+  </main>
+);
 
 export default EducationPage;
