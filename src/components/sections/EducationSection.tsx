@@ -3,7 +3,7 @@ import { GraduationCap, BookOpen, Award, School } from "lucide-react";
 import { PixelCard } from "@/components/PixelCard.tsx";
 import olangoImg from "@/assets/olango-elementary.jpg";
 import malligJHS from "@/assets/mallig-jhs.png";
-import malligSHS from "@/assets/mallig-jhs.png";
+import malligSHS from "@/assets/mallig-jhs.png"; // Note: This is the same as malligJHS—update if it's a different image
 import ucImg from "@/assets/uc.jpg";
 
 export default function EducationSection() {
@@ -48,56 +48,104 @@ export default function EducationSection() {
 
   return (
     <section id="education" className="py-20 text-white relative">
-      <div className="container mx-auto text-center px-6">
-        <motion.h2
-          className="text-4xl font-bold mb-12 text-blue-400"
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          Education
-        </motion.h2>
+      <div className="container mx-auto px-6">
+        {/* Added scrollable sections for nav */}
+        <div id="home" className="py-20 text-center">
+          <motion.h2
+            className="text-4xl font-bold mb-4 text-blue-400"
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            Welcome to My Portfolio
+          </motion.h2>
+          <p className="text-gray-400 text-lg">
+            Explore my journey in education and development. Check out my projects or get in touch!
+          </p>
+          {/* Optional: Add a button to scroll to education */}
+          <button
+            onClick={() => document.getElementById('education')?.scrollIntoView({ behavior: 'smooth' })}
+            className="mt-4 px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition"
+          >
+            View Education
+          </button>
+        </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          {education.map((item, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.15 }}
-            >
-              <PixelCard className="p-6 bg-neutral-900/60 border border-blue-900/40 rounded-2xl hover:scale-105 hover:border-blue-400/70 transition-all duration-300">
+        <div id="about" className="py-20 text-center">
+          <motion.h2
+            className="text-4xl font-bold mb-4 text-blue-400"
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            About Me
+          </motion.h2>
+          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+            I'm a passionate developer and student focused on creating innovative solutions. 
+            With a background in education and a drive for continuous learning, I build projects that blend creativity and code.
+          </p>
+        </div>
 
-                <div className="flex items-start justify-between gap-4">
+        <div id="contact" className="py-20 text-center">
+          <motion.h2
+            className="text-4xl font-bold mb-4 text-blue-400"
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            Contact
+          </motion.h2>
+          <p className="text-gray-400 text-lg">
+            Reach out via email: your.email@example.com | LinkedIn: /yourprofile | GitHub: /yourrepo
+          </p>
+        </div>
 
-                  {/* LEFT — TEXT */}
-                  <div className="flex-1">
-                    <div className="flex items-center mb-3 space-x-3">
-                      {item.icon}
-                      <h3 className="text-xl font-semibold text-blue-300">
-                        {item.title}
-                      </h3>
+        {/* Original Education Content */}
+        <div className="text-center">
+          <motion.h2
+            className="text-4xl font-bold mb-12 text-blue-400"
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            Education
+          </motion.h2>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {education.map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.15 }}
+              >
+                <PixelCard className="p-6 bg-neutral-900/60 border border-blue-900/40 rounded-2xl hover:scale-105 hover:border-blue-400/70 transition-all duration-300">
+                  <div className="flex items-start justify-between gap-4">
+                    {/* LEFT — TEXT */}
+                    <div className="flex-1">
+                      <div className="flex items-center mb-3 space-x-3">
+                        {item.icon}
+                        <h3 className="text-xl font-semibold text-blue-300">
+                          {item.title}
+                        </h3>
+                      </div>
+                      <p className="text-sm text-gray-400">{item.year}</p>
+                      <p className="text-gray-300 font-medium">{item.institution}</p>
+                      <p className="text-gray-400 text-sm mt-2">
+                        {item.description}
+                      </p>
                     </div>
-
-                    <p className="text-sm text-gray-400">{item.year}</p>
-                    <p className="text-gray-300 font-medium">{item.institution}</p>
-                    <p className="text-gray-400 text-sm mt-2">
-                      {item.description}
-                    </p>
+                    {/* RIGHT — IMAGE */}
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="w-24 h-24 rounded-lg object-cover border border-blue-500/30"
+                    />
                   </div>
-
-                  {/* RIGHT — IMAGE */}
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="w-24 h-24 rounded-lg object-cover border border-blue-500/30"
-                  />
-
-                </div>
-
-              </PixelCard>
-            </motion.div>
-          ))}
+                </PixelCard>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
