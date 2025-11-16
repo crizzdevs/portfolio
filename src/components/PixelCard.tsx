@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 
 interface PixelCardProps extends HTMLAttributes<HTMLDivElement> {
   variant?: "default" | "game" | "quest";
-  image?: string; // ⬅ Added image support
+  image?: string; // still allowed but no auto-render
 }
 
 const PixelCard = forwardRef<HTMLDivElement, PixelCardProps>(
@@ -24,15 +24,8 @@ const PixelCard = forwardRef<HTMLDivElement, PixelCardProps>(
         )}
         {...props}
       >
-
-        {/* ⬅ Render image automatically if provided */}
-        {image && (
-          <img
-            src={image}
-            alt="card image"
-            className="w-full h-32 object-cover rounded-lg mb-4"
-          />
-        )}
+        {/* ❌ Removed automatic image */}
+        {/* Now YOU will manually position the image inside children */}
 
         {children}
       </div>
