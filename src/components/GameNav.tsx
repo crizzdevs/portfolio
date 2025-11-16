@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { cn } from "@/lib/utils";
-import Link from "next/link"; // Import Link for page navigation
 
 const navItems = [
   { id: "home", label: "Home" },
@@ -31,10 +30,9 @@ export const GameNav = () => {
           <div className="flex gap-1 sm:gap-2">
             {navItems.map((item) =>
               item.isPage ? (
-                <Link
+                <a
                   key={item.id}
                   href="/education"
-                  // Optionally highlight active state if on /education page
                   className={cn(
                     "px-3 sm:px-4 py-2 text-sm font-medium rounded-md transition-all",
                     active === item.id
@@ -44,7 +42,7 @@ export const GameNav = () => {
                   onClick={() => setActive(item.id)}
                 >
                   {item.label}
-                </Link>
+                </a>
               ) : (
                 <button
                   key={item.id}
