@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { GraduationCap, BookOpen, Award, School } from "lucide-react";
+import { GraduationCap, BookOpen, Award, School, ArrowLeft } from "lucide-react"; // Added ArrowLeft icon
+import { Link } from "react-router-dom"; // Added for the button
 import { PixelCard } from "@/components/PixelCard.tsx";
 import olangoImg from "@/assets/olango-elementary.jpg";
 import malligJHS from "@/assets/mallig-jhs.png";
@@ -49,6 +50,22 @@ export default function EducationSection() {
   return (
     <section id="education" className="py-20 text-white relative">
       <div className="container mx-auto text-center px-6">
+        {/* Back to Home Button */}
+        <motion.div
+          className="mb-8"
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <Link
+            to="/"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-blue-500 text-white font-medium rounded-lg hover:bg-blue-600 transition-all duration-300 shadow-lg hover:shadow-xl"
+          >
+            <ArrowLeft className="w-5 h-5" />
+            Back to Home
+          </Link>
+        </motion.div>
+
         <motion.h2
           className="text-4xl font-bold mb-12 text-blue-400"
           initial={{ opacity: 0, y: -20 }}
