@@ -40,7 +40,7 @@ export default function EducationSection() {
       title: "Bachelor of Science in Computer Science",
       institution: "University of the Cordilleras",
       description:
-        "Focusing on learning different types of Programming Languages",
+        "Focusing on learning different types of Programming Languages.",
       icon: <Award className="w-6 h-6 text-yellow-500" />,
       image: ucImg,
     },
@@ -58,7 +58,7 @@ export default function EducationSection() {
           Education
         </motion.h2>
 
-        {/* Compact Grid Layout */}
+        {/* Grid Layout */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {education.map((item, index) => (
             <motion.div
@@ -67,26 +67,38 @@ export default function EducationSection() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.15 }}
             >
-              <PixelCard 
-                image={item.image}
-                className="p-6 text-left bg-neutral-900/60 border border-blue-900/40 rounded-2xl hover:scale-105 hover:border-blue-400/70 transition-all duration-300"
-              >
-                <div className="flex items-center mb-3 space-x-3">
-                  {item.icon}
-                  <h3 className="text-xl font-semibold text-blue-300">
-                    {item.title}
-                  </h3>
+              <PixelCard className="p-6 text-left bg-neutral-900/60 border border-blue-900/40 rounded-2xl hover:scale-105 hover:border-blue-400/70 transition-all duration-300">
+
+                {/* Flex layout → text left + image right */}
+                <div className="flex justify-between items-start gap-4">
+
+                  {/* LEFT — TEXT */}
+                  <div className="flex-1">
+                    <div className="flex items-center mb-3 space-x-3">
+                      {item.icon}
+                      <h3 className="text-xl font-semibold text-blue-300">
+                        {item.title}
+                      </h3>
+                    </div>
+
+                    <p className="text-sm text-gray-400">{item.year}</p>
+
+                    <p className="text-gray-300 font-medium">
+                      {item.institution}
+                    </p>
+
+                    <p className="text-gray-400 text-sm mt-2">
+                      {item.description}
+                    </p>
+                  </div>
+
+                  {/* RIGHT — IMAGE */}
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-24 h-24 rounded-lg object-cover border border-blue-500/30"
+                  />
                 </div>
-
-                <p className="text-sm text-gray-400">{item.year}</p>
-
-                <p className="text-gray-300 font-medium">
-                  {item.institution}
-                </p>
-
-                <p className="text-gray-400 text-sm mt-2">
-                  {item.description}
-                </p>
               </PixelCard>
             </motion.div>
           ))}
