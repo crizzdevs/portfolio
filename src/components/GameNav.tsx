@@ -3,20 +3,27 @@ import { cn } from "@/lib/utils";
 import { Link } from "react-router-dom";
 
 const navItems = [
-  { id: "home", label: "Home" },
-  { id: "about", label: "About" },
-  { id: "education", label: "Education", isPage: true },
-  { id: "contact", label: "Contact" },
+  { id: "home", label: "Home", to: "/#home" }, // Link to home page with scroll
+  { id: "about", label: "About", to: "/#about" },
+  { id: "education", label: "Education", to: "/education", isPage: true },
+  { id: "contact", label: "Contact", to: "/#contact" },
 ];
 
 export const GameNav = () => {
   const [active, setActive] = useState("home");
 
-  const scrollToSection = (id: string) => {
+  const handleNavClick = (id: string, to: string) => {
     setActive(id);
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+    // If it's a hash link, scroll after navigation
+    if (to.includes("#")) {
+      const [path, hash] = to.split("#");
+      if (path === window.location.pathname) {
+        // Already on the page, just scroll
+        const element = document.getElementById(hash);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }
     }
   };
 
@@ -26,36 +33,21 @@ export const GameNav = () => {
         <div className="flex items-center justify-between">
           <div className="text-primary font-semibold text-base sm:text-lg">crizzdevs</div>
           <div className="flex gap-1 sm:gap-2">
-            {navItems.map((item) =>
-              item.isPage ? (
-                <Link
-                  key={item.id}
-                  to="/education"
-                  className={cn(
-                    "px-3 sm:px-4 py-2 text-sm font-medium rounded-md transition-all",
-                    active === item.id
-                      ? "bg-primary text-primary-foreground"
-                      : "text-muted-foreground hover:text-foreground hover:bg-muted"
-                  )}
-                  onClick={() => setActive(item.id)}
-                >
-                  {item.label}
-                </Link>
-              ) : (
-                <button
-                  key={item.id}
-                  onClick={() => scrollToSection(item.id)}
-                  className={cn(
-                    "px-3 sm:px-4 py-2 text-sm font-medium rounded-md transition-all",
-                    active === item.id
-                      ? "bg-primary text-primary-foreground"
-                      : "text-muted-foreground hover:text-foreground hover:bg-muted"
-                  )}
-                >
-                  {item.label}
-                </button>
-              )
-            )}
+            {navItems.map((item) => (
+              <Link
+                key={item.id}
+                to={item.to}
+                className={cn(
+                  "px-3 sm:px-4 py-2 text-sm font-medium rounded-md transition-all",
+                  active === item.id
+                    ? "bg-primary text-primary-foreground"
+                    : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                )}
+                onClick={() => handleNavClick(item.id, item.to)}
+              >
+                {item.label}
+              </Link>
+            ))}
           </div>
         </div>
       </div>
