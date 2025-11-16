@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { cn } from "@/lib/utils";
+import Link from "next/link"; // Import Link for page navigation
 
 const navItems = [
   { id: "home", label: "Home" },
   { id: "about", label: "About" },
-  { id: "education", label: "Education" },
+  { id: "education", label: "Education", isPage: true }, // Mark as page
   { id: "contact", label: "Contact" },
 ];
 
@@ -26,22 +27,39 @@ export const GameNav = () => {
           <div className="text-primary font-semibold text-base sm:text-lg">
             crizzdevs
           </div>
-          
+
           <div className="flex gap-1 sm:gap-2">
-            {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className={cn(
-                  "px-3 sm:px-4 py-2 text-sm font-medium rounded-md transition-all",
-                  active === item.id
-                    ? "bg-primary text-primary-foreground"
-                    : "text-muted-foreground hover:text-foreground hover:bg-muted"
-                )}
-              >
-                {item.label}
-              </button>
-            ))}
+            {navItems.map((item) =>
+              item.isPage ? (
+                <Link
+                  key={item.id}
+                  href="/education"
+                  // Optionally highlight active state if on /education page
+                  className={cn(
+                    "px-3 sm:px-4 py-2 text-sm font-medium rounded-md transition-all",
+                    active === item.id
+                      ? "bg-primary text-primary-foreground"
+                      : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                  )}
+                  onClick={() => setActive(item.id)}
+                >
+                  {item.label}
+                </Link>
+              ) : (
+                <button
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)}
+                  className={cn(
+                    "px-3 sm:px-4 py-2 text-sm font-medium rounded-md transition-all",
+                    active === item.id
+                      ? "bg-primary text-primary-foreground"
+                      : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                  )}
+                >
+                  {item.label}
+                </button>
+              )
+            )}
           </div>
         </div>
       </div>
