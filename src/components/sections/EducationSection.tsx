@@ -49,9 +49,9 @@ export default function EducationSection() {
 
   return (
     <>
-      {/* Fixed Back to Home Button in Lower Left */}
+      {/* Fixed Back to Home Button in Bottom Right */}
       <motion.div
-        className="fixed bottom-4 left-4 z-40"
+        className="fixed bottom-4 right-4 z-40"
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5, delay: 0.5 }}
