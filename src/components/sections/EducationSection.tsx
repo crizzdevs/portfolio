@@ -2,8 +2,8 @@ import { motion } from "framer-motion";
 import { GraduationCap, BookOpen, Award, School } from "lucide-react";
 import { PixelCard } from "@/components/PixelCard.tsx";
 import olangoImg from "@/assets/olango-elementary.jpg";
-import malligJHS from "@/assets/mallig-jhs.jpg";
-import malligSHS from "@/assets/mallig-jhs.jpg";
+import malligJHS from "@/assets/mallig-jhs.png";
+import malligSHS from "@/assets/mallig-jhs.png";
 import ucImg from "@/assets/uc.jpg";
 
 export default function EducationSection() {
