@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
-import { GraduationCap, BookOpen, Award, School, ArrowLeft } from "lucide-react"; // Added ArrowLeft icon
-import { Link } from "react-router-dom"; // Added for the button
+import { GraduationCap, BookOpen, Award, School, ArrowLeft } from "lucide-react";
+import { Link } from "react-router-dom";
 import { PixelCard } from "@/components/PixelCard.tsx";
 import olangoImg from "@/assets/olango-elementary.jpg";
 import malligJHS from "@/assets/mallig-jhs.png";
@@ -48,69 +48,71 @@ export default function EducationSection() {
   ];
 
   return (
-    <section id="education" className="py-20 text-white relative">
-      <div className="container mx-auto text-center px-6">
-        {/* Back to Home Button */}
-        <motion.div
-          className="mb-8"
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5 }}
+    <>
+      {/* Fixed Back to Home Button in Lower Left */}
+      <motion.div
+        className="fixed bottom-4 left-4 z-40"
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5, delay: 0.5 }}
+      >
+        <Link
+          to="/"
+          className="inline-flex items-center gap-2 px-4 py-2 bg-blue-500 text-white font-medium rounded-lg hover:bg-blue-600 transition-all duration-300 shadow-lg hover:shadow-xl text-sm"
         >
-          <Link
-            to="/"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-blue-500 text-white font-medium rounded-lg hover:bg-blue-600 transition-all duration-300 shadow-lg hover:shadow-xl"
+          <ArrowLeft className="w-4 h-4" />
+          Back to Home
+        </Link>
+      </motion.div>
+
+      <section id="education" className="py-20 text-white relative">
+        <div className="container mx-auto text-center px-6">
+          <motion.h2
+            className="text-4xl font-bold mb-12 text-blue-400"
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
           >
-            <ArrowLeft className="w-5 h-5" />
-            Back to Home
-          </Link>
-        </motion.div>
+            Education
+          </motion.h2>
 
-        <motion.h2
-          className="text-4xl font-bold mb-12 text-blue-400"
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          Education
-        </motion.h2>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          {education.map((item, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.15 }}
-            >
-              <PixelCard className="p-6 bg-neutral-900/60 border border-blue-900/40 rounded-2xl hover:scale-105 hover:border-blue-400/70 transition-all duration-300">
-                <div className="flex items-start justify-between gap-4">
-                  {/* LEFT — TEXT */}
-                  <div className="flex-1">
-                    <div className="flex items-center mb-3 space-x-3">
-                      {item.icon}
-                      <h3 className="text-xl font-semibold text-blue-300">
-                        {item.title}
-                      </h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {education.map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.15 }}
+              >
+                <PixelCard className="p-6 bg-neutral-900/60 border border-blue-900/40 rounded-2xl hover:scale-105 hover:border-blue-400/70 transition-all duration-300">
+                  <div className="flex items-start justify-between gap-4">
+                    {/* LEFT — TEXT */}
+                    <div className="flex-1">
+                      <div className="flex items-center mb-3 space-x-3">
+                        {item.icon}
+                        <h3 className="text-xl font-semibold text-blue-300">
+                          {item.title}
+                        </h3>
+                      </div>
+                      <p className="text-sm text-gray-400">{item.year}</p>
+                      <p className="text-gray-300 font-medium">{item.institution}</p>
+                      <p className="text-gray-400 text-sm mt-2">
+                        {item.description}
+                      </p>
                     </div>
-                    <p className="text-sm text-gray-400">{item.year}</p>
-                    <p className="text-gray-300 font-medium">{item.institution}</p>
-                    <p className="text-gray-400 text-sm mt-2">
-                      {item.description}
-                    </p>
+                    {/* RIGHT — IMAGE */}
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="w-24 h-24 rounded-lg object-cover border border-blue-500/30"
+                    />
                   </div>
-                  {/* RIGHT — IMAGE */}
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="w-24 h-24 rounded-lg object-cover border border-blue-500/30"
-                  />
-                </div>
-              </PixelCard>
-            </motion.div>
-          ))}
+                </PixelCard>
+              </motion.div>
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }
