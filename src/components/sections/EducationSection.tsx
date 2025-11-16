@@ -40,7 +40,7 @@ export default function EducationSection() {
       title: "Bachelor of Science in Computer Science",
       institution: "University of the Cordilleras",
       description:
-        "Focusing on learning different types of Programming Languages.",
+        "Focusing on learning different types of Programming Languages",
       icon: <Award className="w-6 h-6 text-yellow-500" />,
       image: ucImg,
     },
@@ -58,8 +58,7 @@ export default function EducationSection() {
           Education
         </motion.h2>
 
-        {/* Grid Layout */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {education.map((item, index) => (
             <motion.div
               key={index}
@@ -67,10 +66,9 @@ export default function EducationSection() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.15 }}
             >
-              <PixelCard className="p-6 text-left bg-neutral-900/60 border border-blue-900/40 rounded-2xl hover:scale-105 hover:border-blue-400/70 transition-all duration-300">
+              <PixelCard className="p-6 bg-neutral-900/60 border border-blue-900/40 rounded-2xl hover:scale-105 hover:border-blue-400/70 transition-all duration-300">
 
-                {/* Flex layout → text left + image right */}
-                <div className="flex justify-between items-start gap-4">
+                <div className="flex items-start justify-between gap-4">
 
                   {/* LEFT — TEXT */}
                   <div className="flex-1">
@@ -82,11 +80,7 @@ export default function EducationSection() {
                     </div>
 
                     <p className="text-sm text-gray-400">{item.year}</p>
-
-                    <p className="text-gray-300 font-medium">
-                      {item.institution}
-                    </p>
-
+                    <p className="text-gray-300 font-medium">{item.institution}</p>
                     <p className="text-gray-400 text-sm mt-2">
                       {item.description}
                     </p>
@@ -98,7 +92,9 @@ export default function EducationSection() {
                     alt={item.title}
                     className="w-24 h-24 rounded-lg object-cover border border-blue-500/30"
                   />
+
                 </div>
+
               </PixelCard>
             </motion.div>
           ))}
