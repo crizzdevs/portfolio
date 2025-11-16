@@ -1,7 +1,6 @@
 import { GameNav } from "@/components/GameNav";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { AboutSection } from "@/components/sections/AboutSection";
-import EducationSection from "@/components/sections/EducationSection";
 import { ContactSection } from "@/components/sections/ContactSection";
 
 const Index = () => {
@@ -12,7 +11,6 @@ const Index = () => {
       <main>
         <HeroSection />
         <AboutSection />
-        <EducationSection />
         <ContactSection />
       </main>
 
