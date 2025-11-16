@@ -9,7 +9,7 @@ export default function EducationSection() {
       title: "Elementary",
       institution: "Olango Elementary School",
       description:
-        "Completed foundational education with strong academic performance",
+        "Completed foundational education with strong academic performance - With Honors.",
       icon: <School className="w-6 h-6 text-blue-500" />,
     },
     {
@@ -25,11 +25,11 @@ export default function EducationSection() {
       title: "Senior High School (HUMSS Strand)",
       institution: "Mallig National High School",
       description:
-        "Developed strong analytical, communication, and leadership skills through research and collaborative projects.",
+        "Developed strong analytical, communication, and leadership skills through research and collaborative projects - With Honors.",
       icon: <GraduationCap className="w-6 h-6 text-purple-500" />,
     },
     {
-      year: "2025 - Present",
+      year: "2025 - In Progress",
       title: "Bachelor of Science in Computer Science",
       institution: "University of the Cordilleras",
       description:
