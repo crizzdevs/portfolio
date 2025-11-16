@@ -36,20 +36,23 @@ export const HeroSection = () => {
       {/* Content */}
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid md:grid-cols-2 gap-12 items-center">
+          
           {/* ================= LEFT SIDE ================= */}
           <div className="space-y-8">
             <div className="space-y-4">
               <div className="text-accent text-sm font-medium mb-2">
                 HEYYOOO! 👋
               </div>
+
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
                 <TypingText text="Hi, I'm Cris!" speed={80} />
               </h1>
+
               <h2 className="text-lg sm:text-xl md:text-2xl text-primary font-semibold">
                 Aspiring Software Developer
               </h2>
 
-              {/* ===== About Paragraphs ===== */}
+              {/* About */}
               <div className="text-sm sm:text-base text-muted-foreground space-y-4 max-w-lg leading-relaxed">
                 <p>
                   I’m an <strong>18-year-old Computer Science student</strong> at the
@@ -58,6 +61,7 @@ export const HeroSection = () => {
                   <strong className="text-accent"> artificial intelligence</strong>,
                   and <strong className="text-accent"> machine learning</strong>.
                 </p>
+
                 <p>
                   I love exploring how technology and creativity can merge to build intelligent,
                   human-centered solutions. My long-term goal is to create software that enhances
@@ -71,22 +75,22 @@ export const HeroSection = () => {
               <PixelButton variant="primary" onClick={scrollToProjects}>
                 View Projects
               </PixelButton>
-            
+
               <PixelButton variant="accent">
                 Get in Touch
               </PixelButton>
-            
+
               <NavLink to="/education">
                 <PixelButton variant="secondary">
                   View Education
                 </PixelButton>
               </NavLink>
             </div>
-
+          </div>
+          {/* <<<<<< THIS DIV WAS MISSING BEFORE */}
 
           {/* ================= RIGHT SIDE ================= */}
           <div className="flex flex-col items-center gap-6">
-            {/* Profile Image */}
             <div className="relative">
               <div className="absolute inset-0 rounded-full border-4 border-primary blur-md opacity-50 animate-pulse"></div>
               <img
@@ -98,14 +102,12 @@ export const HeroSection = () => {
 
             {/* Code Editor Box */}
             <div className="bg-[#1e1e1e] text-gray-200 border border-border rounded-xl shadow-2xl w-[360px] sm:w-[420px] md:w-[480px] p-5 font-mono relative overflow-hidden">
-              {/* Top bar (dots) */}
               <div className="flex gap-2 mb-3">
                 <span className="w-3 h-3 rounded-full bg-red-500" />
                 <span className="w-3 h-3 rounded-full bg-yellow-400" />
                 <span className="w-3 h-3 rounded-full bg-green-500" />
               </div>
 
-              {/* Code content */}
               <pre className="text-sm leading-relaxed flex">
                 <code className="select-none text-gray-500 pr-4 border-r border-gray-700">
 {`1
@@ -119,33 +121,30 @@ export const HeroSection = () => {
                 <code className="pl-4">
                   <span className="text-purple-400">class</span>{" "}
                   <span className="text-blue-400">Student</span> {"{"}
-                  {"\n"}
-                  {"    "}
+                  {"\n    "}
                   <span className="text-green-400">String</span>{" "}
                   <span className="text-white">name</span> ={" "}
-                  <span className="text-yellow-300">
-                    "Cris Julian R. Abuan"
-                  </span>
-                  ;{"\n"}
-                  {"    "}
+                  <span className="text-yellow-300">"Cris Julian R. Abuan"</span>;
+                  {"\n    "}
                   <span className="text-green-400">int</span>{" "}
                   <span className="text-white">age</span> ={" "}
-                  <span className="text-blue-300">18</span>;{"\n"}
-                  {"    "}
+                  <span className="text-blue-300">18</span>;
+                  {"\n    "}
                   <span className="text-green-400">String</span>{" "}
                   <span className="text-white">sex</span> ={" "}
-                  <span className="text-yellow-300">"Male"</span>;{"\n"}
-                  {"    "}
+                  <span className="text-yellow-300">"Male"</span>;
+                  {"\n    "}
                   <span className="text-green-400">String</span>{" "}
                   <span className="text-white">dream</span> ={" "}
-                  <span className="text-yellow-300">"To get RICH"</span>;{"\n"}
-                  {"}"}
+                  <span className="text-yellow-300">"To get RICH"</span>;
+                  {"\n}"}
                 </code>
               </pre>
 
               <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 via-accent/10 to-secondary/10 blur-3xl pointer-events-none" />
             </div>
           </div>
+
         </div>
       </div>
     </section>
