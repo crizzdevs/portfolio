@@ -1,6 +1,10 @@
 import { motion } from "framer-motion";
 import { GraduationCap, BookOpen, Award, School } from "lucide-react";
 import { PixelCard } from "@/components/PixelCard.tsx";
+import olangoImg from "@/assets/olango-elementary.jpg";
+import malligJHS from "@/assets/mallig-jhs.jpg";
+import malligSHS from "@/assets/mallig-jhs.jpg";
+import ucImg from "@/assets/uc.jpg";
 
 export default function EducationSection() {
   const education = [
@@ -11,6 +15,7 @@ export default function EducationSection() {
       description:
         "Completed foundational education with strong academic performance - With Honors.",
       icon: <School className="w-6 h-6 text-blue-500" />,
+      image: olangoImg,
     },
     {
       year: "2023",
@@ -19,6 +24,7 @@ export default function EducationSection() {
       description:
         "Graduated with honors and actively participated in academic and extracurricular activities.",
       icon: <BookOpen className="w-6 h-6 text-green-500" />,
+      image: malligJHS,
     },
     {
       year: "2025",
@@ -27,6 +33,7 @@ export default function EducationSection() {
       description:
         "Developed strong analytical, communication, and leadership skills through research and collaborative projects - With Honors.",
       icon: <GraduationCap className="w-6 h-6 text-purple-500" />,
+      image: malligSHS,
     },
     {
       year: "2025 - In Progress",
@@ -35,11 +42,12 @@ export default function EducationSection() {
       description:
         "Focusing on learning different types of Programming Languages",
       icon: <Award className="w-6 h-6 text-yellow-500" />,
+      image: ucImg,
     },
   ];
 
   return (
-    <section id="education" className="py-20 text-white relative">  {/* Removed bg-neutral-950 */}
+    <section id="education" className="py-20 text-white relative">
       <div className="container mx-auto text-center px-6">
         <motion.h2
           className="text-4xl font-bold mb-12 text-blue-400"
@@ -59,17 +67,23 @@ export default function EducationSection() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.15 }}
             >
-              <PixelCard className="p-6 text-left bg-neutral-900/60 border border-blue-900/40 rounded-2xl hover:scale-105 hover:border-blue-400/70 transition-all duration-300">
+              <PixelCard 
+                image={item.image}
+                className="p-6 text-left bg-neutral-900/60 border border-blue-900/40 rounded-2xl hover:scale-105 hover:border-blue-400/70 transition-all duration-300"
+              >
                 <div className="flex items-center mb-3 space-x-3">
                   {item.icon}
                   <h3 className="text-xl font-semibold text-blue-300">
                     {item.title}
                   </h3>
                 </div>
+
                 <p className="text-sm text-gray-400">{item.year}</p>
+
                 <p className="text-gray-300 font-medium">
                   {item.institution}
                 </p>
+
                 <p className="text-gray-400 text-sm mt-2">
                   {item.description}
                 </p>
