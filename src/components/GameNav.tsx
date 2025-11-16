@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { cn } from "@/lib/utils";
+import { Link } from "react-router-dom";
 
 const navItems = [
   { id: "home", label: "Home" },
   { id: "about", label: "About" },
-  { id: "education", label: "Education", isPage: true }, // Mark as page
+  { id: "education", label: "Education", isPage: true },
   { id: "contact", label: "Contact" },
 ];
 
@@ -23,16 +24,13 @@ export const GameNav = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-card/80 backdrop-blur-lg border-b border-border">
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-          <div className="text-primary font-semibold text-base sm:text-lg">
-            crizzdevs
-          </div>
-
+          <div className="text-primary font-semibold text-base sm:text-lg">crizzdevs</div>
           <div className="flex gap-1 sm:gap-2">
             {navItems.map((item) =>
               item.isPage ? (
-                <a
+                <Link
                   key={item.id}
-                  href="/education"
+                  to="/education"
                   className={cn(
                     "px-3 sm:px-4 py-2 text-sm font-medium rounded-md transition-all",
                     active === item.id
@@ -42,7 +40,7 @@ export const GameNav = () => {
                   onClick={() => setActive(item.id)}
                 >
                   {item.label}
-                </a>
+                </Link>
               ) : (
                 <button
                   key={item.id}
