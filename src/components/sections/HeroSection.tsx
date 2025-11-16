@@ -1,6 +1,7 @@
 import { TypingText } from "../TypingText";
 import { PixelButton } from "../PixelButton";
 import pixelCharacter from "@/assets/pixel-character.png.png";
+import { NavLink } from "react-router-dom";
 
 export const HeroSection = () => {
   const scrollToProjects = () => {
@@ -70,9 +71,18 @@ export const HeroSection = () => {
               <PixelButton variant="primary" onClick={scrollToProjects}>
                 View Projects
               </PixelButton>
-              <PixelButton variant="accent">Get in Touch</PixelButton>
+            
+              <PixelButton variant="accent">
+                Get in Touch
+              </PixelButton>
+            
+              <NavLink to="/education">
+                <PixelButton variant="secondary">
+                  View Education
+                </PixelButton>
+              </NavLink>
             </div>
-          </div>
+
 
           {/* ================= RIGHT SIDE ================= */}
           <div className="flex flex-col items-center gap-6">
