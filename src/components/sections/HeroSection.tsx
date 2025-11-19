@@ -82,7 +82,7 @@ export const HeroSection = () => {
                 </PixelButton>
               </NavLink>
 
-              <NavLink to="/education">
+              <NavLink to="/achievements">
                 <PixelButton variant="primary">
                   Achievements
                 </PixelButton>
