@@ -21,7 +21,22 @@ export default function AchievementPage() {
 
   return (
     <>
-      <GameNav />
+      <GameNav />
+      
+      <motion.div
+        className="hidden lg:block fixed right-0 top-1/2 -translate-y-1/2 z-10 w-96 pr-8 pointer-events-none"
+        initial={{ opacity: 0, x: 100 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8, delay: 0.8 }}
+      >
+        <Stack
+          randomRotation={true}
+          sensitivity={180}
+          sendToBackOnClick={false}
+          cardDimensions={{ width: 200, height: 200 }}
+          cardsData={images}
+        />
+      </motion.div>
       
       <motion.div
         className="fixed bottom-4 right-4 z-40"
@@ -72,16 +87,6 @@ export default function AchievementPage() {
                       </motion.li>
                     ))}
                   </ul>
-                </div>
-
-                <div className="flex-1 flex justify-center items-center">
-                  <Stack
-                    randomRotation={true}
-                    sensitivity={180}
-                    sendToBackOnClick={false}
-                    cardDimensions={{ width: 200, height: 200 }}
-                    cardsData={images}
-                  />
                 </div>
               </div>
             </PixelCard>
