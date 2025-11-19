@@ -82,9 +82,11 @@ export const HeroSection = () => {
                 </PixelButton>
               </NavLink>
 
-              <PixelButton variant="primary">
-                Achievements
-              </PixelButton>
+              <NavLink to="/education">
+                <PixelButton variant="primary">
+                  Achievements
+                </PixelButton>
+              </NavLink>
             </div>
           </div>
           {/* <<<<<< THIS DIV WAS MISSING BEFORE */}
