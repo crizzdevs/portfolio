@@ -72,10 +72,6 @@ export const HeroSection = () => {
 
             {/* Buttons */}
             <div className="flex gap-4">
-              <PixelButton variant="primary" onClick={scrollToProjects}>
-                View Projects
-              </PixelButton>
-
               <PixelButton variant="accent">
                 Get in Touch
               </PixelButton>
@@ -85,6 +81,10 @@ export const HeroSection = () => {
                   View Education
                 </PixelButton>
               </NavLink>
+
+              <PixelButton variant="primary">
+                Achievements
+              </PixelButton>
             </div>
           </div>
           {/* <<<<<< THIS DIV WAS MISSING BEFORE */}
