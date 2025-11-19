@@ -140,9 +140,11 @@ export const HeroSection = () => {
                   {"\n}"}
                 </code>
               </pre>
+              
               <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 via-accent/10 to-secondary/10 blur-3xl pointer-events-none" />
             </div>
           </div>
+          
         </div>
       </div>
     </section>
