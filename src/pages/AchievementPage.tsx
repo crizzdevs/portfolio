@@ -14,9 +14,22 @@ const images = [
 
 export default function AchievementPage() {
   const achievements = [
-    "Ubbing iti Mallig - Internal Secretary (2023-2025)",
-    "Editor in Chief - The Mega Flash (2023-2024)",
-    "Barkada Kontra Bisyo - President (2024-2025)",
+        "Ubbing iti Mallig - Internal Secretary (2023-2025)",
+        "Editor in Chief - The Mega Flash (2023-2024)",
+        "Barkada Kontra Bisyo - President (2024-2025)",
+        "Pogi - Lagi (2006 - NOW)",
+        "Masarap - Lagi (2006 - NOW)",
+        "Cute - Lagi (2006 - NOW)",
+        "Pogi - Lagi (2006 - NOW)",
+        "Masarap - Lagi (2006 - NOW)",
+        "Cute - Lagi (2006 - NOW)",
+        "Pogi - Lagi (2006 - NOW)",
+        "Masarap - Lagi (2006 - NOW)",
+        "Cute - Lagi (2006 - NOW)",
+        "Pogi - Lagi (2006 - NOW)",
+        "Masarap - Lagi (2006 - NOW)",
+        "Cute - Lagi (2006 - NOW)",
+
   ];
 
   return (
