@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 
 export const HeroSection = () => {
   const scrollToContacts = () => {
-    const element = document.getElementById("contacts");
+    const element = document.getElementById("#contact");
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
