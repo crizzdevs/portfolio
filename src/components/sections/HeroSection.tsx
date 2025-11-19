@@ -4,8 +4,8 @@ import pixelCharacter from "@/assets/pixel-character.png.png";
 import { NavLink } from "react-router-dom";
 
 export const HeroSection = () => {
-  const scrollToProjects = () => {
-    const element = document.getElementById("projects");
+  const scrollToContacts = () => {
+    const element = document.getElementById("contacts");
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
@@ -72,12 +72,12 @@ export const HeroSection = () => {
 
             {/* Buttons */}
             <div className="flex gap-4">
-              <PixelButton variant="accent">
+              <PixelButton variant="accent"=>
                 Get in Touch
               </PixelButton>
 
               <NavLink to="/education">
-                <PixelButton variant="secondary">
+                <PixelButton variant="secondary" onClick={scrollToContacts}>
                   View Education
                 </PixelButton>
               </NavLink>
