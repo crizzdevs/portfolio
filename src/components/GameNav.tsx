@@ -6,7 +6,7 @@ const navItems = [
   { id: "home", label: "Home", to: "/#home" }, // Link to home page with scroll
   { id: "about", label: "About", to: "/#about" },
   { id: "education", label: "Education", to: "/education", isPage: true },
-  { id: "achievements", label: "Achievements", to: "/#achievements" },
+  { id: "achievements", label: "Achievements", to: "/achievements", isPage: true },
 ];
 
 export const GameNav = () => {
