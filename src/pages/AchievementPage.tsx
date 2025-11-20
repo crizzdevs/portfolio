@@ -134,7 +134,7 @@ export default function AchievementPage() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <Medal className="w-8 h-8 text-accent" fill="currentColor" /> 
+            <Medal className="w-8 h-8 text-purple-500" fill="currentColor" /> 
             Achievements
           </motion.h2>
 
@@ -144,12 +144,12 @@ export default function AchievementPage() {
             transition={{ duration: 0.6 }}
             className="w-full mx-auto"
           >
-            <PixelCard className="p-6 bg-card/80 border border-border rounded-2xl hover:scale-105 hover:border-primary/70 transition-all duration-300 backdrop-blur-lg"> 
+            <PixelCard className="p-6 bg-card/80 border border-border rounded-2xl backdrop-blur-lg"> 
               <div className="flex flex-col gap-4"> 
                 
                 <div className="flex-1">
                   <h3 className="text-xl font-semibold text-primary mb-2 flex items-center gap-2 justify-center lg:justify-start">
-                    <GraduationCap className="w-5 h-5 text-accent" />
+                    <GraduationCap className="w-5 h-5 text-purple-500" />
                     Curricular Achievements
                   </h3>
                   <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-7 gap-1 text-left"> 
@@ -164,8 +164,8 @@ export default function AchievementPage() {
                           transition={{ duration: 0.4, delay: index * 0.03 }}
                           viewport={{ once: true }}
                         >
-                          <PixelCard className="w-full h-32 p-2 bg-muted/60 border border-border rounded-xl hover:border-primary/70 transition-all duration-300 flex flex-col items-center justify-center text-center shadow-lg"> 
-                            <Icon className="w-5 h-5 text-accent mb-0.5" /> 
+                          <PixelCard className="w-full h-32 p-2 bg-muted/60 border border-border rounded-xl flex flex-col items-center justify-center text-center shadow-lg"> 
+                            <Icon className="w-5 h-5 text-purple-500 mb-0.5" /> 
                             <div className="text-foreground text-xs font-bold leading-tight line-clamp-3">{title}</div>
                             <div className="text-[11px] text-muted-foreground mt-0.5">
                                 {year || "Ongoing"} 
@@ -179,7 +179,7 @@ export default function AchievementPage() {
 
                 <div className="flex-1"> 
                   <h3 className="text-xl font-semibold text-primary mb-2 flex items-center gap-2 justify-center lg:justify-start">
-                    <Trophy className="w-5 h-5 text-accent" />
+                    <Trophy className="w-5 h-5 text-purple-500" />
                     Extra Curricular Achievements
                   </h3>
                   <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-7 gap-1 text-left"> 
@@ -194,8 +194,8 @@ export default function AchievementPage() {
                           transition={{ duration: 0.4, delay: index * 0.03 }}
                           viewport={{ once: true }}
                         >
-                          <PixelCard className="w-full h-32 p-2 bg-muted/60 border border-border rounded-xl hover:border-primary/70 transition-all duration-300 flex flex-col items-center justify-center text-center shadow-lg"> 
-                            <Icon className="w-5 h-5 text-accent mb-0.5" /> 
+                          <PixelCard className="w-full h-32 p-2 bg-muted/60 border border-border rounded-xl flex flex-col items-center justify-center text-center shadow-lg"> 
+                            <Icon className="w-5 h-5 text-purple-500 mb-0.5" /> 
                             <div className="text-foreground text-xs font-bold leading-tight line-clamp-3">{title}</div>
                             <div className="text-[11px] text-muted-foreground mt-0.5">
                                 {year || "N/A"} 
