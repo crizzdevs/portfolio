@@ -150,7 +150,7 @@ export default function AchievementPage() {
                 <div className="flex-1">
                   <h3 className="text-xl font-semibold text-primary mb-2 flex items-center gap-2 justify-center lg:justify-start">
                     <GraduationCap className="w-5 h-5 text-purple-500" />
-                    Curricular Achievements
+                    Curricular
                   </h3>
                   <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-7 gap-1 text-left"> 
                     {curricular.map((item, index) => {
@@ -180,7 +180,7 @@ export default function AchievementPage() {
                 <div className="flex-1"> 
                   <h3 className="text-xl font-semibold text-primary mb-2 flex items-center gap-2 justify-center lg:justify-start">
                     <Trophy className="w-5 h-5 text-purple-500" />
-                    Extra Curricular Achievements
+                    Extra Curricular
                   </h3>
                   <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-7 gap-1 text-left"> 
                     {extraCurricular.map((item, index) => {
