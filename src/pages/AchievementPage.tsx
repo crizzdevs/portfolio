@@ -64,13 +64,10 @@ const extraCurricular = [
   "2nd Place - LD Reading-in-Tandem (2024-2025)",
   "3rd Place - Hydromusiklaban (2024-2025)",
   "3rd Place - Likhawitin (2024-2025)",
-  
-  
 ];
 
-
-const parseAchievement = (item) => { )
-  const match = item.match(/^(.+?)\s*\$([^)]+)\$$/);
+const parseAchievement = (item) => {
+  const match = item.match(/^(.+?)\s*\(([^)]+)\)$/);
   if (match) {
     return { title: match[1].trim(), year: match[2].trim() };
   }
@@ -90,7 +87,7 @@ const getAchievementIcon = (title) => {
   if (lowerTitle.includes("poster making")) return Palette;
   if (lowerTitle.includes("president")) return Users;
   
-  return GraduationCap; // Default icon for Curricular
+  return GraduationCap;
 };
 
 export default function AchievementPage() {
@@ -114,7 +111,6 @@ export default function AchievementPage() {
       </motion.div>
 
       <section id="achievements" className="py-20 pt-20 text-foreground relative overflow-hidden">
-        {/* Stars Background */}
         <div className="absolute inset-0 opacity-20">
           {[...Array(50)].map((_, i) => (
             <div
@@ -125,7 +121,6 @@ export default function AchievementPage() {
                 height: "4px",
                 left: `${Math.random() * 100}%`,
                 top: `${Math.random() * 100}%`,
-                animation: `blink ${2 + Math.random() * 3}s infinite ${Math.random() * 2}s`,
               }}
             />
           ))}
@@ -152,7 +147,6 @@ export default function AchievementPage() {
             <PixelCard className="p-6 bg-card/80 border border-border rounded-2xl hover:scale-105 hover:border-primary/70 transition-all duration-300 backdrop-blur-lg"> 
               <div className="flex flex-col gap-4"> 
                 
-                {/* CURRICULAR SECTION */}
                 <div className="flex-1">
                   <h3 className="text-xl font-semibold text-primary mb-2 flex items-center gap-2 justify-center lg:justify-start">
                     <GraduationCap className="w-5 h-5 text-accent" />
@@ -183,7 +177,6 @@ export default function AchievementPage() {
                   </div>
                 </div>
 
-                {/* EXTRA CURRICULAR SECTION */}
                 <div className="flex-1"> 
                   <h3 className="text-xl font-semibold text-primary mb-2 flex items-center gap-2 justify-center lg:justify-start">
                     <Trophy className="w-5 h-5 text-accent" />
