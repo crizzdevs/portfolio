@@ -36,6 +36,14 @@ const extraCurricular = [
   "Cute - Lagi (2006 - NOW)",
 ];
 
+const parseAchievement = (item) => {
+  const match = item.match(/^(.+?)\s*\(([^)]+)\)$/);
+  if (match) {
+    return { title: match[1].trim(), year: match[2].trim() };
+  }
+  return { title: item, year: "" };
+};
+
 export default function AchievementPage() {
   return (
     <>
@@ -59,7 +67,7 @@ export default function AchievementPage() {
       <section id="achievements" className="py-20 pt-28 text-white relative">
         <div className="container mx-auto text-center px-6">
           <motion.h2
-            className="text-3xl font-bold mb-12 text-blue-400"
+            className="text-3xl font-bold mb-6 text-blue-400"
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -73,45 +81,53 @@ export default function AchievementPage() {
             transition={{ duration: 0.6 }}
             className="w-full mx-auto"
           >
-            <PixelCard className="p-6 bg-neutral-900/60 border border-blue-900/40 rounded-2xl transition-all duration-300">
-              <div className="flex flex-col lg:flex-row gap-6">
+            <PixelCard className="p-3 bg-neutral-900/60 border border-blue-900/40 rounded-2xl transition-all duration-300">
+              <div className="flex flex-col lg:flex-row gap-4">
                 <div className="flex-1">
-                  <h3 className="text-2xl font-semibold text-blue-300 mb-4 flex items-center gap-2">
+                  <h3 className="text-2xl font-semibold text-blue-300 mb-2 flex items-center gap-2">
                     <GraduationCap className="w-6 h-6 text-purple-400"/>
                     Curricular
                   </h3>
-                  <div className="flex flex-wrap gap-2 text-left">
-                    {curricular.map((item, index) => (
-                      <motion.div
-                        key={index}
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.5, delay: index * 0.05 }}
-                        className="text-gray-300 text-sm bg-neutral-900/60 border border-blue-900/40 p-2 rounded-2xl hover:border-blue-400/70 transition-all duration-300"
-                      >
-                        - {item}
-                      </motion.div>
-                    ))}
+                  <div className="flex flex-col gap-1 text-left">
+                    {curricular.map((item, index) => {
+                      const { title, year } = parseAchievement(item);
+                      return (
+                        <motion.div
+                          key={index}
+                          initial={{ opacity: 0, x: -20 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          transition={{ duration: 0.5, delay: index * 0.05 }}
+                          className="text-gray-300 text-sm bg-neutral-900/60 border border-blue-900/40 p-1 rounded-2xl hover:border-blue-400/70 transition-all duration-300"
+                        >
+                          <div className="font-semibold">{title}</div>
+                          <div className="text-xs text-gray-400">Year: {year}</div>
+                        </motion.div>
+                      );
+                    })}
                   </div>
                 </div>
 
                 <div className="flex-1">
-                  <h3 className="text-2xl font-semibold text-blue-300 mb-4 flex items-center gap-2">
+                  <h3 className="text-2xl font-semibold text-blue-300 mb-2 flex items-center gap-2">
                     <Trophy className="w-6 h-6 text-purple-400" />
                     Extra Curricular
                   </h3>
-                  <div className="flex flex-wrap gap-2 text-left">
-                    {extraCurricular.map((item, index) => (
-                      <motion.div
-                        key={index}
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.5, delay: index * 0.05 }}
-                        className="text-gray-300 text-sm bg-neutral-900/60 border border-blue-900/40 p-2 rounded-2xl hover:border-blue-400/70 transition-all duration-300"
-                      >
-                        - {item}
-                      </motion.div>
-                    ))}
+                  <div className="flex flex-col gap-1 text-left">
+                    {extraCurricular.map((item, index) => {
+                      const { title, year } = parseAchievement(item);
+                      return (
+                        <motion.div
+                          key={index}
+                          initial={{ opacity: 0, x: -20 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          transition={{ duration: 0.5, delay: index * 0.05 }}
+                          className="text-gray-300 text-sm bg-neutral-900/60 border border-blue-900/40 p-1 rounded-2xl hover:border-blue-400/70 transition-all duration-300"
+                        >
+                          <div className="font-semibold">{title}</div>
+                          <div className="text-xs text-gray-400">Year: {year}</div>
+                        </motion.div>
+                      );
+                    })}
                   </div>
                 </div>
               </div>
