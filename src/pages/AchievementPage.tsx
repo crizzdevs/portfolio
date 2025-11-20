@@ -168,7 +168,7 @@ export default function AchievementPage() {
                             <Icon className="w-5 h-5 text-accent mb-0.5" /> 
                             <div className="text-foreground text-xs font-bold leading-tight line-clamp-3">{title}</div>
                             <div className="text-[11px] text-muted-foreground mt-0.5">
-                                {year || "Ongoing"} 
+                                {year || " "} 
                             </div> 
                           </PixelCard>
                         </motion.div>
@@ -198,7 +198,7 @@ export default function AchievementPage() {
                             <Icon className="w-5 h-5 text-accent mb-0.5" /> 
                             <div className="text-foreground text-xs font-bold leading-tight line-clamp-3">{title}</div>
                             <div className="text-[11px] text-muted-foreground mt-0.5">
-                                {year || "N/A"} 
+                                {year || " "} 
                             </div> 
                           </PixelCard>
                         </motion.div>
