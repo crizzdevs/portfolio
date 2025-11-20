@@ -123,7 +123,7 @@ export default function AchievementPage() {
                           transition={{ duration: 0.4, delay: index * 0.03 }}
                           viewport={{ once: true }}
                         >
-                          <PixelCard className="w-full h-24 p-1 bg-neutral-800/60 border border-blue-900/40 rounded-xl hover:border-blue-400/70 transition-all duration-300 flex flex-col items-center justify-center text-center shadow-lg"> 
+                          <PixelCard className="w-full h-28 p-1 bg-neutral-800/60 border border-blue-900/40 rounded-xl hover:border-blue-400/70 transition-all duration-300 flex flex-col items-center justify-center text-center shadow-lg"> 
                             <Icon className="w-6 h-6 text-purple-400 mb-0.5" /> 
                             <div className="text-gray-200 text-xs font-bold leading-tight line-clamp-2">{title}</div>
                             <div className="text-[11px] text-gray-400 mt-0.5">{year || "Ongoing"}</div> 
@@ -151,7 +151,7 @@ export default function AchievementPage() {
                           transition={{ duration: 0.4, delay: index * 0.03 }}
                           viewport={{ once: true }}
                         >
-                          <PixelCard className="w-full h-24 p-1 bg-neutral-800/60 border border-blue-900/40 rounded-xl hover:border-blue-400/70 transition-all duration-300 flex flex-col items-center justify-center text-center shadow-lg"> 
+                          <PixelCard className="w-full h-28 p-1 bg-neutral-800/60 border border-blue-900/40 rounded-xl hover:border-blue-400/70 transition-all duration-300 flex flex-col items-center justify-center text-center shadow-lg"> 
                             <Icon className="w-6 h-6 text-red-400 mb-0.5" /> 
                             <div className="text-gray-200 text-xs font-bold leading-tight line-clamp-2">{title}</div>
                             <div className="text-[11px] text-gray-400 mt-0.5">{year || "N/A"}</div> 
