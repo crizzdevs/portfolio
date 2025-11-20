@@ -72,14 +72,14 @@ export default function AchievementPage() {
                     <GraduationCap className="w-6 h-6" />
                     Curricular
                   </h3>
-                  <div className="flex flex-wrap gap-2 text-left">
+                  <div className="flex flex-wrap gap-3 text-left">
                     {curricular.map((item, index) => (
                       <motion.div
                         key={index}
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.5, delay: index * 0.1 }}
-                        className="text-gray-300 text-sm bg-neutral-800 p-1 rounded"
+                        className="text-gray-200 text-sm bg-gradient-to-br from-blue-900/50 to-neutral-800/80 border border-blue-700/50 p-3 rounded-lg shadow-md hover:shadow-lg hover:border-blue-500/70 transition-all duration-300 backdrop-blur-sm"
                       >
                         • {item}
                       </motion.div>
@@ -92,14 +92,14 @@ export default function AchievementPage() {
                     <Trophy className="w-6 h-6" />
                     Extra Curricular
                   </h3>
-                  <div className="flex flex-wrap gap-2 text-left">
+                  <div className="flex flex-wrap gap-3 text-left">
                     {extraCurricular.map((item, index) => (
                       <motion.div
                         key={index}
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.5, delay: index * 0.1 }}
-                        className="text-gray-300 text-sm bg-neutral-800 p-1 rounded"
+                        className="text-gray-200 text-sm bg-gradient-to-br from-purple-900/50 to-neutral-800/80 border border-purple-700/50 p-3 rounded-lg shadow-md hover:shadow-lg hover:border-purple-500/70 transition-all duration-300 backdrop-blur-sm"
                       >
                         • {item}
                       </motion.div>
