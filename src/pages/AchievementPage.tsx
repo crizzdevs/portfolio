@@ -1,51 +1,48 @@
 import { motion } from "framer-motion";
 import { ArrowLeft, GraduationCap, Trophy, Medal, Award, Crown, Feather, BookOpen, Star, Palette, Heart, Shield, Users } from "lucide-react";
-
-// Standard React Imports
-// Note: Placeholder definitions for GameNav and PixelCard are included below
-// to ensure the component runs correctly in this isolated environment.
 import { Link } from "react-router-dom";
 import { GameNav } from "@/components/GameNav";
 import { PixelCard } from "@/components/PixelCard.tsx";
 
-// --- PLACEHOLDER COMPONENTS (DEFINED INTERNALLY TO RESOLVE IMPORTS AND AVOID CONTEXT ERRORS) ---
-
-// Placeholder for GameNav
 const GameNav = () => {
   const navItems = [
-    { name: "Home", path: "/" },
-    { name: "About", path: "/about" },
-    { name: "Education", path: "/education" },
-    { name: "Achievements", path: "/achievements" },
+    { id: "home", label: "Home", to: "/#home" },
+    { id: "about", label: "About", to: "/#about" },
+    { id: "education", label: "Education", to: "/education", isPage: true },
+    { id: "achievements", label: "Achievements", to: "/achievements", isPage: true },
   ];
   return (
-    <header className="fixed top-0 left-0 w-full z-30 p-4 bg-neutral-900/80 backdrop-blur-sm shadow-xl">
-      <div className="container mx-auto flex justify-between items-center text-white max-w-7xl">
-        <div className="text-xl font-bold text-blue-400">crizzdevs</div>
-        <nav className="hidden sm:flex space-x-6">
-          {navItems.map(item => (
-            <Link 
-              key={item.name} 
-              to={item.path} 
-              className="text-gray-300 hover:text-blue-400 transition-colors duration-200 font-medium tracking-wide"
-            >
-              {item.name}
-            </Link>
-          ))}
-        </nav>
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-card/80 backdrop-blur-lg border-b border-border">
+      <div className="container mx-auto px-4 py-4">
+        <div className="flex items-center justify-between">
+          <div className="text-primary font-semibold text-base sm:text-lg">crizzdevs</div>
+          <div className="flex gap-1 sm:gap-2">
+            {navItems.map((item) => (
+              <Link
+                key={item.id}
+                to={item.to}
+                className={`px-3 sm:px-4 py-2 text-sm font-medium rounded-md transition-all ${
+                  item.id === "achievements"
+                    ? "bg-primary text-primary-foreground"
+                    : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                }`}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </div>
+        </div>
       </div>
-    </header>
+    </nav>
   );
 };
 
-// Placeholder for PixelCard
 const PixelCard = ({ children, className }) => (
   <div className={`p-1 border-2 border-white/10 shadow-2xl ${className}`}>
     {children}
   </div>
 );
 
-// --- EDITABLE ACHIEVEMENT DATA ---
 const curricular = [
   "Consistent Honors Student",
   "Editor in Chief - The Mega Flash (2023-2024)",
@@ -71,11 +68,9 @@ const extraCurricular = [
   
 ];
 
-// --- DO NOT EDIT BELOW THIS LINE UNLESS YOU KNOW WHAT YOU'RE DOING ---
 
-const parseAchievement = (item) => {
-  // Parsing achievements with (Year)
-  const match = item.match(/^(.+?)\s*\(([^)]+)\)$/);
+const parseAchievement = (item) => { )
+  const match = item.match(/^(.+?)\s*\$([^)]+)\$$/);
   if (match) {
     return { title: match[1].trim(), year: match[2].trim() };
   }
@@ -100,7 +95,7 @@ const getAchievementIcon = (title) => {
 
 export default function AchievementPage() {
   return (
-    <div className="min-h-screen bg-neutral-900 font-inter">
+    <div className="min-h-screen bg-background font-sans">
       <GameNav />
       
       <motion.div
@@ -111,23 +106,40 @@ export default function AchievementPage() {
       >
         <Link
           to="/"
-          className="inline-flex items-center gap-2 px-4 py-2 bg-blue-500 text-white font-medium rounded-lg hover:bg-blue-600 transition-all duration-300 shadow-lg hover:shadow-xl text-sm"
+          className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground font-medium rounded-lg hover:bg-primary/90 transition-all duration-300 shadow-lg hover:shadow-xl text-sm"
         >
           <ArrowLeft className="w-4 h-4" />
           Back to Home
         </Link>
       </motion.div>
 
-      <section id="achievements" className="py-20 pt-20 text-white relative">
-        <div className="container mx-auto text-center px-6 max-w-7xl">
+      <section id="achievements" className="py-20 pt-20 text-foreground relative overflow-hidden">
+        {/* Stars Background */}
+        <div className="absolute inset-0 opacity-20">
+          {[...Array(50)].map((_, i) => (
+            <div
+              key={i}
+              className="absolute bg-accent"
+              style={{
+                width: "4px",
+                height: "4px",
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                animation: `blink ${2 + Math.random() * 3}s infinite ${Math.random() * 2}s`,
+              }}
+            />
+          ))}
+        </div>
+
+        <div className="container mx-auto text-center px-6 max-w-7xl relative z-10">
           
           <motion.h2
-            className="text-4xl font-bold mb-12 text-blue-400 flex items-center justify-center gap-3"
+            className="text-4xl font-bold mb-12 text-primary flex items-center justify-center gap-3"
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <Medal className="w-8 h-8 text-blue-500" fill="currentColor" /> 
+            <Medal className="w-8 h-8 text-accent" fill="currentColor" /> 
             Achievements
           </motion.h2>
 
@@ -137,13 +149,13 @@ export default function AchievementPage() {
             transition={{ duration: 0.6 }}
             className="w-full mx-auto"
           >
-            <PixelCard className="p-6 bg-neutral-900/60 border border-blue-900/40 rounded-2xl hover:scale-105 hover:border-blue-400/70 transition-all duration-300"> 
+            <PixelCard className="p-6 bg-card/80 border border-border rounded-2xl hover:scale-105 hover:border-primary/70 transition-all duration-300 backdrop-blur-lg"> 
               <div className="flex flex-col gap-4"> 
                 
                 {/* CURRICULAR SECTION */}
                 <div className="flex-1">
-                  <h3 className="text-xl font-semibold text-blue-300 mb-2 flex items-center gap-2 justify-center lg:justify-start">
-                    <GraduationCap className="w-5 h-5 text-blue-500" />
+                  <h3 className="text-xl font-semibold text-primary mb-2 flex items-center gap-2 justify-center lg:justify-start">
+                    <GraduationCap className="w-5 h-5 text-accent" />
                     Curricular Achievements
                   </h3>
                   <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-7 gap-1 text-left"> 
@@ -158,10 +170,10 @@ export default function AchievementPage() {
                           transition={{ duration: 0.4, delay: index * 0.03 }}
                           viewport={{ once: true }}
                         >
-                          <PixelCard className="w-full h-32 p-2 bg-neutral-800/60 border border-blue-900/40 rounded-xl hover:border-blue-400/70 transition-all duration-300 flex flex-col items-center justify-center text-center shadow-lg"> 
-                            <Icon className="w-5 h-5 text-blue-500 mb-0.5" /> 
-                            <div className="text-gray-200 text-xs font-bold leading-tight line-clamp-3">{title}</div>
-                            <div className="text-[11px] text-gray-400 mt-0.5">
+                          <PixelCard className="w-full h-32 p-2 bg-muted/60 border border-border rounded-xl hover:border-primary/70 transition-all duration-300 flex flex-col items-center justify-center text-center shadow-lg"> 
+                            <Icon className="w-5 h-5 text-accent mb-0.5" /> 
+                            <div className="text-foreground text-xs font-bold leading-tight line-clamp-3">{title}</div>
+                            <div className="text-[11px] text-muted-foreground mt-0.5">
                                 {year || "Ongoing"} 
                             </div> 
                           </PixelCard>
@@ -173,8 +185,8 @@ export default function AchievementPage() {
 
                 {/* EXTRA CURRICULAR SECTION */}
                 <div className="flex-1"> 
-                  <h3 className="text-xl font-semibold text-blue-300 mb-2 flex items-center gap-2 justify-center lg:justify-start">
-                    <Trophy className="w-5 h-5 text-blue-500" />
+                  <h3 className="text-xl font-semibold text-primary mb-2 flex items-center gap-2 justify-center lg:justify-start">
+                    <Trophy className="w-5 h-5 text-accent" />
                     Extra Curricular Achievements
                   </h3>
                   <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-7 gap-1 text-left"> 
@@ -189,10 +201,10 @@ export default function AchievementPage() {
                           transition={{ duration: 0.4, delay: index * 0.03 }}
                           viewport={{ once: true }}
                         >
-                          <PixelCard className="w-full h-32 p-2 bg-neutral-800/60 border border-blue-900/40 rounded-xl hover:border-blue-400/70 transition-all duration-300 flex flex-col items-center justify-center text-center shadow-lg"> 
-                            <Icon className="w-5 h-5 text-blue-500 mb-0.5" /> 
-                            <div className="text-gray-200 text-xs font-bold leading-tight line-clamp-3">{title}</div>
-                            <div className="text-[11px] text-gray-400 mt-0.5">
+                          <PixelCard className="w-full h-32 p-2 bg-muted/60 border border-border rounded-xl hover:border-primary/70 transition-all duration-300 flex flex-col items-center justify-center text-center shadow-lg"> 
+                            <Icon className="w-5 h-5 text-accent mb-0.5" /> 
+                            <div className="text-foreground text-xs font-bold leading-tight line-clamp-3">{title}</div>
+                            <div className="text-[11px] text-muted-foreground mt-0.5">
                                 {year || "N/A"} 
                             </div> 
                           </PixelCard>
