@@ -69,7 +69,7 @@ export default function AchievementPage() {
               <div className="flex flex-col lg:flex-row gap-8">
                 <div className="flex-1">
                   <h3 className="text-2xl font-semibold text-blue-300 mb-6 flex items-center gap-2">
-                    <GraduationCap className="w-6 h-6" />
+                    <GraduationCap className="w-6 h-6 text-purple-400"/>
                     Curricular
                   </h3>
                   <div className="flex flex-wrap gap-3 text-left">
@@ -89,7 +89,7 @@ export default function AchievementPage() {
 
                 <div className="flex-1">
                   <h3 className="text-2xl font-semibold text-blue-300 mb-6 flex items-center gap-2">
-                    <Trophy className="w-6 h-6" />
+                    <Trophy className="w-6 h-6 text-purple-400" />
                     Extra Curricular
                   </h3>
                   <div className="flex flex-wrap gap-3 text-left">
