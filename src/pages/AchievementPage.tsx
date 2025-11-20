@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, GraduationCap, Trophy } from "lucide-react";
 import { Link } from "react-router-dom";
 import { GameNav } from "@/components/GameNav";
 import { PixelCard } from "@/components/PixelCard.tsx";
@@ -63,12 +63,15 @@ export default function AchievementPage() {
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="max-w-6xl mx-auto"
+            className="w-full mx-auto"
           >
             <PixelCard className="p-8 bg-neutral-900/60 border border-blue-900/40 rounded-2xl transition-all duration-300">
               <div className="flex flex-col lg:flex-row gap-8">
                 <div className="flex-1">
-                  <h3 className="text-2xl font-semibold text-blue-300 mb-6">Curricular</h3>
+                  <h3 className="text-2xl font-semibold text-blue-300 mb-6 flex items-center gap-2">
+                    <GraduationCap className="w-6 h-6" />
+                    Curricular
+                  </h3>
                   <div className="flex flex-wrap gap-2 text-left">
                     {curricular.map((item, index) => (
                       <motion.div
@@ -76,16 +79,19 @@ export default function AchievementPage() {
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.5, delay: index * 0.1 }}
-                        className="text-gray-300 text-lg bg-neutral-800 p-2 rounded"
+                        className="text-gray-300 text-sm bg-neutral-800 p-1 rounded"
                       >
-                        - {item}
+                        • {item}
                       </motion.div>
                     ))}
                   </div>
                 </div>
 
                 <div className="flex-1">
-                  <h3 className="text-2xl font-semibold text-blue-300 mb-6">Extra Curricular</h3>
+                  <h3 className="text-2xl font-semibold text-blue-300 mb-6 flex items-center gap-2">
+                    <Trophy className="w-6 h-6" />
+                    Extra Curricular
+                  </h3>
                   <div className="flex flex-wrap gap-2 text-left">
                     {extraCurricular.map((item, index) => (
                       <motion.div
@@ -93,9 +99,9 @@ export default function AchievementPage() {
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.5, delay: index * 0.1 }}
-                        className="text-gray-300 text-lg bg-neutral-800 p-2 rounded"
+                        className="text-gray-300 text-sm bg-neutral-800 p-1 rounded"
                       >
-                        - {item}
+                        • {item}
                       </motion.div>
                     ))}
                   </div>
