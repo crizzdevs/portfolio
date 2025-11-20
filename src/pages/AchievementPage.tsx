@@ -67,7 +67,7 @@ const extraCurricular = [
 ];
 
 const parseAchievement = (item) => {
-  const match = item.match(/^(.+?)\s*\(([^)]+)\)$/);
+  const match = item.match(/^(.+?)\s*\$([^)]+)\$$/);
   if (match) {
     return { title: match[1].trim(), year: match[2].trim() };
   }
@@ -165,7 +165,7 @@ export default function AchievementPage() {
                           viewport={{ once: true }}
                         >
                           <PixelCard className="w-full h-32 p-2 bg-muted/60 border border-border rounded-xl flex flex-col items-center justify-center text-center shadow-lg"> 
-                            <Icon className="w-5 h-5 text-purple-500 mb-0.5" /> 
+                            <Icon className="w-5 h-5 text-accent mb-0.5" /> 
                             <div className="text-foreground text-xs font-bold leading-tight line-clamp-3">{title}</div>
                             <div className="text-[11px] text-muted-foreground mt-0.5">
                                 {year || "Ongoing"} 
@@ -195,7 +195,7 @@ export default function AchievementPage() {
                           viewport={{ once: true }}
                         >
                           <PixelCard className="w-full h-32 p-2 bg-muted/60 border border-border rounded-xl flex flex-col items-center justify-center text-center shadow-lg"> 
-                            <Icon className="w-5 h-5 text-purple-500 mb-0.5" /> 
+                            <Icon className="w-5 h-5 text-accent mb-0.5" /> 
                             <div className="text-foreground text-xs font-bold leading-tight line-clamp-3">{title}</div>
                             <div className="text-[11px] text-muted-foreground mt-0.5">
                                 {year || "N/A"} 
