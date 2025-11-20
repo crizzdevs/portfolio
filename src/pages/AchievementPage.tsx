@@ -4,6 +4,9 @@ import { Link } from "react-router-dom";
 import { GameNav } from "@/components/GameNav";
 import { PixelCard } from "@/components/PixelCard.tsx";
 
+// --- EDITABLE ACHIEVEMENT DATA ---
+// You can only change these arrays to add, remove, or modify achievements.
+
 const curricular = [
   "Consistent Honors Student",
   "Editor in Chief - The Mega Flash (2023-2024)",
@@ -35,8 +38,10 @@ const extraCurricular = [
   "Cute - Lagi (2006 - NOW)",
 ];
 
+// --- DO NOT EDIT BELOW THIS LINE UNLESS YOU KNOW WHAT YOU'RE DOING ---
+
 const parseAchievement = (item) => {
-  const match = item.match(/^(.+?)\s*\(([^)]+)\)$/);
+  const match = item.match(/^(.+?)\s*\$([^)]+)\$$/);
   if (match) {
     return { title: match[1].trim(), year: match[2].trim() };
   }
@@ -118,10 +123,10 @@ export default function AchievementPage() {
                           transition={{ duration: 0.4, delay: index * 0.03 }}
                           viewport={{ once: true }}
                         >
-                          <PixelCard className="w-full h-20 p-1 bg-neutral-800/60 border border-blue-900/40 rounded-xl hover:border-blue-400/70 transition-all duration-300 flex flex-col items-center justify-center text-center shadow-lg"> 
-                            <Icon className="w-5 h-5 text-purple-400 mb-0.5" /> 
-                            <div className="text-gray-200 text-[10px] font-bold leading-tight line-clamp-2">{title}</div>
-                            <div className="text-[9px] text-gray-400 mt-0.5">{year || "Ongoing"}</div> 
+                          <PixelCard className="w-full h-24 p-1 bg-neutral-800/60 border border-blue-900/40 rounded-xl hover:border-blue-400/70 transition-all duration-300 flex flex-col items-center justify-center text-center shadow-lg"> 
+                            <Icon className="w-6 h-6 text-purple-400 mb-0.5" /> 
+                            <div className="text-gray-200 text-xs font-bold leading-tight line-clamp-2">{title}</div>
+                            <div className="text-[11px] text-gray-400 mt-0.5">{year || "Ongoing"}</div> 
                           </PixelCard>
                         </motion.div>
                       );
@@ -146,10 +151,10 @@ export default function AchievementPage() {
                           transition={{ duration: 0.4, delay: index * 0.03 }}
                           viewport={{ once: true }}
                         >
-                          <PixelCard className="w-full h-20 p-1 bg-neutral-800/60 border border-blue-900/40 rounded-xl hover:border-blue-400/70 transition-all duration-300 flex flex-col items-center justify-center text-center shadow-lg"> 
-                            <Icon className="w-5 h-5 text-red-400 mb-0.5" /> 
-                            <div className="text-gray-200 text-[10px] font-bold leading-tight line-clamp-2">{title}</div>
-                            <div className="text-[9px] text-gray-400 mt-0.5">{year || "N/A"}</div> 
+                          <PixelCard className="w-full h-24 p-1 bg-neutral-800/60 border border-blue-900/40 rounded-xl hover:border-blue-400/70 transition-all duration-300 flex flex-col items-center justify-center text-center shadow-lg"> 
+                            <Icon className="w-6 h-6 text-red-400 mb-0.5" /> 
+                            <div className="text-gray-200 text-xs font-bold leading-tight line-clamp-2">{title}</div>
+                            <div className="text-[11px] text-gray-400 mt-0.5">{year || "N/A"}</div> 
                           </PixelCard>
                         </motion.div>
                       );
