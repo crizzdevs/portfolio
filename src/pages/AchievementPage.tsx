@@ -55,21 +55,15 @@ const curricular = [
 ];
 
 const extraCurricular = [
-  "Pogi - Lagi (2006 - NOW)",
-  "Masarap - Lagi (2006 - NOW)",
-  "Cute - Lagi (2006 - NOW)",
-  "Pogi - Lagi (2006 - NOW)",
-  "Masarap - Lagi (2006 - NOW)",
-  "Cute - Lagi (2006 - NOW)",
-  "Pogi - Lagi (2006 - NOW)",
-  "Masarap - Lagi (2006 - NOW)",
-  "Cute - Lagi (2006 - NOW)",
-  "Pogi - Lagi (2006 - NOW)",
-  "Masarap - Lagi (2006 - NOW)",
-  "Cute - Lagi (2006 - NOW)",
-  "Pogi - Lagi (2006 - NOW)",
-  "Masarap - Lagi (2006 - NOW)",
-  "Cute - Lagi (2006 - NOW)",
+  "UBBING 5th District - Internal Secretary (Ongoing)",
+  "Leadership Award - House of the Representatives",
+  "Champion - LDFOT Bread & Pastry Production (2024-2025)",
+  "2nd Place - Editorial Writing DSPC Elims (2024-2025)",
+  "2nd Place - LD Reading-in-Tandem (2024-2025)",
+  "3rd Place - Hydromusiklaban (2024-2025)",
+  "3rd Place - Likhawitin (2024-2025)",
+  
+  
 ];
 
 // --- DO NOT EDIT BELOW THIS LINE UNLESS YOU KNOW WHAT YOU'RE DOING ---
