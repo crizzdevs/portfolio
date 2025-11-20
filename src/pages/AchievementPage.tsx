@@ -88,7 +88,7 @@ export default function AchievementPage() {
                     <GraduationCap className="w-6 h-6 text-purple-400"/>
                     Curricular
                   </h3>
-                  <div className="flex flex-col gap-1 text-left">
+                  <div className="grid grid-cols-2 md:grid-cols-3 gap-2 text-left">
                     {curricular.map((item, index) => {
                       const { title, year } = parseAchievement(item);
                       return (
@@ -97,10 +97,12 @@ export default function AchievementPage() {
                           initial={{ opacity: 0, x: -20 }}
                           whileInView={{ opacity: 1, x: 0 }}
                           transition={{ duration: 0.5, delay: index * 0.05 }}
-                          className="text-gray-300 text-sm bg-neutral-900/60 border border-blue-900/40 p-1 rounded-2xl hover:border-blue-400/70 transition-all duration-300"
                         >
-                          <div className="font-semibold">{title}</div>
-                          <div className="text-xs text-gray-400">Year: {year}</div>
+                          <PixelCard className="w-full aspect-square p-2 bg-neutral-900/60 border border-blue-900/40 rounded-2xl hover:border-blue-400/70 transition-all duration-300 flex flex-col items-center justify-center text-center">
+                            <GraduationCap className="w-8 h-8 text-purple-400 mb-1" />
+                            <div className="text-gray-300 text-xs font-semibold">{title}</div>
+                            <div className="text-xs text-gray-400">Year: {year}</div>
+                          </PixelCard>
                         </motion.div>
                       );
                     })}
@@ -112,7 +114,7 @@ export default function AchievementPage() {
                     <Trophy className="w-6 h-6 text-purple-400" />
                     Extra Curricular
                   </h3>
-                  <div className="flex flex-col gap-1 text-left">
+                  <div className="grid grid-cols-2 md:grid-cols-3 gap-2 text-left">
                     {extraCurricular.map((item, index) => {
                       const { title, year } = parseAchievement(item);
                       return (
@@ -121,10 +123,12 @@ export default function AchievementPage() {
                           initial={{ opacity: 0, x: -20 }}
                           whileInView={{ opacity: 1, x: 0 }}
                           transition={{ duration: 0.5, delay: index * 0.05 }}
-                          className="text-gray-300 text-sm bg-neutral-900/60 border border-blue-900/40 p-1 rounded-2xl hover:border-blue-400/70 transition-all duration-300"
                         >
-                          <div className="font-semibold">{title}</div>
-                          <div className="text-xs text-gray-400">Year: {year}</div>
+                          <PixelCard className="w-full aspect-square p-2 bg-neutral-900/60 border border-blue-900/40 rounded-2xl hover:border-blue-400/70 transition-all duration-300 flex flex-col items-center justify-center text-center">
+                            <Trophy className="w-8 h-8 text-purple-400 mb-1" />
+                            <div className="text-gray-300 text-xs font-semibold">{title}</div>
+                            <div className="text-xs text-gray-400">Year: {year}</div>
+                          </PixelCard>
                         </motion.div>
                       );
                     })}
