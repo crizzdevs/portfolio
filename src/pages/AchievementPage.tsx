@@ -81,7 +81,7 @@ export default function AchievementPage() {
                         transition={{ duration: 0.5, delay: index * 0.1 }}
                         className="text-gray-300 text-sm bg-neutral-900/60 border border-blue-900/40 p-3 rounded-2xl hover:border-blue-400/70 transition-all duration-300"
                       >
-                        • {item}
+                        - {item}
                       </motion.div>
                     ))}
                   </div>
@@ -101,7 +101,7 @@ export default function AchievementPage() {
                         transition={{ duration: 0.5, delay: index * 0.1 }}
                         className="text-gray-300 text-sm bg-neutral-900/60 border border-blue-900/40 p-3 rounded-2xl hover:border-blue-400/70 transition-all duration-300"
                       >
-                        • {item}
+                        - {item}
                       </motion.div>
                     ))}
                   </div>
