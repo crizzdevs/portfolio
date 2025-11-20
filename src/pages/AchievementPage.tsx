@@ -8,7 +8,7 @@ const curricular = [
   "Consistent Honors Student",
   "Editor in Chief - The Mega Flash (2023-2024)",
   "Barkada Kontra Bisyo - President (2024-2025)",
-  "Outstanding Performance - Social Sciences (2024-2025)".
+  "Outstanding Performance - Social Sciences (2024-2025)",
   "Outstanding Performance - Research (2024-2025)",
   "Outstanding Performance - Work Immersion (2024-2025)",
   "Leadership Award - Gold Medal (2024-2025)",
