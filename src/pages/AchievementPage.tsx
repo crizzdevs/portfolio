@@ -16,10 +16,6 @@ const curricular = [
   "Champion - School Based Editorial Writing (2023-2024)",
   "Champion - School Based Editorial Writing (2024-2025)",
   "Champion - Digital Poster Making (2024-2025)",
-  
-  
-  
-  
 ];
 
 const extraCurricular = [
@@ -63,7 +59,7 @@ export default function AchievementPage() {
       <section id="achievements" className="py-20 pt-28 text-white relative">
         <div className="container mx-auto text-center px-6">
           <motion.h2
-            className="text-4xl font-bold mb-12 text-blue-400"
+            className="text-3xl font-bold mb-12 text-blue-400"
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -77,21 +73,21 @@ export default function AchievementPage() {
             transition={{ duration: 0.6 }}
             className="w-full mx-auto"
           >
-            <PixelCard className="p-8 bg-neutral-900/60 border border-blue-900/40 rounded-2xl transition-all duration-300">
-              <div className="flex flex-col lg:flex-row gap-8">
+            <PixelCard className="p-6 bg-neutral-900/60 border border-blue-900/40 rounded-2xl transition-all duration-300">
+              <div className="flex flex-col lg:flex-row gap-6">
                 <div className="flex-1">
-                  <h3 className="text-2xl font-semibold text-blue-300 mb-6 flex items-center gap-2">
+                  <h3 className="text-2xl font-semibold text-blue-300 mb-4 flex items-center gap-2">
                     <GraduationCap className="w-6 h-6 text-purple-400"/>
                     Curricular
                   </h3>
-                  <div className="flex flex-wrap gap-3 text-left">
+                  <div className="flex flex-wrap gap-2 text-left">
                     {curricular.map((item, index) => (
                       <motion.div
                         key={index}
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.5, delay: index * 0.1 }}
-                        className="text-gray-300 text-sm bg-neutral-900/60 border border-blue-900/40 p-3 rounded-2xl hover:border-blue-400/70 transition-all duration-300"
+                        transition={{ duration: 0.5, delay: index * 0.05 }}
+                        className="text-gray-300 text-sm bg-neutral-900/60 border border-blue-900/40 p-2 rounded-2xl hover:border-blue-400/70 transition-all duration-300"
                       >
                         - {item}
                       </motion.div>
@@ -100,18 +96,18 @@ export default function AchievementPage() {
                 </div>
 
                 <div className="flex-1">
-                  <h3 className="text-2xl font-semibold text-blue-300 mb-6 flex items-center gap-2">
+                  <h3 className="text-2xl font-semibold text-blue-300 mb-4 flex items-center gap-2">
                     <Trophy className="w-6 h-6 text-purple-400" />
                     Extra Curricular
                   </h3>
-                  <div className="flex flex-wrap gap-3 text-left">
+                  <div className="flex flex-wrap gap-2 text-left">
                     {extraCurricular.map((item, index) => (
                       <motion.div
                         key={index}
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.5, delay: index * 0.1 }}
-                        className="text-gray-300 text-sm bg-neutral-900/60 border border-blue-900/40 p-3 rounded-2xl hover:border-blue-400/70 transition-all duration-300"
+                        transition={{ duration: 0.5, delay: index * 0.05 }}
+                        className="text-gray-300 text-sm bg-neutral-900/60 border border-blue-900/40 p-2 rounded-2xl hover:border-blue-400/70 transition-all duration-300"
                       >
                         - {item}
                       </motion.div>
