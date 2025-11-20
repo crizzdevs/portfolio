@@ -12,20 +12,25 @@ import { PixelCard } from "@/components/PixelCard.tsx";
 
 // Placeholder for GameNav
 const GameNav = () => {
-  const navItems = ["Home", "Projects", "Contact"];
+  const navItems = [
+    { name: "Home", path: "/" },
+    { name: "About", path: "/about" },
+    { name: "Education", path: "/education" },
+    { name: "Achievements", path: "/achievements" },
+  ];
   return (
     <header className="fixed top-0 left-0 w-full z-30 p-4 bg-neutral-900/80 backdrop-blur-sm shadow-xl">
       <div className="container mx-auto flex justify-between items-center text-white max-w-7xl">
         <div className="text-xl font-bold text-blue-400">crizzdevs</div>
         <nav className="hidden sm:flex space-x-6">
           {navItems.map(item => (
-            <a 
-              key={item} 
-              href={`#${item.toLowerCase()}`} 
+            <Link 
+              key={item.name} 
+              to={item.path} 
               className="text-gray-300 hover:text-blue-400 transition-colors duration-200 font-medium tracking-wide"
             >
-              {item}
-            </a>
+              {item.name}
+            </Link>
           ))}
         </nav>
       </div>
@@ -132,7 +137,7 @@ export default function AchievementPage() {
             transition={{ duration: 0.6 }}
             className="w-full mx-auto"
           >
-            <PixelCard className="p-4 bg-neutral-900/60 border border-blue-900/40 rounded-2xl transition-all duration-300"> 
+            <PixelCard className="p-6 bg-neutral-900/60 border border-blue-900/40 rounded-2xl hover:scale-105 hover:border-blue-400/70 transition-all duration-300"> 
               <div className="flex flex-col gap-4"> 
                 
                 {/* CURRICULAR SECTION */}
@@ -175,7 +180,7 @@ export default function AchievementPage() {
                   <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-7 gap-1 text-left"> 
                     {extraCurricular.map((item, index) => {
                       const { title, year } = parseAchievement(item);
-                      const Icon = Heart; 
+                      const Icon = getAchievementIcon(title); 
                       return (
                         <motion.div
                           key={index}
@@ -185,7 +190,7 @@ export default function AchievementPage() {
                           viewport={{ once: true }}
                         >
                           <PixelCard className="w-full h-32 p-2 bg-neutral-800/60 border border-blue-900/40 rounded-xl hover:border-blue-400/70 transition-all duration-300 flex flex-col items-center justify-center text-center shadow-lg"> 
-                            <Icon className="w-5 h-5 text-red-400 mb-0.5" /> 
+                            <Icon className="w-5 h-5 text-blue-500 mb-0.5" /> 
                             <div className="text-gray-200 text-xs font-bold leading-tight line-clamp-3">{title}</div>
                             <div className="text-[11px] text-gray-400 mt-0.5">
                                 {year || "N/A"} 
