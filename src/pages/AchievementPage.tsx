@@ -16,13 +16,13 @@ const GameNav = () => {
   return (
     <header className="fixed top-0 left-0 w-full z-30 p-4 bg-neutral-900/80 backdrop-blur-sm shadow-xl">
       <div className="container mx-auto flex justify-between items-center text-white max-w-7xl">
-        <div className="text-xl font-bold text-cyan-400">crizzdevs</div>
+        <div className="text-xl font-bold text-blue-400">crizzdevs</div>
         <nav className="hidden sm:flex space-x-6">
           {navItems.map(item => (
             <a 
               key={item} 
               href={`#${item.toLowerCase()}`} 
-              className="text-gray-300 hover:text-cyan-400 transition-colors duration-200 font-medium tracking-wide"
+              className="text-gray-300 hover:text-blue-400 transition-colors duration-200 font-medium tracking-wide"
             >
               {item}
             </a>
@@ -104,26 +104,25 @@ export default function AchievementPage() {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5, delay: 0.5 }}
       >
-        {/* Using <a> tag to avoid react-router-dom Link context error */}
-        <a
-          href="#"
-          className="inline-flex items-center gap-2 px-4 py-2 bg-cyan-600 text-white font-medium rounded-lg hover:bg-cyan-500 transition-all duration-300 shadow-lg hover:shadow-xl text-sm"
+        <Link
+          to="/"
+          className="inline-flex items-center gap-2 px-4 py-2 bg-blue-500 text-white font-medium rounded-lg hover:bg-blue-600 transition-all duration-300 shadow-lg hover:shadow-xl text-sm"
         >
           <ArrowLeft className="w-4 h-4" />
           Back to Home
-        </a>
+        </Link>
       </motion.div>
 
-      <section id="achievements" className="py-12 pt-20 text-white relative">
-        <div className="container mx-auto text-center px-4 max-w-7xl">
+      <section id="achievements" className="py-20 pt-20 text-white relative">
+        <div className="container mx-auto text-center px-6 max-w-7xl">
           
           <motion.h2
-            className="text-3xl font-bold mb-4 text-cyan-400 flex items-center justify-center gap-3"
+            className="text-4xl font-bold mb-12 text-blue-400 flex items-center justify-center gap-3"
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <Medal className="w-8 h-8 text-indigo-400" fill="currentColor" /> 
+            <Medal className="w-8 h-8 text-blue-500" fill="currentColor" /> 
             Achievements
           </motion.h2>
 
@@ -133,13 +132,13 @@ export default function AchievementPage() {
             transition={{ duration: 0.6 }}
             className="w-full mx-auto"
           >
-            <PixelCard className="p-4 bg-neutral-900/60 border border-cyan-900/40 rounded-2xl transition-all duration-300"> 
+            <PixelCard className="p-4 bg-neutral-900/60 border border-blue-900/40 rounded-2xl transition-all duration-300"> 
               <div className="flex flex-col gap-4"> 
                 
                 {/* CURRICULAR SECTION */}
                 <div className="flex-1">
-                  <h3 className="text-xl font-semibold text-cyan-300 mb-2 flex items-center gap-2 justify-center lg:justify-start">
-                    <GraduationCap className="w-5 h-5 text-indigo-400" />
+                  <h3 className="text-xl font-semibold text-blue-300 mb-2 flex items-center gap-2 justify-center lg:justify-start">
+                    <GraduationCap className="w-5 h-5 text-blue-500" />
                     Curricular Achievements
                   </h3>
                   <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-7 gap-1 text-left"> 
@@ -154,8 +153,8 @@ export default function AchievementPage() {
                           transition={{ duration: 0.4, delay: index * 0.03 }}
                           viewport={{ once: true }}
                         >
-                          <PixelCard className="w-full h-32 p-2 bg-neutral-800/60 border border-cyan-900/40 rounded-xl hover:border-cyan-400/70 transition-all duration-300 flex flex-col items-center justify-center text-center shadow-lg"> 
-                            <Icon className="w-5 h-5 text-indigo-400 mb-0.5" /> 
+                          <PixelCard className="w-full h-32 p-2 bg-neutral-800/60 border border-blue-900/40 rounded-xl hover:border-blue-400/70 transition-all duration-300 flex flex-col items-center justify-center text-center shadow-lg"> 
+                            <Icon className="w-5 h-5 text-blue-500 mb-0.5" /> 
                             <div className="text-gray-200 text-xs font-bold leading-tight line-clamp-3">{title}</div>
                             <div className="text-[11px] text-gray-400 mt-0.5">
                                 {year || "Ongoing"} 
@@ -169,8 +168,8 @@ export default function AchievementPage() {
 
                 {/* EXTRA CURRICULAR SECTION */}
                 <div className="flex-1"> 
-                  <h3 className="text-xl font-semibold text-cyan-300 mb-2 flex items-center gap-2 justify-center lg:justify-start">
-                    <Trophy className="w-5 h-5 text-indigo-400" />
+                  <h3 className="text-xl font-semibold text-blue-300 mb-2 flex items-center gap-2 justify-center lg:justify-start">
+                    <Trophy className="w-5 h-5 text-blue-500" />
                     Extra Curricular Achievements
                   </h3>
                   <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-7 gap-1 text-left"> 
@@ -185,7 +184,7 @@ export default function AchievementPage() {
                           transition={{ duration: 0.4, delay: index * 0.03 }}
                           viewport={{ once: true }}
                         >
-                          <PixelCard className="w-full h-32 p-2 bg-neutral-800/60 border border-cyan-900/40 rounded-xl hover:border-cyan-400/70 transition-all duration-300 flex flex-col items-center justify-center text-center shadow-lg"> 
+                          <PixelCard className="w-full h-32 p-2 bg-neutral-800/60 border border-blue-900/40 rounded-xl hover:border-blue-400/70 transition-all duration-300 flex flex-col items-center justify-center text-center shadow-lg"> 
                             <Icon className="w-5 h-5 text-red-400 mb-0.5" /> 
                             <div className="text-gray-200 text-xs font-bold leading-tight line-clamp-3">{title}</div>
                             <div className="text-[11px] text-gray-400 mt-0.5">
