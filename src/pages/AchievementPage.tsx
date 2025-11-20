@@ -79,7 +79,7 @@ export default function AchievementPage() {
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.5, delay: index * 0.1 }}
-                        className="text-gray-200 text-sm bg-gradient-to-br from-blue-900/50 to-neutral-800/80 border border-blue-700/50 p-3 rounded-lg shadow-md hover:shadow-lg hover:border-blue-500/70 transition-all duration-300 backdrop-blur-sm"
+                        className="text-gray-300 text-sm bg-neutral-900/60 border border-blue-900/40 p-3 rounded-2xl hover:border-blue-400/70 transition-all duration-300"
                       >
                         • {item}
                       </motion.div>
@@ -99,7 +99,7 @@ export default function AchievementPage() {
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.5, delay: index * 0.1 }}
-                        className="text-gray-200 text-sm bg-gradient-to-br from-purple-900/50 to-neutral-800/80 border border-purple-700/50 p-3 rounded-lg shadow-md hover:shadow-lg hover:border-purple-500/70 transition-all duration-300 backdrop-blur-sm"
+                        className="text-gray-300 text-sm bg-neutral-900/60 border border-blue-900/40 p-3 rounded-2xl hover:border-blue-400/70 transition-all duration-300"
                       >
                         • {item}
                       </motion.div>
