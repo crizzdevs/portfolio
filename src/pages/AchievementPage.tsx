@@ -82,13 +82,13 @@ export default function AchievementPage() {
             className="w-full mx-auto"
           >
             <PixelCard className="p-3 bg-neutral-900/60 border border-blue-900/40 rounded-2xl transition-all duration-300">
-              <div className="flex flex-col lg:flex-row gap-4">
+              <div className="flex flex-col gap-4">
                 <div className="flex-1">
                   <h3 className="text-2xl font-semibold text-blue-300 mb-2 flex items-center gap-2">
                     <GraduationCap className="w-6 h-6 text-purple-400"/>
                     Curricular
                   </h3>
-                  <div className="grid grid-cols-2 md:grid-cols-3 gap-2 text-left">
+                  <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 text-left">
                     {curricular.map((item, index) => {
                       const { title, year } = parseAchievement(item);
                       return (
@@ -98,8 +98,8 @@ export default function AchievementPage() {
                           whileInView={{ opacity: 1, x: 0 }}
                           transition={{ duration: 0.5, delay: index * 0.05 }}
                         >
-                          <PixelCard className="w-full aspect-square p-2 bg-neutral-900/60 border border-blue-900/40 rounded-2xl hover:border-blue-400/70 transition-all duration-300 flex flex-col items-center justify-center text-center">
-                            <GraduationCap className="w-8 h-8 text-purple-400 mb-1" />
+                          <PixelCard className="w-full aspect-square p-1 bg-neutral-900/60 border border-blue-900/40 rounded-2xl hover:border-blue-400/70 transition-all duration-300 flex flex-col items-center justify-center text-center">
+                            <GraduationCap className="w-6 h-6 text-purple-400 mb-1" />
                             <div className="text-gray-300 text-xs font-semibold">{title}</div>
                             <div className="text-xs text-gray-400">Year: {year}</div>
                           </PixelCard>
@@ -114,7 +114,7 @@ export default function AchievementPage() {
                     <Trophy className="w-6 h-6 text-purple-400" />
                     Extra Curricular
                   </h3>
-                  <div className="grid grid-cols-2 md:grid-cols-3 gap-2 text-left">
+                  <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 text-left">
                     {extraCurricular.map((item, index) => {
                       const { title, year } = parseAchievement(item);
                       return (
@@ -124,8 +124,8 @@ export default function AchievementPage() {
                           whileInView={{ opacity: 1, x: 0 }}
                           transition={{ duration: 0.5, delay: index * 0.05 }}
                         >
-                          <PixelCard className="w-full aspect-square p-2 bg-neutral-900/60 border border-blue-900/40 rounded-2xl hover:border-blue-400/70 transition-all duration-300 flex flex-col items-center justify-center text-center">
-                            <Trophy className="w-8 h-8 text-purple-400 mb-1" />
+                          <PixelCard className="w-full aspect-square p-1 bg-neutral-900/60 border border-blue-900/40 rounded-2xl hover:border-blue-400/70 transition-all duration-300 flex flex-col items-center justify-center text-center">
+                            <Trophy className="w-6 h-6 text-purple-400 mb-1" />
                             <div className="text-gray-300 text-xs font-semibold">{title}</div>
                             <div className="text-xs text-gray-400">Year: {year}</div>
                           </PixelCard>
