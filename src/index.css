@@ -2,13 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
 
 @layer base {
   :root {
-    /* Professional Color Palette with Gaming Accents */
     --background: 222 47% 11%;
     --foreground: 210 40% 98%;
 
@@ -123,7 +119,6 @@ All colors MUST be HSL.
 }
 
 @layer utilities {
-  /* Modern shadows with subtle gaming accent */
   .modern-shadow {
     box-shadow: 0 4px 6px -1px hsl(var(--primary) / 0.1), 0 2px 4px -1px hsl(var(--primary) / 0.06);
   }
