@@ -10,6 +10,7 @@ const GameNav = () => {
     { id: "about", label: "About", to: "/#about" },
     { id: "education", label: "Education", to: "/education", isPage: true },
     { id: "achievements", label: "Achievements", to: "/achievements", isPage: true },
+    { id: "myfamily", label: "MyFamily", to: "/myfamily", isPage: true },
   ];
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-card/80 backdrop-blur-lg border-b border-border">
