@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowLeft, GraduationCap, Trophy, Medal, Award, Crown, Feather, BookOpen, Star, Palette, Users, Shield } from "lucide-react";
+import { ArrowLeft, ArrowRight, GraduationCap, Trophy, Medal, Award, Crown, Feather, BookOpen, Star, Palette, Users, Shield } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { GameNav } from "@/components/GameNav";
 import { PixelCard } from "@/components/PixelCard.tsx";
@@ -93,6 +93,23 @@ export default function AchievementPage() {
     <div className="min-h-screen bg-background font-sans">
       <GameNav />
       
+      {/* Prev Button */}
+      <motion.div
+        className="fixed bottom-4 left-4 z-40"
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5, delay: 0.5 }}
+      >
+        <Link
+          to="/education"
+          className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground font-medium rounded-lg hover:bg-primary/90 transition-all duration-300 shadow-lg hover:shadow-xl text-sm"
+        >
+          <ArrowLeft className="w-4 h-4" />
+          PREV
+        </Link>
+      </motion.div>
+
+      {/* Next Button */}
       <motion.div
         className="fixed bottom-4 right-4 z-40"
         initial={{ opacity: 0, scale: 0.8 }}
@@ -100,11 +117,11 @@ export default function AchievementPage() {
         transition={{ duration: 0.5, delay: 0.5 }}
       >
         <Link
-          to="/"
+          to="/myfamily"
           className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground font-medium rounded-lg hover:bg-primary/90 transition-all duration-300 shadow-lg hover:shadow-xl text-sm"
         >
-          <ArrowLeft className="w-4 h-4" />
-          Back to Home
+          NEXT
+          <ArrowRight className="w-4 h-4" />
         </Link>
       </motion.div>
 
