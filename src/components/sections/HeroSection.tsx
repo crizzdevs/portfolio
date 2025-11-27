@@ -23,13 +23,13 @@ export const HeroSection = () => {
       className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20"
     >
       {/* Next Button */}
-      <div className="absolute right-4 top-1/2 transform -translate-y-1/2 z-20">
+      <div className="absolute bottom-4 right-4 z-20">
         <button
           onClick={handleNext}
-          className="bg-primary text-white p-3 rounded-full shadow-lg hover:bg-primary/80 transition-colors"
+          className="bg-primary text-white px-4 py-2 rounded-lg shadow-lg hover:bg-primary/80 transition-colors font-semibold"
           aria-label="Next"
         >
-          &rarr;
+          NEXT
         </button>
       </div>
 
