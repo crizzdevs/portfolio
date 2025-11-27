@@ -2,8 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { TypingText } from "@/components/TypingText";
 import { PixelButton } from "@/components/PixelButton";
-// Fixed the double .png extension here
-import pixelCharacter from "@/assets/pixel-character.png"; 
+import pixelCharacter from "@/assets/pixel-character.png.png"; 
 import { Link, NavLink } from "react-router-dom";
 
 export const HeroSection = () => {
