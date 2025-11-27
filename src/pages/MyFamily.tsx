@@ -1,50 +1,45 @@
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
-import { GameNav } from "@/components/GameNav";
-import { PixelCard } from "@/components/PixelCard.tsx";
 import { ArrowLeft, ChefHat, Hammer, BookOpen, Users } from "lucide-react";
+import { Link } from "react-router-dom";
+import { PixelCard } from "@/components/PixelCard.tsx";
 
-
-const GameNav = () => {
-  const navItems = [
-    { id: "home", label: "Home", to: "/#home" },
-    { id: "about", label: "About", to: "/#about" },
-    { id: "education", label: "Education", to: "/education", isPage: true },
-    { id: "achievements", label: "Achievements", to: "/achievements", isPage: true },
-    { id: "myfamily", label: "MyFamily", to: "/myfamily", isPage: true },
-  ];
+// --- MAKE SURE THESE IMAGES EXIST IN YOUR ASSETS FOLDER ---
+// If you don't have the images yet, you can comment these lines out with //
+//import motherImg from "@/assets/mother.jpg"; 
+//import fatherImg from "@/assets/father.jpg"; 
+//import sisterImg from "@/assets/sister.jpg"; 
 
 export default function MyFamily() {
   const familyMembers = [
     {
-      role: "My Mother",
-      name: "Jenny R. Abuan",
-      age: "51 years old",
-      details: "Owner of 4J's Cakes and Delicacies. A passionate baker creating custom cakes and sweets.",
-      icon: <Heart className="w-5 h-5 text-pink-500" />,
+      role: "Mother",
+      name: "Nene Lyn Gapasin",
+      age: "41 years old",
+      details: "Owner of 4Js Cakes and Delicacies. A passionate baker creating custom cakes and sweets.",
+      icon: <ChefHat className="w-5 h-5 text-pink-500" />,
       image: motherImg,
     },
     {
-      role: "My Father",
-      name: "Arnolfo G. Abuan Jr.",
-      age: "58 years old",
+      role: "Father",
+      name: "Joel Gapasin",
+      age: "41 years old",
       details: "Self-employed Freelance Carpenter. Skilled in woodworking, construction, and custom builds.",
-      icon: <Briefcase className="w-5 h-5 text-blue-500" />,
+      icon: <Hammer className="w-5 h-5 text-orange-500" />,
       image: fatherImg,
     },
     {
-      role: "My Sibling",
-      name: "Junabelle R. Abuan",
-      age: "20 years old",
+      role: "Sister",
+      name: "My Sister", 
+      age: "21 years old",
       details: "3rd Year College at Mallig Plains Colleges. Bachelor of Secondary Education Major in English.",
-      icon: <GraduationCap className="w-5 h-5 text-yellow-500" />,
-      image: brotherImg,
+      icon: <BookOpen className="w-5 h-5 text-blue-400" />,
+      image: sisterImg,
     },
   ];
 
   return (
     <>
-      {/* Fixed Back to Home Button in Bottom Right */}
+      {/* Fixed Back to Home Button */}
       <motion.div
         className="fixed bottom-4 right-4 z-40"
         initial={{ opacity: 0, scale: 0.8 }}
@@ -62,6 +57,8 @@ export default function MyFamily() {
 
       <section id="family" className="py-20 text-white relative min-h-screen flex items-center">
         <div className="container mx-auto text-center px-6">
+          
+          {/* Section Header */}
           <motion.div
              initial={{ opacity: 0, y: -20 }}
              whileInView={{ opacity: 1, y: 0 }}
@@ -74,9 +71,10 @@ export default function MyFamily() {
             <h2 className="text-4xl font-bold text-blue-400">
                 My Family
             </h2>
+            <p className="text-gray-400 mt-2">The people who inspire me every day.</p>
           </motion.div>
 
-          {/* Grid Layout: 1 col mobile, 3 cols desktop to fit Mother, Father, Brother */}
+          {/* Grid Layout */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {familyMembers.map((member, index) => (
               <motion.div
@@ -88,7 +86,6 @@ export default function MyFamily() {
               >
                 <PixelCard className="h-full p-8 bg-neutral-900/60 border border-blue-900/40 rounded-2xl hover:scale-105 hover:border-blue-400/70 transition-all duration-300 flex flex-col items-center text-center group">
                   
-                  {/* Circular Image Container with Glow */}
                   <div className="relative mb-6">
                     <div className="absolute inset-0 bg-blue-500 blur-xl opacity-20 group-hover:opacity-40 transition-opacity rounded-full"></div>
                     <img
@@ -96,22 +93,21 @@ export default function MyFamily() {
                       alt={member.name}
                       className="relative w-32 h-32 rounded-full object-cover border-4 border-blue-900/50 group-hover:border-blue-400 transition-colors duration-300"
                     />
-                    <div className="absolute -bottom-2 -right-2 bg-neutral-900 p-2 rounded-full border border-blue-900/50">
+                    <div className="absolute -bottom-2 -right-2 bg-neutral-900 p-2 rounded-full border border-blue-900/50 shadow-sm shadow-black">
                         {member.icon}
                     </div>
                   </div>
 
-                  {/* Text Content */}
-                  <h3 className="text-2xl font-bold text-blue-300 mb-1">
+                  <h3 className="text-xl font-bold text-blue-300 mb-1 uppercase tracking-wide">
                     {member.role}
                   </h3>
-                  <p className="text-lg text-white font-medium mb-3">
+                  <p className="text-2xl text-white font-bold mb-3">
                     {member.name}
                   </p>
                   
                   <div className="w-full h-px bg-gradient-to-r from-transparent via-blue-900/50 to-transparent my-4"></div>
                   
-                  <p className="text-sm text-gray-400 mb-2">
+                  <p className="text-sm text-gray-400 mb-2 font-mono">
                     {member.age}
                   </p>
                   <p className="text-gray-300 text-sm leading-relaxed">
