@@ -1,33 +1,18 @@
+import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 import { TypingText } from "@/components/TypingText";
 import { PixelButton } from "@/components/PixelButton";
-import pixelCharacter from "@/assets/pixel-character.png.png";
-import { NavLink, useNavigate } from "react-router-dom";
+// Fixed the double .png extension here
+import pixelCharacter from "@/assets/pixel-character.png"; 
+import { Link, NavLink } from "react-router-dom";
 
 export const HeroSection = () => {
-  const navigate = useNavigate();
-
-  const handlePrev = () => {
-    navigate("/myfamily");
-  };
-
-  const handleNext = () => {
-    navigate("/education");
-  };
-
-  const scrollToContacts = () => {
-    const element = document.getElementById("contact");
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   return (
     <section
       id="home"
       className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20"
     >
-
-      {/* Next Button */}
+      {/* Next Button (Links to Education) */}
       <motion.div
         className="fixed bottom-4 right-4 z-40"
         initial={{ opacity: 0, scale: 0.8 }}
@@ -54,7 +39,9 @@ export const HeroSection = () => {
               height: "4px",
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
-              animation: `blink ${2 + Math.random() * 3}s infinite ${Math.random() * 2}s`,
+              animation: `blink ${2 + Math.random() * 3}s infinite ${
+                Math.random() * 2
+              }s`,
             }}
           />
         ))}
@@ -113,12 +100,11 @@ export const HeroSection = () => {
 
               <NavLink to="/myfamily">
                 <PixelButton variant="accent">
-                  My Familly
+                  My Family
                 </PixelButton>
               </NavLink>
             </div>
           </div>
-          {/* <<<<<< THIS DIV WAS MISSING BEFORE */}
 
           {/* ================= RIGHT SIDE ================= */}
           <div className="flex flex-col items-center gap-6">
