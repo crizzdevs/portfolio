@@ -130,78 +130,64 @@ export default function FamilyPage() {
             transition={{ duration: 0.6 }}
             className="w-full mx-auto"
           >
-            <PixelCard className="p-6 bg-card/80 border border-border rounded-2xl backdrop-blur-lg"> 
-              <div className="flex flex-col gap-4"> 
-                
-                <div>
-                  <h3 className="text-xl font-semibold text-primary mb-2 flex items-center gap-2 justify-center lg:justify-start">
-                    <Users className="w-5 h-5 text-purple-500" />
-                    Family Members
-                  </h3>
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    {familyMembers.map((member, index) => {
-                      const Icon = member.icon;
-                      return (
-                        <motion.div
-                          key={index}
-                          initial={{ opacity: 0, y: 50 }}
-                          whileInView={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.5, delay: index * 0.2 }}
-                          viewport={{ once: true }}
-                          className="h-full"
-                        >
-                          <PixelCard className="h-full p-8 bg-card/80 border border-border rounded-2xl backdrop-blur-lg hover:border-primary/50 transition-colors duration-300">
-                            <div className="flex flex-col items-center text-center space-y-4">
-                              
-                              {/* Circular Image Container */}
-                              <div className="relative group">
-                                <div className={`absolute inset-0 rounded-full blur-md opacity-50 bg-current ${member.color}`}></div>
-                                <img 
-                                  src={member.image} 
-                                  alt={member.role} 
-                                  className="w-40 h-40 rounded-full object-cover border-4 border-white/10 relative z-10 shadow-xl group-hover:scale-105 transition-transform duration-300"
-                                />
-                                {/* Small floating icon badge */}
-                                <div className="absolute bottom-2 right-2 z-20 bg-background p-2 rounded-full border border-border">
-                                  <Icon className={`w-5 h-5 ${member.color}`} />
-                                </div>
-                              </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {familyMembers.map((member, index) => {
+                const Icon = member.icon;
+                return (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.2 }}
+                    viewport={{ once: true }}
+                    className="h-full"
+                  >
+                    <PixelCard className="h-full p-8 bg-card/80 border border-border rounded-2xl backdrop-blur-lg hover:border-primary/50 transition-colors duration-300">
+                      <div className="flex flex-col items-center text-center space-y-4">
+                        
+                        <div className="relative group">
+                          <div className={`absolute inset-0 rounded-full blur-md opacity-50 bg-current ${member.color}`}></div>
+                          <img 
+                            src={member.image} 
+                            alt={member.role} 
+                            className="w-40 h-40 rounded-full object-cover border-4 border-white/10 relative z-10 shadow-xl group-hover:scale-105 transition-transform duration-300"
+                          />
+                          <div className="absolute bottom-2 right-2 z-20 bg-background p-2 rounded-full border border-border">
+                            <Icon className={`w-5 h-5 ${member.color}`} />
+                          </div>
+                        </div>
 
-                              {/* Text Content */}
-                              <div className="pt-4 space-y-2">
-                                <h3 className="text-2xl font-bold text-foreground">
-                                  {member.role}
-                                </h3>
-                                
-                                <p className={`font-medium ${member.color}`}>
-                                  {member.name}
-                                </p>
+                        <div className="pt-4 space-y-2">
+                          <h3 className="text-2xl font-bold text-foreground">
+                            {member.role}
+                          </h3>
+                          
+                          <p className={`font-medium ${member.color}`}>
+                            {member.name}
+                          </p>
 
-                                <p className="text-muted-foreground text-sm">
-                                  {member.age}
-                                </p>
-                                
-                                <div className="w-12 h-1 bg-white/10 mx-auto my-3 rounded-full" />
-                                
-                                <p className="text-muted-foreground text-sm leading-relaxed">
-                                  {member.details}
-                                </p>
-                              </div>
+                          <p className="text-muted-foreground text-sm">
+                            {member.age}
+                          </p>
+                          
+                          <div className="w-12 h-1 bg-white/10 mx-auto my-3 rounded-full" />
+                          
+                          <p className="text-muted-foreground text-sm leading-relaxed">
+                            {member.details}
+                          </p>
+                        </div>
 
-                            </div>
-                          </PixelCard>
-                        </motion.div>
-                      );
-                    })}
-                  </div>
-                </div>
+                      </div>
+                    </PixelCard>
+                  </motion.div>
+                );
+              })}
+            </div>
 
-              </div>
-            </PixelCard>
           </motion.div>
         </div>
       </section>
     </div>
   );
 }
-
