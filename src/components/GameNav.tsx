@@ -3,11 +3,11 @@ import { cn } from "@/lib/utils";
 import { Link } from "react-router-dom";
 
 const navItems = [
-  { id: "home", label: "Home", to: "/#home" }, // Link to home page with scroll
-  { id: "about", label: "About", to: "/#about" },
+  { id: "home", label: "Home", to: "/home", isPage: true }, // Link to home page with scroll
   { id: "education", label: "Education", to: "/education", isPage: true },
   { id: "achievements", label: "Achievements", to: "/achievements", isPage: true },
   { id: "myfamily", label: "MyFamily", to: "/myfamily", isPage: true },
+  { id: "mybatchmates", label: "MyBatchmates", to: "/mybatchmates", isPage: true },
 ];
 
 export const GameNav = () => {
