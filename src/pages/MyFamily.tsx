@@ -14,7 +14,7 @@ const GameNav = () => {
     { id: "myfamily", label: "MyFamily", to: "/myfamily", isPage: true },
   ];
 
-export default function MyFamilySection() {
+export default function MyFamily() {
   const familyMembers = [
     {
       role: "My Mother",
