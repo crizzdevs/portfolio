@@ -48,7 +48,7 @@ export const GameNav = () => {
             <img 
               src={logoImg} 
               alt="crizzdevs logo" 
-              className="h-10 w-auto object-contain" 
+              className="h-18 w-auto object-contain" 
             />
           </Link>
 
