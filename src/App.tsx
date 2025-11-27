@@ -8,6 +8,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import EducationPage from "@/pages/EducationPage";
 import AchievementPage from "@/pages/AchievementPage";
 import MyFamily from "@/pages/MyFamily";
+import Batchmates from "@pages/Batchmates";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import "./index.css";
@@ -66,6 +67,7 @@ const App = () => {
             <Route path="/education" element={<EducationPage />} />
             <Route path="/achievements" element={<AchievementPage />} />
             <Route path="/myfamily" element={<MyFamily />} />
+            <Route path="/batchmates" element={<Batchmates />} />
           </Routes>
         </BrowserRouter>
       </TooltipProvider>
