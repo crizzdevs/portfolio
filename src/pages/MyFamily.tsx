@@ -5,7 +5,7 @@ import { GameNav } from "@/components/GameNav";
 import { PixelCard } from "@/components/PixelCard"; 
 import motherImg from "@/assets/mother.png"; 
 import fatherImg from "@/assets/father.png";
-import brotherImg from "@/assets/sister.png";
+import sisterImg from "@/assets/sister.png";
 
 const familyMembers = [
    {
