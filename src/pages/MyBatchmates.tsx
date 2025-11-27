@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowLeft, Users, Camera } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import TiltedCard from "@/components/TiltedCard";
+import { PixelCard } from "@/components/PixelCard.tsx"; // Added import for PixelCard
 import classPic from "@/assets/class-picture.jpg";
 
 const GameNav = () => {
@@ -79,6 +80,23 @@ export default function BatchmatesPage() {
     <div className="min-h-screen bg-background font-sans">
       <GameNav />
       
+      {/* Prev Button */}
+      <motion.div
+        className="fixed bottom-4 left-4 z-40"
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5, delay: 0.5 }}
+      >
+        <Link
+          to="/myfamily"
+          className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground font-medium rounded-lg hover:bg-primary/90 transition-all duration-300 shadow-lg hover:shadow-xl text-sm"
+        >
+          <ArrowLeft className="w-4 h-4" />
+          PREV
+        </Link>
+      </motion.div>
+
+      {/* Next Button */}
       <motion.div
         className="fixed bottom-4 right-4 z-40"
         initial={{ opacity: 0, scale: 0.8 }}
@@ -132,19 +150,21 @@ export default function BatchmatesPage() {
               initial="hidden"
               whileInView="show"
               viewport={{ once: true }}
-              className="grid grid-cols-2 gap-x-12 gap-y-2 text-xs sm:text-sm font-bold text-muted-foreground text-right order-2 xl:order-1 w-full xl:w-auto"
+              className="grid grid-cols-2 gap-1 text-left order-2 xl:order-1 w-full xl:w-auto"
             >
               {leftSideNames.map((name, index) => (
-                <motion.div 
-                  key={`left-${index}`} 
+                <motion.div
+                  key={`left-${index}`}
                   variants={itemVariants}
-                  className="hover:text-primary transition-colors duration-300 cursor-default uppercase tracking-wide whitespace-nowrap"
                 >
-                  {name}
+                  <PixelCard className="w-full h-16 p-1 bg-muted/60 border border-border rounded-lg flex items-center justify-center text-center shadow-lg hover:scale-105 hover:border-primary/50 transition-all duration-300">
+                    <div className="text-foreground text-[9px] font-bold leading-tight uppercase tracking-wide whitespace-nowrap">
+                      {name}
+                    </div>
+                  </PixelCard>
                 </motion.div>
               ))}
             </motion.div>
-
 
             {/* --- CENTER IMAGE (Tilted Card) --- */}
             <motion.div
@@ -176,22 +196,24 @@ export default function BatchmatesPage() {
               />
             </motion.div>
 
-
             {/* --- RIGHT SIDE NAMES (2 Columns) --- */}
             <motion.div 
               variants={containerVariants}
               initial="hidden"
               whileInView="show"
               viewport={{ once: true }}
-              className="grid grid-cols-2 gap-x-12 gap-y-2 text-xs sm:text-sm font-bold text-muted-foreground text-left order-3 w-full xl:w-auto"
+              className="grid grid-cols-2 gap-1 text-left order-3 w-full xl:w-auto"
             >
               {rightSideNames.map((name, index) => (
-                <motion.div 
-                  key={`right-${index}`} 
+                <motion.div
+                  key={`right-${index}`}
                   variants={itemVariants}
-                  className="hover:text-primary transition-colors duration-300 cursor-default uppercase tracking-wide whitespace-nowrap"
                 >
-                  {name}
+                  <PixelCard className="w-full h-16 p-1 bg-muted/60 border border-border rounded-lg flex items-center justify-center text-center shadow-lg hover:scale-105 hover:border-primary/50 transition-all duration-300">
+                    <div className="text-foreground text-[9px] font-bold leading-tight uppercase tracking-wide whitespace-nowrap">
+                      {name}
+                    </div>
+                  </PixelCard>
                 </motion.div>
               ))}
             </motion.div>
