@@ -14,6 +14,7 @@ const GameNav = () => {
     { id: "education", label: "Education", to: "/education", isPage: true },
     { id: "achievements", label: "Achievements", to: "/achievements", isPage: true },
     { id: "myfamily", label: "MyFamily", to: "/myfamily", isPage: true },
+    { id: "batchmates", label: "Batchmates", to: "/batchmates", isPage: true },
   ];
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-card/80 backdrop-blur-lg border-b border-border">
