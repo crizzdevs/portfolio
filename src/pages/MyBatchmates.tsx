@@ -150,7 +150,7 @@ export default function BatchmatesPage() {
               initial="hidden"
               whileInView="show"
               viewport={{ once: true }}
-              className="grid grid-cols-2 gap-1 text-left order-2 xl:order-1 w-full xl:w-auto"
+              className="grid grid-cols-2 gap-4 text-left order-2 xl:order-1 w-full xl:w-auto"
             >
               {leftSideNames.map((name, index) => (
                 <motion.div
@@ -202,7 +202,7 @@ export default function BatchmatesPage() {
               initial="hidden"
               whileInView="show"
               viewport={{ once: true }}
-              className="grid grid-cols-2 gap-1 text-left order-3 w-full xl:w-auto"
+              className="grid grid-cols-2 gap-4 text-left order-3 w-full xl:w-auto"
             >
               {rightSideNames.map((name, index) => (
                 <motion.div
