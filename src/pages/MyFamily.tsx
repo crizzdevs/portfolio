@@ -142,7 +142,7 @@ export default function FamilyPage() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <Users className="w-8 h-8 text-primary" fill="currentColor" /> 
+            <Users className="w-8 h-8 text-purple-500" fill="currentColor" /> 
             My Family
           </motion.h2>
 
