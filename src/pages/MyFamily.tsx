@@ -176,6 +176,10 @@ export default function FamilyPage() {
                                 <p className={`font-medium ${member.color}`}>
                                   {member.name}
                                 </p>
+
+                                <p className="text-muted-foreground text-sm">
+                                  {member.age}
+                                </p>
                                 
                                 <div className="w-12 h-1 bg-white/10 mx-auto my-3 rounded-full" />
                                 
@@ -200,3 +204,4 @@ export default function FamilyPage() {
     </div>
   );
 }
+
