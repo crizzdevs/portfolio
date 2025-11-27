@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { GraduationCap, BookOpen, Award, School, ArrowLeft } from "lucide-react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { PixelCard } from "@/components/PixelCard.tsx";
 import olangoImg from "@/assets/olango-elementary.jpg";
 import malligJHS from "@/assets/mallig-jhs.png";
