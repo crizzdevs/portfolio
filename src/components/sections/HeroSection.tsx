@@ -26,27 +26,22 @@ export const HeroSection = () => {
       id="home"
       className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20"
     >
-      {/* Prev Button */}
-      <div className="absolute bottom-4 left-4 z-20">
-        <button
-          onClick={handlePrev}
-          className="bg-primary text-white px-4 py-2 rounded-lg shadow-lg hover:bg-primary/80 transition-colors font-semibold"
-          aria-label="Prev"
-        >
-          PREV
-        </button>
-      </div>
 
       {/* Next Button */}
-      <div className="absolute bottom-4 right-4 z-20">
-        <button
-          onClick={handleNext}
-          className="bg-primary text-white px-4 py-2 rounded-lg shadow-lg hover:bg-primary/80 transition-colors font-semibold"
-          aria-label="Next"
+      <motion.div
+        className="fixed bottom-4 right-4 z-40"
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5, delay: 0.5 }}
+      >
+        <Link
+          to="/education"
+          className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground font-medium rounded-lg hover:bg-primary/90 transition-all duration-300 shadow-lg hover:shadow-xl text-sm"
         >
           NEXT
-        </button>
-      </div>
+          <ArrowRight className="w-4 h-4" />
+        </Link>
+      </motion.div>
 
       {/* Stars Background */}
       <div className="absolute inset-0 opacity-20">
