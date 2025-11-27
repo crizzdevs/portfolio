@@ -6,6 +6,10 @@ import { NavLink, useNavigate } from "react-router-dom";
 export const HeroSection = () => {
   const navigate = useNavigate();
 
+  const handlePrev = () => {
+    navigate("/myfamily");
+  };
+
   const handleNext = () => {
     navigate("/education");
   };
@@ -22,6 +26,17 @@ export const HeroSection = () => {
       id="home"
       className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20"
     >
+      {/* Prev Button */}
+      <div className="absolute bottom-4 left-4 z-20">
+        <button
+          onClick={handlePrev}
+          className="bg-primary text-white px-4 py-2 rounded-lg shadow-lg hover:bg-primary/80 transition-colors font-semibold"
+          aria-label="Prev"
+        >
+          PREV
+        </button>
+      </div>
+
       {/* Next Button */}
       <div className="absolute bottom-4 right-4 z-20">
         <button
