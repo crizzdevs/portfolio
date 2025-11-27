@@ -150,7 +150,7 @@ export default function BatchmatesPage() {
               initial="hidden"
               whileInView="show"
               viewport={{ once: true }}
-              className="grid grid-cols-2 gap-x-4 gap-y-0 text-left order-2 xl:order-1 w-full xl:w-auto"
+              className="grid grid-cols-2 gap-x-4 gap-y-1 text-left order-2 xl:order-1 w-full xl:w-auto"
             >
               {leftSideNames.map((name, index) => (
                 <motion.div
@@ -188,10 +188,15 @@ export default function BatchmatesPage() {
                 showTooltip={true}
                 displayOverlayContent={true}
                 overlayContent={
-                  <div className="absolute bottom-4 right-4 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full border border-white/10 flex items-center gap-2 pointer-events-none">
-                    <Camera className="w-3 h-3 text-accent" />
-                    <span className="text-[10px] text-white font-mono">BATCH 2025</span>
-                  </div>
+                  <>
+                    <div className="absolute top-4 left-4 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full border border-white/10 flex items-center gap-2 pointer-events-none">
+                      <span className="text-[10px] text-white font-mono">BATCH 2025</span>
+                    </div>
+                    <div className="absolute bottom-4 right-4 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full border border-white/10 flex items-center gap-2 pointer-events-none">
+                      <Camera className="w-3 h-3 text-accent" />
+                      <span className="text-[10px] text-white font-mono">BATCH 2025</span>
+                    </div>
+                  </>
                 }
               />
             </motion.div>
@@ -202,7 +207,7 @@ export default function BatchmatesPage() {
               initial="hidden"
               whileInView="show"
               viewport={{ once: true }}
-              className="grid grid-cols-2 gap-x-4 gap-y-0 text-left order-3 w-full xl:w-auto"
+              className="grid grid-cols-2 gap-x-4 gap-y-1 text-left order-3 w-full xl:w-auto"
             >
               {rightSideNames.map((name, index) => (
                 <motion.div
