@@ -1,8 +1,45 @@
 import { motion } from "framer-motion";
 import { ArrowLeft, GraduationCap, Trophy, Medal, Award, Crown, Feather, BookOpen, Star, Palette, Users, Shield } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { GameNav } from "@/components/GameNav";
 import { PixelCard } from "@/components/PixelCard.tsx";
+
+const GameNav = () => {
+  const location = useLocation();
+  const navItems = [
+    { id: "home", label: "Home", to: "/#home" },
+    { id: "education", label: "Education", to: "/education", isPage: true },
+    { id: "achievements", label: "Achievements", to: "/achievements", isPage: true },
+    { id: "myfamily", label: "MyFamily", to: "/myfamily", isPage: true },
+  ];
+  return (
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-card/80 backdrop-blur-lg border-b border-border">
+      <div className="container mx-auto px-4 py-4">
+        <div className="flex items-center justify-between">
+          <div className="text-primary font-semibold text-base sm:text-lg">crizzdevs</div>
+          <div className="flex gap-1 sm:gap-2">
+            {navItems.map((item) => {
+              const isActive = item.isPage ? location.pathname === item.to : location.pathname === "/" && item.id === "home";
+              return (
+                <Link
+                  key={item.id}
+                  to={item.to}
+                  className={`px-3 sm:px-4 py-2 text-sm font-medium rounded-md transition-all ${
+                    isActive
+                      ? "bg-primary text-primary-foreground"
+                      : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    </nav>
+  );
+};
 
 const curricular = [
   "Consistent Honors Student",
