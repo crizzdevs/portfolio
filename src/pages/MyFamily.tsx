@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
-import { ArrowLeft, Users, Hammer, ChefHat, BookOpen } from "lucide-react";
-import { Link } from "react-router-dom";
+import { ArrowLeft, ArrowRight, Users, Hammer, ChefHat, BookOpen } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 import { GameNav } from "@/components/GameNav";
 import { PixelCard } from "@/components/PixelCard.tsx";
 import motherImg from "@/assets/mother.png"; 
@@ -8,6 +8,7 @@ import fatherImg from "@/assets/father.png";
 import sisterImg from "@/assets/sister.png";
 
 const GameNav = () => {
+  const location = useLocation();
   const navItems = [
     { id: "home", label: "Home", to: "/#home" },
     { id: "education", label: "Education", to: "/education", isPage: true },
@@ -20,19 +21,22 @@ const GameNav = () => {
         <div className="flex items-center justify-between">
           <div className="text-primary font-semibold text-base sm:text-lg">crizzdevs</div>
           <div className="flex gap-1 sm:gap-2">
-            {navItems.map((item) => (
-              <Link
-                key={item.id}
-                to={item.to}
-                className={`px-3 sm:px-4 py-2 text-sm font-medium rounded-md transition-all ${
-                  item.id === "myfamily"
-                    ? "bg-primary text-primary-foreground"
-                    : "text-muted-foreground hover:text-foreground hover:bg-muted"
-                }`}
-              >
-                {item.label}
-              </Link>
-            ))}
+            {navItems.map((item) => {
+              const isActive = item.isPage ? location.pathname === item.to : location.pathname === "/" && item.id === "home";
+              return (
+                <Link
+                  key={item.id}
+                  to={item.to}
+                  className={`px-3 sm:px-4 py-2 text-sm font-medium rounded-md transition-all ${
+                    isActive
+                      ? "bg-primary text-primary-foreground"
+                      : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
           </div>
         </div>
       </div>
@@ -81,6 +85,23 @@ export default function FamilyPage() {
     <div className="min-h-screen bg-background font-sans">
       <GameNav />
       
+      {/* Prev Button */}
+      <motion.div
+        className="fixed bottom-4 left-4 z-40"
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5, delay: 0.5 }}
+      >
+        <Link
+          to="/achievements"
+          className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground font-medium rounded-lg hover:bg-primary/90 transition-all duration-300 shadow-lg hover:shadow-xl text-sm"
+        >
+          <ArrowLeft className="w-4 h-4" />
+          PREV
+        </Link>
+      </motion.div>
+
+      {/* Next Button */}
       <motion.div
         className="fixed bottom-4 right-4 z-40"
         initial={{ opacity: 0, scale: 0.8 }}
@@ -91,8 +112,8 @@ export default function FamilyPage() {
           to="/"
           className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground font-medium rounded-lg hover:bg-primary/90 transition-all duration-300 shadow-lg hover:shadow-xl text-sm"
         >
-          <ArrowLeft className="w-4 h-4" />
-          Back to Home
+          NEXT
+          <ArrowRight className="w-4 h-4" />
         </Link>
       </motion.div>
 
