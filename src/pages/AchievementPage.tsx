@@ -1,47 +1,8 @@
 import { motion } from "framer-motion";
-import { ArrowLeft, GraduationCap, Trophy, Medal, Award, Crown, Feather, BookOpen, Star, Palette, Heart, Shield, Users } from "lucide-react";
+import { ArrowLeft, GraduationCap, Trophy, Medal, Award, Crown, Feather, BookOpen, Star, Palette, Users, Shield } from "lucide-react";
 import { Link } from "react-router-dom";
 import { GameNav } from "@/components/GameNav";
 import { PixelCard } from "@/components/PixelCard.tsx";
-
-const GameNav = () => {
-  const navItems = [
-    { id: "home", label: "Home", to: "/#home" },
-    { id: "education", label: "Education", to: "/education", isPage: true },
-    { id: "achievements", label: "Achievements", to: "/achievements", isPage: true },
-    { id: "myfamily", label: "MyFamily", to: "/myfamily", isPage: true },
-  ];
-  return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-card/80 backdrop-blur-lg border-b border-border">
-      <div className="container mx-auto px-4 py-4">
-        <div className="flex items-center justify-between">
-          <div className="text-primary font-semibold text-base sm:text-lg">crizzdevs</div>
-          <div className="flex gap-1 sm:gap-2">
-            {navItems.map((item) => (
-              <Link
-                key={item.id}
-                to={item.to}
-                className={`px-3 sm:px-4 py-2 text-sm font-medium rounded-md transition-all ${
-                  item.id === "achievements"
-                    ? "bg-primary text-primary-foreground"
-                    : "text-muted-foreground hover:text-foreground hover:bg-muted"
-                }`}
-              >
-                {item.label}
-              </Link>
-            ))}
-          </div>
-        </div>
-      </div>
-    </nav>
-  );
-};
-
-const PixelCard = ({ children, className }) => (
-  <div className={`p-1 border-2 border-white/10 shadow-2xl ${className}`}>
-    {children}
-  </div>
-);
 
 const curricular = [
   "Consistent Honors Student",
@@ -67,7 +28,7 @@ const extraCurricular = [
 ];
 
 const parseAchievement = (item) => {
-  const match = item.match(/^(.+?)\s*\$([^)]+)\$$/);
+  const match = item.match(/^(.+?)\s*\(([^)]+)\)$/);
   if (match) {
     return { title: match[1].trim(), year: match[2].trim() };
   }
@@ -144,71 +105,67 @@ export default function AchievementPage() {
             transition={{ duration: 0.6 }}
             className="w-full mx-auto"
           >
-            <PixelCard className="p-6 bg-card/80 border border-border rounded-2xl backdrop-blur-lg"> 
-              <div className="flex flex-col gap-4"> 
-                
-                <div className="flex-1">
-                  <h3 className="text-xl font-semibold text-primary mb-2 flex items-center gap-2 justify-center lg:justify-start">
-                    <GraduationCap className="w-5 h-5 text-purple-500" />
-                    Curricular
-                  </h3>
-                  <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-7 gap-1 text-left"> 
-                    {curricular.map((item, index) => {
-                      const { title, year } = parseAchievement(item);
-                      const Icon = getAchievementIcon(title);
-                      return (
-                        <motion.div
-                          key={index}
-                          initial={{ opacity: 0, scale: 0.8 }}
-                          whileInView={{ opacity: 1, scale: 1 }}
-                          transition={{ duration: 0.4, delay: index * 0.03 }}
-                          viewport={{ once: true }}
-                        >
-                          <PixelCard className="w-full h-32 p-2 bg-muted/60 border border-border rounded-xl flex flex-col items-center justify-center text-center shadow-lg"> 
-                            <Icon className="w-5 h-5 text-accent mb-0.5" /> 
-                            <div className="text-foreground text-xs font-bold leading-tight line-clamp-3">{title}</div>
-                            <div className="text-[11px] text-muted-foreground mt-0.5">
-                                {year || " "} 
-                            </div> 
-                          </PixelCard>
-                        </motion.div>
-                      );
-                    })}
-                  </div>
-                </div>
-
-                <div className="flex-1"> 
-                  <h3 className="text-xl font-semibold text-primary mb-2 flex items-center gap-2 justify-center lg:justify-start">
-                    <Trophy className="w-5 h-5 text-purple-500" />
-                    Extra Curricular
-                  </h3>
-                  <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-7 gap-1 text-left"> 
-                    {extraCurricular.map((item, index) => {
-                      const { title, year } = parseAchievement(item);
-                      const Icon = getAchievementIcon(title); 
-                      return (
-                        <motion.div
-                          key={index}
-                          initial={{ opacity: 0, scale: 0.8 }}
-                          whileInView={{ opacity: 1, scale: 1 }}
-                          transition={{ duration: 0.4, delay: index * 0.03 }}
-                          viewport={{ once: true }}
-                        >
-                          <PixelCard className="w-full h-32 p-2 bg-muted/60 border border-border rounded-xl flex flex-col items-center justify-center text-center shadow-lg"> 
-                            <Icon className="w-5 h-5 text-accent mb-0.5" /> 
-                            <div className="text-foreground text-xs font-bold leading-tight line-clamp-3">{title}</div>
-                            <div className="text-[11px] text-muted-foreground mt-0.5">
-                                {year || " "} 
-                            </div> 
-                          </PixelCard>
-                        </motion.div>
-                      );
-                    })}
-                  </div>
-                </div>
-
+            
+            <div className="mb-16">
+              <h3 className="text-xl font-semibold text-primary mb-6 flex items-center gap-2 justify-center lg:justify-start">
+                <GraduationCap className="w-5 h-5 text-purple-500" />
+                Curricular
+              </h3>
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 text-left"> 
+                {curricular.map((item, index) => {
+                  const { title, year } = parseAchievement(item);
+                  const Icon = getAchievementIcon(title);
+                  return (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.4, delay: index * 0.05 }}
+                      viewport={{ once: true }}
+                    >
+                      <PixelCard className="w-full h-40 p-4 bg-muted/60 border border-border rounded-xl flex flex-col items-center justify-center text-center shadow-lg hover:scale-105 hover:border-primary/50 transition-all duration-300"> 
+                        <Icon className="w-8 h-8 text-accent mb-2" /> 
+                        <div className="text-foreground text-xs font-bold leading-tight line-clamp-3 mb-2">{title}</div>
+                        <div className="text-[10px] text-muted-foreground bg-background/50 px-2 py-1 rounded-full">
+                            {year || "N/A"} 
+                        </div> 
+                      </PixelCard>
+                    </motion.div>
+                  );
+                })}
               </div>
-            </PixelCard>
+            </div>
+
+            <div className="mb-8"> 
+              <h3 className="text-xl font-semibold text-primary mb-6 flex items-center gap-2 justify-center lg:justify-start">
+                <Trophy className="w-5 h-5 text-purple-500" />
+                Extra Curricular
+              </h3>
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 text-left"> 
+                {extraCurricular.map((item, index) => {
+                  const { title, year } = parseAchievement(item);
+                  const Icon = getAchievementIcon(title); 
+                  return (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.4, delay: index * 0.05 }}
+                      viewport={{ once: true }}
+                    >
+                      <PixelCard className="w-full h-40 p-4 bg-muted/60 border border-border rounded-xl flex flex-col items-center justify-center text-center shadow-lg hover:scale-105 hover:border-primary/50 transition-all duration-300"> 
+                        <Icon className="w-8 h-8 text-accent mb-2" /> 
+                        <div className="text-foreground text-xs font-bold leading-tight line-clamp-3 mb-2">{title}</div>
+                        <div className="text-[10px] text-muted-foreground bg-background/50 px-2 py-1 rounded-full">
+                            {year || "N/A"} 
+                        </div> 
+                      </PixelCard>
+                    </motion.div>
+                  );
+                })}
+              </div>
+            </div>
+
           </motion.div>
         </div>
       </section>
