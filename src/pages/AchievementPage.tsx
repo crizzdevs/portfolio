@@ -55,13 +55,13 @@ const curricular = [
 ];
 
 const extraCurricular = [
-  "UBBING 5th District - Internal Secretary",
+  "UBBING 5th District - Internal Secretary (Ongoing)",
   "Leadership Award - House of the Representatives",
-  "Champion - LDFOT Bread & Pastry Production",
-  "2nd Place - Editorial Writing DSPC Elims",
-  "2nd Place - LD Reading-in-Tandem",
-  "3rd Place - Hydromusiklaban",
-  "3rd Place - Likhawitin",
+  "Champion - LDFOT Bread & Pastry Production (2024-2025)",
+  "2nd Place - Editorial Writing DSPC Elims (2024-2025)",
+  "2nd Place - LD Reading-in-Tandem (2024-2025)",
+  "3rd Place - Hydromusiklaban (2024-2025)",
+  "3rd Place - Likhawitin (2024-2025)",
 ];
 
 const parseAchievement = (item) => {
@@ -177,7 +177,7 @@ export default function AchievementPage() {
                       transition={{ duration: 0.4, delay: index * 0.05 }}
                       viewport={{ once: true }}
                     >
-                      <PixelCard className="w-full h-32 p-2 bg-muted/60 border border-border rounded-lg flex flex-col items-center justify-center text-center shadow-lg hover:scale-105 hover:border-primary/50 transition-all duration-300"> 
+                      <PixelCard className="w-full h-28 p-2 bg-muted/60 border border-border rounded-lg flex flex-col items-center justify-center text-center shadow-lg hover:scale-105 hover:border-primary/50 transition-all duration-300"> 
                         <Icon className="w-7 h-7 text-accent mb-1" /> 
                         <div className="text-foreground text-sm font-bold leading-tight line-clamp-3 mb-1">{title}</div>
                         {year && (
@@ -209,7 +209,7 @@ export default function AchievementPage() {
                       transition={{ duration: 0.4, delay: index * 0.05 }}
                       viewport={{ once: true }}
                     >
-                      <PixelCard className="w-full h-32 p-2 bg-muted/60 border border-border rounded-lg flex flex-col items-center justify-center text-center shadow-lg hover:scale-105 hover:border-primary/50 transition-all duration-300"> 
+                      <PixelCard className="w-full h-28 p-2 bg-muted/60 border border-border rounded-lg flex flex-col items-center justify-center text-center shadow-lg hover:scale-105 hover:border-primary/50 transition-all duration-300"> 
                         <Icon className="w-7 h-7 text-accent mb-1" /> 
                         <div className="text-foreground text-sm font-bold leading-tight line-clamp-3 mb-1">{title}</div>
                         {year && (
