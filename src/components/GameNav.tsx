@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { cn } from "@/lib/utils";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const navItems = [
   { id: "home", label: "Home", to: "/home", isPage: true }, // Link to home page with scroll
