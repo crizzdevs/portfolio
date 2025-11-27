@@ -138,7 +138,7 @@ export default function BatchmatesPage() {
             transition={{ duration: 0.6 }}
           >
             <Users className="w-8 h-8 text-purple-500" fill="currentColor" /> 
-            The Roster
+            My Batchmates
           </motion.h2>
 
           {/* MAIN LAYOUT: Left Grid - Image - Right Grid */}
