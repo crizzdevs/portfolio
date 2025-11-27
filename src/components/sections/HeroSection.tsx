@@ -1,9 +1,15 @@
 import { TypingText } from "../TypingText";
 import { PixelButton } from "../PixelButton";
 import pixelCharacter from "@/assets/pixel-character.png.png";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 export const HeroSection = () => {
+  const navigate = useNavigate();
+
+  const handleNext = () => {
+    navigate("/education");
+  };
+
   const scrollToContacts = () => {
     const element = document.getElementById("contact");
     if (element) {
@@ -16,6 +22,17 @@ export const HeroSection = () => {
       id="home"
       className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20"
     >
+      {/* Next Button */}
+      <div className="absolute right-4 top-1/2 transform -translate-y-1/2 z-20">
+        <button
+          onClick={handleNext}
+          className="bg-primary text-white p-3 rounded-full shadow-lg hover:bg-primary/80 transition-colors"
+          aria-label="Next"
+        >
+          &rarr;
+        </button>
+      </div>
+
       {/* Stars Background */}
       <div className="absolute inset-0 opacity-20">
         {[...Array(50)].map((_, i) => (
