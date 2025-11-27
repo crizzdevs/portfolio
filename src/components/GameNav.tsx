@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 import { Link, NavLink } from "react-router-dom";
 
 const navItems = [
-  { id: "home", label: "Home", to: "/home", isPage: true }, // Link to home page with scroll
+  { id: "home", label: "Home", to: "/", isPage: true }, // Link to home page with scroll
   { id: "education", label: "Education", to: "/education", isPage: true },
   { id: "achievements", label: "Achievements", to: "/achievements", isPage: true },
   { id: "myfamily", label: "MyFamily", to: "/myfamily", isPage: true },
