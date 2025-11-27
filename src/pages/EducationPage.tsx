@@ -1,8 +1,6 @@
 import { motion } from "framer-motion";
-import { ArrowLeft, GraduationCap, Trophy, Medal, Award, Crown, Feather, BookOpen, Star, Palette, Heart, Shield, Users, School } from "lucide-react";
+import { ArrowLeft, GraduationCap, Award, BookOpen, School } from "lucide-react";
 import { Link } from "react-router-dom";
-import { GameNav } from "@/components/GameNav";
-import { PixelCard } from "@/components/PixelCard.tsx";
 import olangoImg from "@/assets/olango-elementary.jpg";
 import malligJHS from "@/assets/mallig-jhs.png";
 import malligSHS from "@/assets/mallig-jhs.png";
@@ -140,57 +138,44 @@ export default function EducationPage() {
             transition={{ duration: 0.6 }}
             className="w-full mx-auto"
           >
-            <PixelCard className="p-6 bg-card/80 border border-border rounded-2xl backdrop-blur-lg"> 
-              <div className="flex flex-col gap-4"> 
-                
-                <div className="flex-1">
-                  <h3 className="text-xl font-semibold text-primary mb-2 flex items-center gap-2 justify-center lg:justify-start">
-                    <School className="w-5 h-5 text-purple-500" />
-                    Educational Background
-                  </h3>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left"> 
-                    {education.map((item, index) => {
-                      const Icon = item.icon;
-                      return (
-                        <motion.div
-                          key={index}
-                          initial={{ opacity: 0, scale: 0.8 }}
-                          whileInView={{ opacity: 1, scale: 1 }}
-                          transition={{ duration: 0.4, delay: index * 0.15 }}
-                          viewport={{ once: true }}
-                        >
-                          <PixelCard className="p-6 bg-muted/60 border border-border rounded-xl flex flex-col items-start justify-between text-center shadow-lg hover:scale-105 transition-all duration-300"> 
-                            <div className="flex items-start justify-between gap-4 w-full">
-                              {/* LEFT — TEXT */}
-                              <div className="flex-1">
-                                <div className="flex items-center mb-3 space-x-3">
-                                  <Icon className="w-6 h-6 text-accent" />
-                                  <h4 className="text-lg font-semibold text-foreground">
-                                    {item.title}
-                                  </h4>
-                                </div>
-                                <p className="text-sm text-muted-foreground">{item.year}</p>
-                                <p className="text-foreground font-medium">{item.institution}</p>
-                                <p className="text-muted-foreground text-sm mt-2">
-                                  {item.description}
-                                </p>
-                              </div>
-                              {/* RIGHT — IMAGE */}
-                              <img
-                                src={item.image}
-                                alt={item.title}
-                                className="w-20 h-20 rounded-lg object-cover border border-border"
-                              />
-                            </div>
-                          </PixelCard>
-                        </motion.div>
-                      );
-                    })}
-                  </div>
-                </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left"> 
+              {education.map((item, index) => {
+                const Icon = item.icon;
+                return (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.4, delay: index * 0.15 }}
+                    viewport={{ once: true }}
+                  >
+                    <PixelCard className="p-6 bg-muted/60 border border-border rounded-xl flex flex-col items-start justify-between text-center shadow-lg hover:scale-105 transition-all duration-300 h-full"> 
+                      <div className="flex items-start justify-between gap-4 w-full">
+                        <div className="flex-1">
+                          <div className="flex items-center mb-3 space-x-3">
+                            <Icon className="w-6 h-6 text-accent" />
+                            <h4 className="text-lg font-semibold text-foreground text-left">
+                              {item.title}
+                            </h4>
+                          </div>
+                          <p className="text-sm text-muted-foreground text-left">{item.year}</p>
+                          <p className="text-foreground font-medium text-left">{item.institution}</p>
+                          <p className="text-muted-foreground text-sm mt-2 text-left">
+                            {item.description}
+                          </p>
+                        </div>
+                        <img
+                          src={item.image}
+                          alt={item.title}
+                          className="w-20 h-20 rounded-lg object-cover border border-border shrink-0"
+                        />
+                      </div>
+                    </PixelCard>
+                  </motion.div>
+                );
+              })}
+            </div>
 
-              </div>
-            </PixelCard>
           </motion.div>
         </div>
       </section>
