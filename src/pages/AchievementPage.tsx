@@ -55,17 +55,17 @@ const curricular = [
 ];
 
 const extraCurricular = [
-  "UBBING 5th District - Internal Secretary (Ongoing)",
+  "UBBING 5th District - Internal Secretary",
   "Leadership Award - House of the Representatives",
-  "Champion - LDFOT Bread & Pastry Production (2024-2025)",
-  "2nd Place - Editorial Writing DSPC Elims (2024-2025)",
-  "2nd Place - LD Reading-in-Tandem (2024-2025)",
-  "3rd Place - Hydromusiklaban (2024-2025)",
-  "3rd Place - Likhawitin (2024-2025)",
+  "Champion - LDFOT Bread & Pastry Production",
+  "2nd Place - Editorial Writing DSPC Elims",
+  "2nd Place - LD Reading-in-Tandem",
+  "3rd Place - Hydromusiklaban",
+  "3rd Place - Likhawitin",
 ];
 
 const parseAchievement = (item) => {
-  const match = item.match(/^(.+?)\s*\$([^)]+)\$$/);
+  const match = item.match(/^(.+?)\s*\(([^)]+)\)$/);
   if (match) {
     return { title: match[1].trim(), year: match[2].trim() };
   }
@@ -165,7 +165,7 @@ export default function AchievementPage() {
                 <GraduationCap className="w-4 h-4 text-purple-500" />
                 Curricular
               </h3>
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-1 text-left"> 
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 text-left"> 
                 {curricular.map((item, index) => {
                   const { title, year } = parseAchievement(item);
                   const Icon = getAchievementIcon(title);
@@ -177,12 +177,14 @@ export default function AchievementPage() {
                       transition={{ duration: 0.4, delay: index * 0.05 }}
                       viewport={{ once: true }}
                     >
-                      <PixelCard className="w-full h-24 p-1 bg-muted/60 border border-border rounded-lg flex flex-col items-center justify-center text-center shadow-lg hover:scale-105 hover:border-primary/50 transition-all duration-300"> 
-                        <Icon className="w-5 h-5 text-accent mb-0.5" /> 
-                        <div className="text-foreground text-[10px] font-bold leading-tight line-clamp-3 mb-0.5">{title}</div>
-                        <div className="text-[9px] text-muted-foreground bg-background/50 px-0.5 py-0.25 rounded-full">
-                            {year || " "} 
-                        </div> 
+                      <PixelCard className="w-full h-32 p-2 bg-muted/60 border border-border rounded-lg flex flex-col items-center justify-center text-center shadow-lg hover:scale-105 hover:border-primary/50 transition-all duration-300"> 
+                        <Icon className="w-6 h-6 text-accent mb-1" /> 
+                        <div className="text-foreground text-xs font-bold leading-tight line-clamp-3 mb-1">{title}</div>
+                        {year && (
+                          <div className="text-[10px] text-muted-foreground bg-background/50 px-1 py-0.5 rounded-full">
+                            {year}
+                          </div>
+                        )}
                       </PixelCard>
                     </motion.div>
                   );
@@ -195,7 +197,7 @@ export default function AchievementPage() {
                 <Trophy className="w-4 h-4 text-purple-500" />
                 Extra Curricular
               </h3>
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-1 text-left"> 
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 text-left"> 
                 {extraCurricular.map((item, index) => {
                   const { title, year } = parseAchievement(item);
                   const Icon = getAchievementIcon(title); 
@@ -207,12 +209,14 @@ export default function AchievementPage() {
                       transition={{ duration: 0.4, delay: index * 0.05 }}
                       viewport={{ once: true }}
                     >
-                      <PixelCard className="w-full h-24 p-1 bg-muted/60 border border-border rounded-lg flex flex-col items-center justify-center text-center shadow-lg hover:scale-105 hover:border-primary/50 transition-all duration-300"> 
-                        <Icon className="w-5 h-5 text-accent mb-0.5" /> 
-                        <div className="text-foreground text-[10px] font-bold leading-tight line-clamp-3 mb-0.5">{title}</div>
-                        <div className="text-[9px] text-muted-foreground bg-background/50 px-0.5 py-0.25 rounded-full">
-                            {year || "2024-2025"} 
-                        </div> 
+                      <PixelCard className="w-full h-32 p-2 bg-muted/60 border border-border rounded-lg flex flex-col items-center justify-center text-center shadow-lg hover:scale-105 hover:border-primary/50 transition-all duration-300"> 
+                        <Icon className="w-6 h-6 text-accent mb-1" /> 
+                        <div className="text-foreground text-xs font-bold leading-tight line-clamp-3 mb-1">{title}</div>
+                        {year && (
+                          <div className="text-[10px] text-muted-foreground bg-background/50 px-1 py-0.5 rounded-full">
+                            {year}
+                          </div>
+                        )}
                       </PixelCard>
                     </motion.div>
                   );
