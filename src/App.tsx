@@ -8,7 +8,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import EducationPage from "@/pages/EducationPage";
 import AchievementPage from "@/pages/AchievementPage";
 import MyFamily from "@/pages/MyFamily";
-import Batchmates from "@pages/Batchmates";
+import MyBatchmates from "@/pages/MyBatchmates";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import "./index.css";
