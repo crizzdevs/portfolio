@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowLeft, GraduationCap, Trophy, Medal, Award, Crown, Feather, BookOpen, Star, Palette, Heart, Shield, Users } from "lucide-react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { GameNav } from "@/components/GameNav";
 import { PixelCard } from "@/components/PixelCard.tsx";
 
