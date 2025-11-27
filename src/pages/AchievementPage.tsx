@@ -165,7 +165,7 @@ export default function AchievementPage() {
                 <GraduationCap className="w-4 h-4 text-purple-500" />
                 Curricular
               </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 text-left"> 
+              <div className="grid grid-cols-5 gap-2 text-left"> 
                 {curricular.map((item, index) => {
                   const { title, year } = parseAchievement(item);
                   const Icon = getAchievementIcon(title);
@@ -178,10 +178,10 @@ export default function AchievementPage() {
                       viewport={{ once: true }}
                     >
                       <PixelCard className="w-full h-32 p-2 bg-muted/60 border border-border rounded-lg flex flex-col items-center justify-center text-center shadow-lg hover:scale-105 hover:border-primary/50 transition-all duration-300"> 
-                        <Icon className="w-6 h-6 text-accent mb-1" /> 
-                        <div className="text-foreground text-xs font-bold leading-tight line-clamp-3 mb-1">{title}</div>
+                        <Icon className="w-7 h-7 text-accent mb-1" /> 
+                        <div className="text-foreground text-sm font-bold leading-tight line-clamp-3 mb-1">{title}</div>
                         {year && (
-                          <div className="text-[10px] text-muted-foreground bg-background/50 px-1 py-0.5 rounded-full">
+                          <div className="text-xs text-muted-foreground bg-background/50 px-1 py-0.5 rounded-full">
                             {year}
                           </div>
                         )}
@@ -197,7 +197,7 @@ export default function AchievementPage() {
                 <Trophy className="w-4 h-4 text-purple-500" />
                 Extra Curricular
               </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 text-left"> 
+              <div className="grid grid-cols-5 gap-2 text-left"> 
                 {extraCurricular.map((item, index) => {
                   const { title, year } = parseAchievement(item);
                   const Icon = getAchievementIcon(title); 
@@ -210,10 +210,10 @@ export default function AchievementPage() {
                       viewport={{ once: true }}
                     >
                       <PixelCard className="w-full h-32 p-2 bg-muted/60 border border-border rounded-lg flex flex-col items-center justify-center text-center shadow-lg hover:scale-105 hover:border-primary/50 transition-all duration-300"> 
-                        <Icon className="w-6 h-6 text-accent mb-1" /> 
-                        <div className="text-foreground text-xs font-bold leading-tight line-clamp-3 mb-1">{title}</div>
+                        <Icon className="w-7 h-7 text-accent mb-1" /> 
+                        <div className="text-foreground text-sm font-bold leading-tight line-clamp-3 mb-1">{title}</div>
                         {year && (
-                          <div className="text-[10px] text-muted-foreground bg-background/50 px-1 py-0.5 rounded-full">
+                          <div className="text-xs text-muted-foreground bg-background/50 px-1 py-0.5 rounded-full">
                             {year}
                           </div>
                         )}
