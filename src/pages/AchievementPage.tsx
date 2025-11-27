@@ -127,7 +127,7 @@ export default function AchievementPage() {
         <div className="container mx-auto text-center px-6 max-w-7xl relative z-10">
           
           <motion.h2
-            className="text-2xl font-bold mb-8 text-primary flex items-center justify-center gap-3"
+            className="text-3xl font-bold mb-8 text-primary flex items-center justify-center gap-3"
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -144,7 +144,7 @@ export default function AchievementPage() {
           >
             
             <div className="mb-6">
-              <h3 className="text-base font-semibold text-primary mb-3 flex items-center gap-2 justify-center lg:justify-start">
+              <h3 className="text-lg font-semibold text-primary mb-3 flex items-center gap-2 justify-center lg:justify-start">
                 <GraduationCap className="w-3 h-3 text-purple-500" />
                 Curricular
               </h3>
@@ -174,7 +174,7 @@ export default function AchievementPage() {
             </div>
 
             <div className="mb-2"> 
-              <h3 className="text-base font-semibold text-primary mb-3 flex items-center gap-2 justify-center lg:justify-start">
+              <h3 className="text-lg font-semibold text-primary mb-3 flex items-center gap-2 justify-center lg:justify-start">
                 <Trophy className="w-3 h-3 text-purple-500" />
                 Extra Curricular
               </h3>
