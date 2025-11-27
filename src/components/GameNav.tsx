@@ -11,7 +11,7 @@ const navItems = [
   { id: "batchmates", label: "Batchmates", to: "/batchmates", isPage: true },
 ];
 
-export default function GameNav() {
+export const GameNav = () => {
   const location = useLocation();
   const [active, setActive] = useState("home");
 
@@ -40,13 +40,11 @@ export default function GameNav() {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           
-          {/* 2. LOGO REPLACEMENT */}
           <Link 
             to="/" 
             className="flex items-center gap-2 hover:opacity-80 transition-opacity"
             onClick={() => handleNavClick("home", "/")}
           >
-            {/* You can adjust h-8 (height) to make it bigger or smaller */}
             <img 
               src={logoImg} 
               alt="crizzdevs logo" 
@@ -56,7 +54,6 @@ export default function GameNav() {
 
           <div className="flex gap-1 sm:gap-2 overflow-x-auto no-scrollbar">
             {navItems.map((item) => {
-              // Highlight logic: strict match for pages, special case for home
               const isActive = location.pathname === item.to || (item.id === "home" && location.pathname === "/");
 
               return (
@@ -80,4 +77,4 @@ export default function GameNav() {
       </div>
     </nav>
   );
-}
+};
