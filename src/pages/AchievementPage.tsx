@@ -65,7 +65,7 @@ const extraCurricular = [
 ];
 
 const parseAchievement = (item) => {
-  const match = item.match(/^(.+?)\s*\(([^)]+)\)$/);
+  const match = item.match(/^(.+?)\s*\$([^)]+)\$$/);
   if (match) {
     return { title: match[1].trim(), year: match[2].trim() };
   }
@@ -127,12 +127,12 @@ export default function AchievementPage() {
         <div className="container mx-auto text-center px-6 max-w-7xl relative z-10">
           
           <motion.h2
-            className="text-3xl font-bold mb-8 text-primary flex items-center justify-center gap-3"
+            className="text-4xl font-bold mb-8 text-primary flex items-center justify-center gap-3"
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <Medal className="w-5 h-5 text-purple-500" fill="currentColor" /> 
+            <Medal className="w-6 h-6 text-purple-500" fill="currentColor" /> 
             Achievements
           </motion.h2>
 
@@ -144,8 +144,8 @@ export default function AchievementPage() {
           >
             
             <div className="mb-6">
-              <h3 className="text-lg font-semibold text-primary mb-3 flex items-center gap-2 justify-center lg:justify-start">
-                <GraduationCap className="w-3 h-3 text-purple-500" />
+              <h3 className="text-xl font-semibold text-primary mb-3 flex items-center gap-2 justify-center lg:justify-start">
+                <GraduationCap className="w-4 h-4 text-purple-500" />
                 Curricular
               </h3>
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-1 text-left"> 
@@ -162,8 +162,8 @@ export default function AchievementPage() {
                     >
                       <PixelCard className="w-full h-24 p-1 bg-muted/60 border border-border rounded-lg flex flex-col items-center justify-center text-center shadow-lg hover:scale-105 hover:border-primary/50 transition-all duration-300"> 
                         <Icon className="w-5 h-5 text-accent mb-0.5" /> 
-                        <div className="text-foreground text-[9px] font-bold leading-tight line-clamp-3 mb-0.5">{title}</div>
-                        <div className="text-[8px] text-muted-foreground bg-background/50 px-0.5 py-0.25 rounded-full">
+                        <div className="text-foreground text-[10px] font-bold leading-tight line-clamp-3 mb-0.5">{title}</div>
+                        <div className="text-[9px] text-muted-foreground bg-background/50 px-0.5 py-0.25 rounded-full">
                             {year || " "} 
                         </div> 
                       </PixelCard>
@@ -174,8 +174,8 @@ export default function AchievementPage() {
             </div>
 
             <div className="mb-2"> 
-              <h3 className="text-lg font-semibold text-primary mb-3 flex items-center gap-2 justify-center lg:justify-start">
-                <Trophy className="w-3 h-3 text-purple-500" />
+              <h3 className="text-xl font-semibold text-primary mb-3 flex items-center gap-2 justify-center lg:justify-start">
+                <Trophy className="w-4 h-4 text-purple-500" />
                 Extra Curricular
               </h3>
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-1 text-left"> 
@@ -192,8 +192,8 @@ export default function AchievementPage() {
                     >
                       <PixelCard className="w-full h-24 p-1 bg-muted/60 border border-border rounded-lg flex flex-col items-center justify-center text-center shadow-lg hover:scale-105 hover:border-primary/50 transition-all duration-300"> 
                         <Icon className="w-5 h-5 text-accent mb-0.5" /> 
-                        <div className="text-foreground text-[9px] font-bold leading-tight line-clamp-3 mb-0.5">{title}</div>
-                        <div className="text-[8px] text-muted-foreground bg-background/50 px-0.5 py-0.25 rounded-full">
+                        <div className="text-foreground text-[10px] font-bold leading-tight line-clamp-3 mb-0.5">{title}</div>
+                        <div className="text-[9px] text-muted-foreground bg-background/50 px-0.5 py-0.25 rounded-full">
                             {year || "2024-2025"} 
                         </div> 
                       </PixelCard>
