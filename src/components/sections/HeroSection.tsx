@@ -86,7 +86,7 @@ export const HeroSection = () => {
 
               <Navlink to="/myfamily">
                 <PixelButton variant="accent">
-                My Familly
+                  My Familly
                 </PixelButton>
               </Navlink>
             </div>
