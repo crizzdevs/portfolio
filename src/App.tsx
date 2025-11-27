@@ -67,7 +67,7 @@ const App = () => {
             <Route path="/education" element={<EducationPage />} />
             <Route path="/achievements" element={<AchievementPage />} />
             <Route path="/myfamily" element={<MyFamily />} />
-            <Route path="/batchmates" element={<Batchmates />} />
+            <Route path="/mybatchmates" element={<MyBatchmates />} />
           </Routes>
         </BrowserRouter>
       </TooltipProvider>
