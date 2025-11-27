@@ -108,7 +108,7 @@ export default function AchievementPage() {
         </Link>
       </motion.div>
 
-      <section id="achievements" className="py-8 pt-16 text-foreground relative overflow-hidden">
+      <section id="achievements" className="py-10 pt-20 text-foreground relative overflow-hidden">
         <div className="absolute inset-0 opacity-20">
           {[...Array(50)].map((_, i) => (
             <div
@@ -127,7 +127,7 @@ export default function AchievementPage() {
         <div className="container mx-auto text-center px-6 max-w-7xl relative z-10">
           
           <motion.h2
-            className="text-2xl font-bold mb-6 text-primary flex items-center justify-center gap-3"
+            className="text-2xl font-bold mb-8 text-primary flex items-center justify-center gap-3"
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -160,10 +160,10 @@ export default function AchievementPage() {
                       transition={{ duration: 0.4, delay: index * 0.05 }}
                       viewport={{ once: true }}
                     >
-                      <PixelCard className="w-full h-20 p-1 bg-muted/60 border border-border rounded-lg flex flex-col items-center justify-center text-center shadow-lg hover:scale-105 hover:border-primary/50 transition-all duration-300"> 
-                        <Icon className="w-4 h-4 text-accent mb-0.5" /> 
-                        <div className="text-foreground text-[8px] font-bold leading-tight line-clamp-3 mb-0.5">{title}</div>
-                        <div className="text-[7px] text-muted-foreground bg-background/50 px-0.5 py-0.25 rounded-full">
+                      <PixelCard className="w-full h-24 p-1 bg-muted/60 border border-border rounded-lg flex flex-col items-center justify-center text-center shadow-lg hover:scale-105 hover:border-primary/50 transition-all duration-300"> 
+                        <Icon className="w-5 h-5 text-accent mb-0.5" /> 
+                        <div className="text-foreground text-[9px] font-bold leading-tight line-clamp-3 mb-0.5">{title}</div>
+                        <div className="text-[8px] text-muted-foreground bg-background/50 px-0.5 py-0.25 rounded-full">
                             {year || " "} 
                         </div> 
                       </PixelCard>
@@ -190,10 +190,10 @@ export default function AchievementPage() {
                       transition={{ duration: 0.4, delay: index * 0.05 }}
                       viewport={{ once: true }}
                     >
-                      <PixelCard className="w-full h-20 p-1 bg-muted/60 border border-border rounded-lg flex flex-col items-center justify-center text-center shadow-lg hover:scale-105 hover:border-primary/50 transition-all duration-300"> 
-                        <Icon className="w-4 h-4 text-accent mb-0.5" /> 
-                        <div className="text-foreground text-[8px] font-bold leading-tight line-clamp-3 mb-0.5">{title}</div>
-                        <div className="text-[7px] text-muted-foreground bg-background/50 px-0.5 py-0.25 rounded-full">
+                      <PixelCard className="w-full h-24 p-1 bg-muted/60 border border-border rounded-lg flex flex-col items-center justify-center text-center shadow-lg hover:scale-105 hover:border-primary/50 transition-all duration-300"> 
+                        <Icon className="w-5 h-5 text-accent mb-0.5" /> 
+                        <div className="text-foreground text-[9px] font-bold leading-tight line-clamp-3 mb-0.5">{title}</div>
+                        <div className="text-[8px] text-muted-foreground bg-background/50 px-0.5 py-0.25 rounded-full">
                             {year || "2024-2025"} 
                         </div> 
                       </PixelCard>
