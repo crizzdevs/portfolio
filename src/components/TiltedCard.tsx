@@ -1,6 +1,5 @@
-import type { SpringOptions } from 'motion/react';
 import { useRef, useState } from 'react';
-import { motion, useMotionValue, useSpring } from 'motion/react';
+import { motion, useMotionValue, useSpring } from 'framer-motion';
 
 interface TiltedCardProps {
   imageSrc: React.ComponentProps<'img'>['src'];
@@ -18,7 +17,7 @@ interface TiltedCardProps {
   displayOverlayContent?: boolean;
 }
 
-const springValues: SpringOptions = {
+const springValues = {
   damping: 30,
   stiffness: 100,
   mass: 2
