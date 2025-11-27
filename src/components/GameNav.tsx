@@ -7,7 +7,6 @@ const navItems = [
   { id: "education", label: "Education", to: "/education", isPage: true },
   { id: "achievements", label: "Achievements", to: "/achievements", isPage: true },
   { id: "myfamily", label: "MyFamily", to: "/myfamily", isPage: true },
-  { id: "mybatchmates", label: "MyBatchmates", to: "/mybatchmates", isPage: true },
 ];
 
 export const GameNav = () => {
