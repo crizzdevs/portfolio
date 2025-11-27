@@ -1,5 +1,5 @@
-import { TypingText } from "../TypingText";
-import { PixelButton } from "../PixelButton";
+import { TypingText } from "@/components/TypingText";
+import { PixelButton } from "@/components/PixelButton";
 import pixelCharacter from "@/assets/pixel-character.png.png";
 import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
