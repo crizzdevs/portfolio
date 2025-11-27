@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowLeft, Users, Heart, Anchor, Book } from "lucide-react"; 
+import { ArrowLeft, Users, Hammer, ChefHat, BookOpen } from "lucide-react"; 
 import { Link } from "react-router-dom";
 import { GameNav } from "@/components/GameNav";
 import { PixelCard } from "@/components/PixelCard"; 
