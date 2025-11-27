@@ -110,7 +110,7 @@ export default function FamilyPage() {
         transition={{ duration: 0.5, delay: 0.5 }}
       >
         <Link
-          to="/"
+          to="/mybatchmates"
           className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground font-medium rounded-lg hover:bg-primary/90 transition-all duration-300 shadow-lg hover:shadow-xl text-sm"
         >
           NEXT
