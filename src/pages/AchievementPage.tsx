@@ -1,98 +1,24 @@
+import { TypingText } from "../TypingText";
+import { PixelButton } from "../PixelButton";
+import pixelCharacter from "@/assets/pixel-character.png.png";
+import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowLeft, ArrowRight, GraduationCap, Trophy, Medal, Award, Crown, Feather, BookOpen, Star, Palette, Users, Shield } from "lucide-react";
-import { Link, useLocation } from "react-router-dom";
-import { GameNav } from "@/components/GameNav";
-import { PixelCard } from "@/components/PixelCard.tsx";
+import { ArrowLeft, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
-const GameNav = () => {
-  const location = useLocation();
-  const navItems = [
-    { id: "home", label: "Home", to: "/#home" },
-    { id: "education", label: "Education", to: "/education", isPage: true },
-    { id: "achievements", label: "Achievements", to: "/achievements", isPage: true },
-    { id: "myfamily", label: "MyFamily", to: "/myfamily", isPage: true },
-  ];
+export const HeroSection = () => {
+  const scrollToContacts = () => {
+    const element = document.getElementById("contact");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-card/80 backdrop-blur-lg border-b border-border">
-      <div className="container mx-auto px-4 py-4">
-        <div className="flex items-center justify-between">
-          <div className="text-primary font-semibold text-base sm:text-lg">crizzdevs</div>
-          <div className="flex gap-1 sm:gap-2">
-            {navItems.map((item) => {
-              const isActive = item.isPage ? location.pathname === item.to : location.pathname === "/" && item.id === "home";
-              return (
-                <Link
-                  key={item.id}
-                  to={item.to}
-                  className={`px-3 sm:px-4 py-2 text-sm font-medium rounded-md transition-all ${
-                    isActive
-                      ? "bg-primary text-primary-foreground"
-                      : "text-muted-foreground hover:text-foreground hover:bg-muted"
-                  }`}
-                >
-                  {item.label}
-                </Link>
-              );
-            })}
-          </div>
-        </div>
-      </div>
-    </nav>
-  );
-};
-
-const curricular = [
-  "Consistent Honors Student",
-  "Editor in Chief - The Mega Flash (2023-2024)",
-  "Barkada Kontra Bisyo - President (2024-2025)",
-  "Outstanding Performance - Social Sciences (2024-2025)",
-  "Outstanding Performance - Research (2024-2025)",
-  "Outstanding Performance - Work Immersion (2024-2025)",
-  "Leadership Award - Gold Medal (2024-2025)",
-  "Champion - School Based Editorial Writing (2022-2023)",
-  "Champion - School Based Editorial Writing (2023-2024)",
-  "Champion - Digital Poster Making (2024-2025)",
-];
-
-const extraCurricular = [
-  "UBBING 5th District - Internal Secretary (Ongoing)",
-  "Leadership Award - House of the Representatives",
-  "Champion - LDFOT Bread & Pastry Production (2024-2025)",
-  "2nd Place - Editorial Writing DSPC Elims (2024-2025)",
-  "2nd Place - LD Reading-in-Tandem (2024-2025)",
-  "3rd Place - Hydromusiklaban (2024-2025)",
-  "3rd Place - Likhawitin (2024-2025)",
-];
-
-const parseAchievement = (item) => {
-  const match = item.match(/^(.+?)\s*\$([^)]+)\$$/);
-  if (match) {
-    return { title: match[1].trim(), year: match[2].trim() };
-  }
-  return { title: item, year: "" };
-};
-
-const getAchievementIcon = (title) => {
-  const lowerTitle = title.toLowerCase();
-  
-  if (lowerTitle.includes("consistent honors") || lowerTitle.includes("gold medal")) return Award;
-  if (lowerTitle.includes("leadership")) return Crown;
-  if (lowerTitle.includes("editor in chief")) return Feather;
-  if (lowerTitle.includes("outstanding performance")) return Star;
-  if (lowerTitle.includes("research")) return BookOpen;
-  if (lowerTitle.includes("work immersion") || lowerTitle.includes("social sciences")) return Shield;
-  if (lowerTitle.includes("champion") || lowerTitle.includes("winning")) return Trophy;
-  if (lowerTitle.includes("poster making")) return Palette;
-  if (lowerTitle.includes("president")) return Users;
-  
-  return GraduationCap;
-};
-
-export default function AchievementPage() {
-  return (
-    <div className="min-h-screen bg-background font-sans">
-      <GameNav />
-      
+    <section
+      id="home"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20"
+    >
       {/* Prev Button */}
       <motion.div
         className="fixed bottom-4 left-4 z-40"
@@ -101,7 +27,7 @@ export default function AchievementPage() {
         transition={{ duration: 0.5, delay: 0.5 }}
       >
         <Link
-          to="/education"
+          to="/myfamily"
           className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground font-medium rounded-lg hover:bg-primary/90 transition-all duration-300 shadow-lg hover:shadow-xl text-sm"
         >
           <ArrowLeft className="w-4 h-4" />
@@ -117,7 +43,7 @@ export default function AchievementPage() {
         transition={{ duration: 0.5, delay: 0.5 }}
       >
         <Link
-          to="/myfamily"
+          to="/education"
           className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground font-medium rounded-lg hover:bg-primary/90 transition-all duration-300 shadow-lg hover:shadow-xl text-sm"
         >
           NEXT
@@ -125,104 +51,141 @@ export default function AchievementPage() {
         </Link>
       </motion.div>
 
-      <section id="achievements" className="py-10 pt-20 text-foreground relative overflow-hidden">
-        <div className="absolute inset-0 opacity-20">
-          {[...Array(50)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute bg-accent"
-              style={{
-                width: "4px",
-                height: "4px",
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-              }}
-            />
-          ))}
-        </div>
+      {/* Stars Background */}
+      <div className="absolute inset-0 opacity-20">
+        {[...Array(50)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute bg-accent"
+            style={{
+              width: "4px",
+              height: "4px",
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              animation: `blink ${2 + Math.random() * 3}s infinite ${Math.random() * 2}s`,
+            }}
+          />
+        ))}
+      </div>
 
-        <div className="container mx-auto text-center px-6 max-w-7xl relative z-10">
+      {/* Content */}
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="grid md:grid-cols-2 gap-12 items-center">
           
-          <motion.h2
-            className="text-4xl font-bold mb-8 text-primary flex items-center justify-center gap-3"
-            initial={{ opacity: 0, y: -20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <Medal className="w-6 h-6 text-purple-500" fill="currentColor" /> 
-            Achievements
-          </motion.h2>
+          {/* ================= LEFT SIDE ================= */}
+          <div className="space-y-8">
+            <div className="space-y-4">
+              <div className="text-accent text-sm font-medium mb-2">
+                HEYYOOO! 👋
+              </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="w-full mx-auto"
-          >
-            
-            <div className="mb-6">
-              <h3 className="text-xl font-semibold text-primary mb-3 flex items-center gap-2 justify-center lg:justify-start">
-                <GraduationCap className="w-4 h-4 text-purple-500" />
-                Curricular
-              </h3>
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-1 text-left"> 
-                {curricular.map((item, index) => {
-                  const { title, year } = parseAchievement(item);
-                  const Icon = getAchievementIcon(title);
-                  return (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      transition={{ duration: 0.4, delay: index * 0.05 }}
-                      viewport={{ once: true }}
-                    >
-                      <PixelCard className="w-full h-24 p-1 bg-muted/60 border border-border rounded-lg flex flex-col items-center justify-center text-center shadow-lg hover:scale-105 hover:border-primary/50 transition-all duration-300"> 
-                        <Icon className="w-5 h-5 text-accent mb-0.5" /> 
-                        <div className="text-foreground text-[10px] font-bold leading-tight line-clamp-3 mb-0.5">{title}</div>
-                        <div className="text-[9px] text-muted-foreground bg-background/50 px-0.5 py-0.25 rounded-full">
-                            {year || " "} 
-                        </div> 
-                      </PixelCard>
-                    </motion.div>
-                  );
-                })}
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
+                <TypingText text="Hi, I'm Cris!" speed={80} />
+              </h1>
+
+              <h2 className="text-lg sm:text-xl md:text-2xl text-primary font-semibold">
+                Aspiring Software Developer
+              </h2>
+
+              {/* About */}
+              <div className="text-sm sm:text-base text-muted-foreground space-y-4 max-w-lg leading-relaxed">
+                <p>
+                  I’m an <strong>18-year-old Computer Science student</strong> at the
+                  <strong className="text-accent"> University of the Cordilleras</strong>. My passion lies in
+                  <strong className="text-accent"> software development</strong>,
+                  <strong className="text-accent"> artificial intelligence</strong>,
+                  and <strong className="text-accent"> machine learning</strong>.
+                </p>
+
+                <p>
+                  I love exploring how technology and creativity can merge to build intelligent,
+                  human-centered solutions. My long-term goal is to create software that enhances
+                  productivity, learning, and accessibility for everyone.
+                </p>
               </div>
             </div>
 
-            <div className="mb-2"> 
-              <h3 className="text-xl font-semibold text-primary mb-3 flex items-center gap-2 justify-center lg:justify-start">
-                <Trophy className="w-4 h-4 text-purple-500" />
-                Extra Curricular
-              </h3>
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-1 text-left"> 
-                {extraCurricular.map((item, index) => {
-                  const { title, year } = parseAchievement(item);
-                  const Icon = getAchievementIcon(title); 
-                  return (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      transition={{ duration: 0.4, delay: index * 0.05 }}
-                      viewport={{ once: true }}
-                    >
-                      <PixelCard className="w-full h-24 p-1 bg-muted/60 border border-border rounded-lg flex flex-col items-center justify-center text-center shadow-lg hover:scale-105 hover:border-primary/50 transition-all duration-300"> 
-                        <Icon className="w-5 h-5 text-accent mb-0.5" /> 
-                        <div className="text-foreground text-[10px] font-bold leading-tight line-clamp-3 mb-0.5">{title}</div>
-                        <div className="text-[9px] text-muted-foreground bg-background/50 px-0.5 py-0.25 rounded-full">
-                            {year || "2024-2025"} 
-                        </div> 
-                      </PixelCard>
-                    </motion.div>
-                  );
-                })}
-              </div>
+            {/* Buttons */}
+            <div className="flex gap-4">
+              <NavLink to="/education">
+                <PixelButton variant="secondary">
+                  Education
+                </PixelButton>
+              </NavLink>
+
+              <NavLink to="/achievements">
+                <PixelButton variant="primary">
+                  Achievements
+                </PixelButton>
+              </NavLink>
+
+              <NavLink to="/myfamily">
+                <PixelButton variant="accent">
+                  My Familly
+                </PixelButton>
+              </NavLink>
+            </div>
+          </div>
+          {/* <<<<<< THIS DIV WAS MISSING BEFORE */}
+
+          {/* ================= RIGHT SIDE ================= */}
+          <div className="flex flex-col items-center gap-6">
+            <div className="relative">
+              <div className="absolute inset-0 rounded-full border-4 border-primary blur-md opacity-50 animate-pulse"></div>
+              <img
+                src={pixelCharacter}
+                alt="Profile illustration of Cris Julian"
+                className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-full object-cover z-10 shadow-lg"
+              />
             </div>
 
-          </motion.div>
+            {/* Code Editor Box */}
+            <div className="bg-[#1e1e1e] text-gray-200 border border-border rounded-xl shadow-2xl w-[360px] sm:w-[420px] md:w-[480px] p-5 font-mono relative overflow-hidden">
+              <div className="flex gap-2 mb-3">
+                <span className="w-3 h-3 rounded-full bg-red-500" />
+                <span className="w-3 h-3 rounded-full bg-yellow-400" />
+                <span className="w-3 h-3 rounded-full bg-green-500" />
+              </div>
+
+              <pre className="text-sm leading-relaxed flex">
+                <code className="select-none text-gray-500 pr-4 border-r border-gray-700">
+{`1
+2
+3
+4
+5
+6`}
+                </code>
+
+                <code className="pl-4">
+                  <span className="text-purple-400">class</span>{" "}
+                  <span className="text-blue-400">Student</span> {"{"}
+                  {"\n    "}
+                  <span className="text-green-400">String</span>{" "}
+                  <span className="text-white">name</span> ={" "}
+                  <span className="text-yellow-300">"Cris Julian R. Abuan"</span>;
+                  {"\n    "}
+                  <span className="text-green-400">int</span>{" "}
+                  <span className="text-white">age</span> ={" "}
+                  <span className="text-blue-300">18</span>;
+                  {"\n    "}
+                  <span className="text-green-400">String</span>{" "}
+                  <span className="text-white">sex</span> ={" "}
+                  <span className="text-yellow-300">"Male"</span>;
+                  {"\n    "}
+                  <span className="text-green-400">String</span>{" "}
+                  <span className="text-white">dream</span> ={" "}
+                  <span className="text-yellow-300">"To get RICH"</span>;
+                  {"\n}"}
+                </code>
+              </pre>
+
+              <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 via-accent/10 to-secondary/10 blur-3xl pointer-events-none" />
+            </div>
+          </div>
+
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
   );
-}
+};
