@@ -157,8 +157,8 @@ export default function BatchmatesPage() {
                   key={`left-${index}`}
                   variants={itemVariants}
                 >
-                  <PixelCard className="w-full h-16 p-1 bg-muted/60 border border-border rounded-lg flex items-center justify-center text-center shadow-lg hover:scale-105 hover:border-primary/50 transition-all duration-300">
-                    <div className="text-foreground text-[9px] font-bold leading-tight uppercase tracking-wide whitespace-nowrap">
+                  <PixelCard className="w-full h-16 p-1 bg-muted/60 border border-border rounded-lg flex items-center justify-center text-center shadow-lg hover:scale-105 hover:border-primary/50 transition-all duration-300 overflow-hidden">
+                    <div className="text-foreground text-[7px] font-bold leading-tight uppercase tracking-wide">
                       {name}
                     </div>
                   </PixelCard>
@@ -209,8 +209,8 @@ export default function BatchmatesPage() {
                   key={`right-${index}`}
                   variants={itemVariants}
                 >
-                  <PixelCard className="w-full h-16 p-1 bg-muted/60 border border-border rounded-lg flex items-center justify-center text-center shadow-lg hover:scale-105 hover:border-primary/50 transition-all duration-300">
-                    <div className="text-foreground text-[9px] font-bold leading-tight uppercase tracking-wide whitespace-nowrap">
+                  <PixelCard className="w-full h-16 p-1 bg-muted/60 border border-border rounded-lg flex items-center justify-center text-center shadow-lg hover:scale-105 hover:border-primary/50 transition-all duration-300 overflow-hidden">
+                    <div className="text-foreground text-[7px] font-bold leading-tight uppercase tracking-wide">
                       {name}
                     </div>
                   </PixelCard>
