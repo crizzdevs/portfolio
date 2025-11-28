@@ -74,7 +74,7 @@ const familyMembers = [
     role: "My Sister",
     name: "Junabelle R. Abuan", 
     age: "20 years old",
-    details: "3rd Year College at Mallig Plains Colleges. Bachelor of Secondary Education Major in English. Thank you for being my 24/7 kaaway.",
+    details: "3rd Year College at Mallig Plains Colleges. Bachelor of Secondary Education Major in English. Thank you for being my 24/7 kaaway!",
     icon: BookOpen,
     color: "text-blue-400",
     image: sisterImg,
