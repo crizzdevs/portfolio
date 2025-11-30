@@ -167,26 +167,26 @@ export default function EducationPage() {
                     transition={{ duration: 0.4, delay: index * 0.15 }}
                     viewport={{ once: true }}
                   >
-                    <PixelCard className="p-6 bg-muted/60 border border-border rounded-xl flex flex-col items-start justify-between text-center shadow-lg hover:scale-105 transition-all duration-300 h-full"> 
+                    <PixelCard className="p-8 bg-muted/60 border border-border rounded-xl flex flex-col items-start justify-between text-center shadow-lg hover:scale-105 transition-all duration-300 min-h-[200px] h-full"> 
                       <div className="flex items-start justify-between gap-4 w-full">
-                        <div className="flex-1">
-                          <div className="flex items-center mb-3 space-x-3">
-                            <Icon className="w-6 h-6 text-accent" />
-                            <h4 className="text-lg font-semibold text-foreground text-left">
-                              {item.title}
-                            </h4>
-                          </div>
-                          <p className="text-sm text-muted-foreground text-left">{item.year}</p>
-                          <p className="text-foreground font-medium text-left">{item.institution}</p>
-                          <p className="text-muted-foreground text-sm mt-2 text-left">
-                            {item.description}
-                          </p>
-                        </div>
                         <img
                           src={item.image}
                           alt={item.title}
-                          className="w-20 h-20 rounded-lg object-cover border border-border shrink-0"
+                          className="w-32 h-32 rounded-lg object-cover border border-border shrink-0"
                         />
+                        <div className="flex-1">
+                          <div className="flex items-center mb-3 space-x-3">
+                            <Icon className="w-6 h-6 text-accent" />
+                            <h4 className="text-xl font-semibold text-foreground text-left">
+                              {item.title}
+                            </h4>
+                          </div>
+                          <p className="text-base text-muted-foreground text-left">{item.year}</p>
+                          <p className="text-foreground font-medium text-left">{item.institution}</p>
+                          <p className="text-muted-foreground text-base mt-2 text-left">
+                            {item.description}
+                          </p>
+                        </div>
                       </div>
                     </PixelCard>
                   </motion.div>
