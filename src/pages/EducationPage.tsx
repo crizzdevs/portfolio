@@ -71,7 +71,7 @@ const education = [
     institution: "Mallig National High School",
     description:
       "Developed strong analytical, communication, and leadership skills through research and collaborative projects - With Honors.",
-    icon: GraduationCap,
+    icon: BookOpen,
     image: malligSHS,
   },
   {
@@ -80,7 +80,7 @@ const education = [
     institution: "University of the Cordilleras",
     description:
       "Focusing on learning different types of Programming Languages",
-    icon: Award,
+    icon: School,
     image: ucImg,
   },
 ];
@@ -175,7 +175,7 @@ export default function EducationPage() {
                       />
                       <div className="flex-1 text-center">
                         <div className="flex items-center justify-center mb-3 space-x-3">
-                          <Icon className="w-6 h-6 text-accent" />
+                          <Icon className="w-6 h-6 text-primary" />
                           <h4 className="text-xl font-semibold text-foreground">
                             {item.title}
                           </h4>
