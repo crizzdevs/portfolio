@@ -133,7 +133,7 @@ export default function BatchmatesPage() {
           </motion.h2>
 
           {/* MAIN LAYOUT: Left Grid - Image - Right Grid */}
-          <div className="flex flex-col xl:flex-row items-center justify-center gap-8 xl:gap-16">
+          <div className="flex flex-col xl:flex-row items-center justify-between gap-8 xl:gap-16">
             
             {/* --- LEFT SIDE NAMES (First 2 Columns) --- */}
             <motion.div 
@@ -149,7 +149,7 @@ export default function BatchmatesPage() {
                   variants={itemVariants}
                 >
                   <PixelCard className="p-1 bg-muted/60 border border-border rounded-lg flex items-center justify-center text-center shadow-lg hover:scale-105 hover:border-primary/50 transition-all duration-300 w-fit h-fit">
-                    <div className="text-foreground text-[10px] font-bold leading-tight uppercase tracking-wide whitespace-nowrap">
+                    <div className="text-foreground text-[11px] font-bold leading-tight uppercase tracking-wide whitespace-nowrap">
                       {name}
                     </div>
                   </PixelCard>
@@ -203,7 +203,7 @@ export default function BatchmatesPage() {
                   variants={itemVariants}
                 >
                   <PixelCard className="p-1 bg-muted/60 border border-border rounded-lg flex items-center justify-center text-center shadow-lg hover:scale-105 hover:border-primary/50 transition-all duration-300 w-fit h-fit">
-                    <div className="text-foreground text-[10px] font-bold leading-tight uppercase tracking-wide whitespace-nowrap">
+                    <div className="text-foreground text-[11px] font-bold leading-tight uppercase tracking-wide whitespace-nowrap">
                       {name}
                     </div>
                   </PixelCard>
