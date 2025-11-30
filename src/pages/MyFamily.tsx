@@ -86,9 +86,9 @@ export default function FamilyPage() {
     <div className="min-h-screen bg-background font-sans">
       <GameNav />
       
-      {/* Prev Button */}
+      {/* Navigation Buttons */}
       <motion.div
-        className="fixed bottom-4 left-4 z-40"
+        className="fixed bottom-4 right-4 z-40 flex gap-4"
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5, delay: 0.5 }}
@@ -100,15 +100,6 @@ export default function FamilyPage() {
           <ArrowLeft className="w-4 h-4" />
           PREV
         </Link>
-      </motion.div>
-
-      {/* Next Button */}
-      <motion.div
-        className="fixed bottom-4 right-4 z-40"
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.5, delay: 0.5 }}
-      >
         <Link
           to="/mybatchmates"
           className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground font-medium rounded-lg hover:bg-primary/90 transition-all duration-300 shadow-lg hover:shadow-xl text-sm"
