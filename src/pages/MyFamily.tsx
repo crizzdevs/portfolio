@@ -144,7 +144,7 @@ export default function FamilyPage() {
             className="w-full mx-auto"
           >
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {familyMembers.map((member, index) => {
                 const Icon = member.icon;
                 return (
@@ -156,7 +156,7 @@ export default function FamilyPage() {
                     viewport={{ once: true }}
                     className="h-full"
                   >
-                    <PixelCard className="h-full p-8 bg-card/80 border border-border rounded-2xl backdrop-blur-lg hover:border-primary/50 transition-colors duration-300">
+                    <PixelCard className="h-full p-4 bg-card/80 border border-border rounded-2xl backdrop-blur-lg hover:border-primary/50 transition-colors duration-300">
                       <div className="flex flex-col items-center text-center space-y-4">
                         
                         <div className="relative group">
@@ -164,7 +164,7 @@ export default function FamilyPage() {
                           <img 
                             src={member.image} 
                             alt={member.role} 
-                            className="w-64 h-64 rounded-full object-cover border-4 border-white/10 relative z-10 shadow-xl group-hover:scale-105 transition-transform duration-300"
+                            className="w-48 h-48 rounded-full object-cover border-4 border-white/10 relative z-10 shadow-xl group-hover:scale-105 transition-transform duration-300"
                           />
                           <div className="absolute bottom-2 right-2 z-20 bg-background p-2 rounded-full border border-border">
                             <Icon className={`w-5 h-5 ${member.color}`} />
