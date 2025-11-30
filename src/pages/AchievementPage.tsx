@@ -170,7 +170,7 @@ export default function AchievementPage() {
                       viewport={{ once: true }}
                     >
                       <PixelCard className="w-full h-28 p-2 bg-muted/60 border border-border rounded-lg flex flex-col items-center justify-center text-center shadow-lg hover:scale-105 hover:border-primary/50 transition-all duration-300"> 
-                        <Icon className="w-7 h-7 text-blue-500 mb-1" /> 
+                        <Icon className="w-7 h-7 text-yellow-500 mb-1" /> 
                         <div className="text-foreground text-sm font-bold leading-tight line-clamp-3 mb-1">{title}</div>
                         {year && (
                           <div className="text-xs text-muted-foreground bg-background/50 px-1 py-0.5 rounded-full">
@@ -202,7 +202,7 @@ export default function AchievementPage() {
                       viewport={{ once: true }}
                     >
                       <PixelCard className="w-full h-28 p-2 bg-muted/60 border border-border rounded-lg flex flex-col items-center justify-center text-center shadow-lg hover:scale-105 hover:border-primary/50 transition-all duration-300"> 
-                        <Icon className="w-7 h-7 text-blue-500 mb-1" /> 
+                        <Icon className="w-7 h-7 text-yellow-500 mb-1" /> 
                         <div className="text-foreground text-sm font-bold leading-tight line-clamp-3 mb-1">{title}</div>
                         {year && (
                           <div className="text-xs text-muted-foreground bg-background/50 px-1 py-0.5 rounded-full">
