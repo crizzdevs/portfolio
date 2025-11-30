@@ -67,7 +67,7 @@ const education = [
   },
   {
     year: "2025",
-    title: "Senior High School (HUMSS Strand)",
+    title: "Senior High School",
     institution: "Mallig National High School",
     description:
       "Developed strong analytical, communication, and leadership skills through research and collaborative projects - With Honors.",
@@ -76,10 +76,10 @@ const education = [
   },
   {
     year: "2025 - In Progress",
-    title: "College (BS Computer Science)",
+    title: "College",
     institution: "University of the Cordilleras",
     description:
-      "Focusing on learning different types of Programming Languages",
+      "Bachelor of Science in Computer Science and currently focusing on learning different types of Programming Languages",
     icon: School,
     image: ucImg,
   },
