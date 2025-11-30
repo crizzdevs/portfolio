@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
-import { ArrowLeft, ArrowRight, GraduationCap, Trophy, Medal, Award, Crown, Feather, BookOpen, Star, Palette, Users, Shield } from "lucide-react";
+import { ArrowLeft, Users, Camera } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
-import { GameNav } from "@/components/GameNav";
-import { PixelCard } from "@/components/PixelCard.tsx";
+import TiltedCard from "@/components/TiltedCard";
+import { PixelCard } from "@/components/PixelCard.tsx"; // Added import for PixelCard
+import classPic from "@/assets/class-picture.jpg";
 
 const GameNav = () => {
   const location = useLocation();
@@ -42,54 +43,39 @@ const GameNav = () => {
   );
 };
 
-const curricular = [
-  "Consistent Honors Student",
-  "Editor in Chief - The Mega Flash (2023-2024)",
-  "Barkada Kontra Bisyo - President (2024-2025)",
-  "Outstanding Performance - Social Sciences (2024-2025)",
-  "Outstanding Performance - Research (2024-2025)",
-  "Outstanding Performance - Work Immersion (2024-2025)",
-  "Leadership Award - Gold Medal (2024-2025)",
-  "Champion - School Based Editorial Writing (2022-2023)",
-  "Champion - School Based Editorial Writing (2023-2024)",
-  "Champion - Digital Poster Making (2024-2025)",
+// Complete list of 40 names
+const batchmates = [
+  "ABDULKADER, FAISAL", "ABEN, ZEIUS", "ABUAN, CRIS JULIAN", "AGALED, EDEZIE",
+  "ALAY-AY, PAUL RAYVER", "ALCUIZAR, JUSTIN", "ANAYDOS, CHEZEN", "ANTONIO, BLAS SEBASTIAN",
+  "ANTONIO, HART HENDRICKS", "ASPILAN, JOCHRISSE", "BAYAWA, SARRICK MAE", "BUGNOSEN, JEMIMAH",
+  "CALIMQUIM, MARIANNE ALEXEI", "DONATO, TOM IRIC", "DURANTE, JACOB", "FAJARDO, KATHRYN BEYONCE",
+  "FAJARDO, KATHRYZ BEYONCE", "FLORES, MARY ANGELYN", "GAPASIN, KEN CADE", "GONZALES, MHARVINNE LOUISSE",
+  "GUALDO, ROJAN JULES", "GUERRERO, DEWEY", "KERYAO, GRACE", "LORILLA, RONALD",
+  "LOZANO, KYRO CHRISTOPHER", "MAHILUM, DHELLMAR", "MENDOZA, JUSTINE KHURT", "NAPENAS, LEA",
+  "OBONGEN, GIAN CARLO", "PAGNAS, XHIRO CHIYAM", "PATIAG, JARED JANWEL", "POCLING, TRICIA",
+  "RAMOS, PRINCESS REIGN", "RODRIGUEZ, HARVEY", "RODRIGUEZ, SEAN VINCENT", "SANTOS, KENT SER FRANCIS",
+  "SEVILLA, RONNEL", "SILIN, CLARK JONATHAN", "UGADDAN, SHAQUIL HANZ", "VICENTE, EDISON"
 ];
 
-const extraCurricular = [
-  "UBBING 5th District - Internal Secretary (Ongoing)",
-  "Leadership Award - House of the Representatives",
-  "Champion - LDFOT Bread & Pastry Production (2024-2025)",
-  "2nd Place - Editorial Writing DSPC Elims (2024-2025)",
-  "2nd Place - LD Reading-in-Tandem (2024-2025)",
-  "3rd Place - Hydromusiklaban (2024-2025)",
-  "3rd Place - Likhawitin (2024-2025)",
-];
+export default function BatchmatesPage() {
+  // Split the list into two halves for Left and Right sides
+  const halfIndex = Math.ceil(batchmates.length / 2);
+  const leftSideNames = batchmates.slice(0, halfIndex);
+  const rightSideNames = batchmates.slice(halfIndex);
 
-const parseAchievement = (item) => {
-  const match = item.match(/^(.+?)\s*\(([^)]+)\)$/);
-  if (match) {
-    return { title: match[1].trim(), year: match[2].trim() };
-  }
-  return { title: item, year: "" };
-};
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: { staggerChildren: 0.03 }
+    }
+  };
 
-const getAchievementIcon = (title) => {
-  const lowerTitle = title.toLowerCase();
-  
-  if (lowerTitle.includes("consistent honors") || lowerTitle.includes("gold medal")) return Award;
-  if (lowerTitle.includes("leadership")) return Crown;
-  if (lowerTitle.includes("editor in chief")) return Feather;
-  if (lowerTitle.includes("outstanding performance")) return Star;
-  if (lowerTitle.includes("research")) return BookOpen;
-  if (lowerTitle.includes("work immersion") || lowerTitle.includes("social sciences")) return Shield;
-  if (lowerTitle.includes("champion") || lowerTitle.includes("winning")) return Trophy;
-  if (lowerTitle.includes("poster making")) return Palette;
-  if (lowerTitle.includes("president")) return Users;
-  
-  return GraduationCap;
-};
+  const itemVariants = {
+    hidden: { opacity: 0, y: 10 },
+    show: { opacity: 1, y: 0 }
+  };
 
-export default function AchievementPage() {
   return (
     <div className="min-h-screen bg-background font-sans">
       <GameNav />
@@ -102,23 +88,24 @@ export default function AchievementPage() {
         transition={{ duration: 0.5, delay: 0.5 }}
       >
         <Link
-          to="/education"
+          to="/myfamily"
           className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground font-medium rounded-lg hover:bg-primary/90 transition-all duration-300 shadow-lg hover:shadow-xl text-sm"
         >
           <ArrowLeft className="w-4 h-4" />
           PREV
         </Link>
         <Link
-          to="/myfamily"
+          to="/"
           className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground font-medium rounded-lg hover:bg-primary/90 transition-all duration-300 shadow-lg hover:shadow-xl text-sm"
         >
-          NEXT
-          <ArrowRight className="w-4 h-4" />
+          <ArrowLeft className="w-4 h-4" />
+          Back to Home
         </Link>
       </motion.div>
 
-      <section id="achievements" className="py-10 pt-20 text-foreground relative overflow-hidden">
-        <div className="absolute inset-0 opacity-20">
+      <section id="batchmates" className="py-20 pt-24 text-foreground relative overflow-hidden flex flex-col items-center justify-center min-h-[80vh]">
+        {/* Background Particles */}
+        <div className="absolute inset-0 opacity-20 pointer-events-none">
           {[...Array(50)].map((_, i) => (
             <div
               key={i}
@@ -133,90 +120,99 @@ export default function AchievementPage() {
           ))}
         </div>
 
-        <div className="container mx-auto text-center px-6 max-w-7xl relative z-10">
+        <div className="container mx-auto px-4 max-w-[1400px] relative z-10">
           
           <motion.h2
-            className="text-4xl font-bold mb-8 text-primary flex items-center justify-center gap-3"
+            className="text-4xl font-bold mb-16 text-primary flex items-center justify-center gap-3"
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <Medal className="w-6 h-6 text-purple-500" fill="currentColor" /> 
-            Achievements
+            <Users className="w-8 h-8 text-purple-500" fill="currentColor" /> 
+            My Batchmates
           </motion.h2>
 
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="w-full mx-auto"
-          >
+          {/* MAIN LAYOUT: Left Grid - Image - Right Grid */}
+          <div className="flex flex-col xl:flex-row items-center justify-center gap-8 xl:gap-16">
             
-            <div className="mb-6">
-              <h3 className="text-xl font-semibold text-primary mb-3 flex items-center gap-2 justify-center lg:justify-start">
-                <GraduationCap className="w-4 h-4 text-purple-500" />
-                Curricular
-              </h3>
-              <div className="grid grid-cols-5 gap-2 text-left"> 
-                {curricular.map((item, index) => {
-                  const { title, year } = parseAchievement(item);
-                  const Icon = getAchievementIcon(title);
-                  return (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      transition={{ duration: 0.4, delay: index * 0.05 }}
-                      viewport={{ once: true }}
-                    >
-                      <PixelCard className="w-full h-28 p-2 bg-muted/60 border border-border rounded-lg flex flex-col items-center justify-center text-center shadow-lg hover:scale-105 hover:border-primary/50 transition-all duration-300"> 
-                        <Icon className="w-7 h-7 text-blue-500 mb-1" /> 
-                        <div className="text-foreground text-sm font-bold leading-tight line-clamp-3 mb-1">{title}</div>
-                        {year && (
-                          <div className="text-xs text-muted-foreground bg-background/50 px-1 py-0.5 rounded-full">
-                            {year}
-                          </div>
-                        )}
-                      </PixelCard>
-                    </motion.div>
-                  );
-                })}
-              </div>
-            </div>
+            {/* --- LEFT SIDE NAMES (First 2 Columns) --- */}
+            <motion.div 
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+              className="grid grid-cols-2 gap-x-16 gap-y-1 text-left order-2 xl:order-1 w-full xl:w-auto"
+            >
+              {leftSideNames.map((name, index) => (
+                <motion.div
+                  key={`left-${index}`}
+                  variants={itemVariants}
+                >
+                  <PixelCard className="p-1 bg-muted/60 border border-border rounded-lg flex items-center justify-center text-center shadow-lg hover:scale-105 hover:border-primary/50 transition-all duration-300 w-fit h-fit">
+                    <div className="text-foreground text-[10px] font-bold leading-tight uppercase tracking-wide whitespace-nowrap">
+                      {name}
+                    </div>
+                  </PixelCard>
+                </motion.div>
+              ))}
+            </motion.div>
 
-            <div className="mb-2"> 
-              <h3 className="text-xl font-semibold text-primary mb-3 flex items-center gap-2 justify-center lg:justify-start">
-                <Trophy className="w-4 h-4 text-purple-500" />
-                Extra Curricular
-              </h3>
-              <div className="grid grid-cols-5 gap-2 text-left"> 
-                {extraCurricular.map((item, index) => {
-                  const { title, year } = parseAchievement(item);
-                  const Icon = getAchievementIcon(title); 
-                  return (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      transition={{ duration: 0.4, delay: index * 0.05 }}
-                      viewport={{ once: true }}
-                    >
-                      <PixelCard className="w-full h-28 p-2 bg-muted/60 border border-border rounded-lg flex flex-col items-center justify-center text-center shadow-lg hover:scale-105 hover:border-primary/50 transition-all duration-300"> 
-                        <Icon className="w-7 h-7 text-blue-500 mb-1" /> 
-                        <div className="text-foreground text-sm font-bold leading-tight line-clamp-3 mb-1">{title}</div>
-                        {year && (
-                          <div className="text-xs text-muted-foreground bg-background/50 px-1 py-0.5 rounded-full">
-                            {year}
-                          </div>
-                        )}
-                      </PixelCard>
-                    </motion.div>
-                  );
-                })}
-              </div>
-            </div>
+            {/* --- CENTER IMAGE (Tilted Card) --- */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.7 }}
+              viewport={{ once: true }}
+              className="order-1 xl:order-2 shrink-0 z-20 flex justify-center py-10 xl:py-0"
+            >
+              <TiltedCard
+                imageSrc={classPic}
+                altText="Class of 2025"
+                captionText="Batch 2025 - University of the Cordilleras"
+                containerHeight="400px"
+                containerWidth="600px"
+                imageHeight="400px"
+                imageWidth="600px"
+                rotateAmplitude={12}
+                scaleOnHover={1.1}
+                showMobileWarning={false}
+                showTooltip={true}
+                displayOverlayContent={true}
+                overlayContent={
+                  <>
+                    <div className="absolute top-4 left-4 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full border border-white/10 flex items-center gap-2 pointer-events-none">
+                       <Camera className="w-3 h-3 text-accent" />
+                      <span className="text-[10px] text-white font-mono">CITCS 1C - A</span>
+                    </div>
+                  </>
+                }
+              />
+            </motion.div>
 
-          </motion.div>
+            {/* --- RIGHT SIDE NAMES (Next 2 Columns) --- */}
+            <motion.div 
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+              className="grid grid-cols-2 gap-x-16 gap-y-1 text-left order-3 w-full xl:w-auto"
+            >
+              {rightSideNames.map((name, index) => (
+                <motion.div
+                  key={`right-${index}`}
+                  variants={itemVariants}
+                >
+                  <PixelCard className="p-1 bg-muted/60 border border-border rounded-lg flex items-center justify-center text-center shadow-lg hover:scale-105 hover:border-primary/50 transition-all duration-300 w-fit h-fit">
+                    <div className="text-foreground text-[10px] font-bold leading-tight uppercase tracking-wide whitespace-nowrap">
+                      {name}
+                    </div>
+                  </PixelCard>
+                </motion.div>
+              ))}
+            </motion.div>
+
+          </div>
+
         </div>
       </section>
     </div>
