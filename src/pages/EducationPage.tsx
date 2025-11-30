@@ -156,7 +156,7 @@ export default function EducationPage() {
             transition={{ duration: 0.6 }}
             className="w-full mx-auto"
           >
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left"> 
+            <div className="grid grid-cols-4 gap-4 text-left"> 
               {education.map((item, index) => {
                 const Icon = item.icon;
                 return (
