@@ -58,12 +58,10 @@ const batchmates = [
 ];
 
 export default function BatchmatesPage() {
-  // Split the list into four quarters for Left and Right sides (2 columns each)
-  const quarterIndex = Math.ceil(batchmates.length / 4); // 10
-  const firstQuarter = batchmates.slice(0, quarterIndex); // 0-9
-  const secondQuarter = batchmates.slice(quarterIndex, 2 * quarterIndex); // 10-19
-  const thirdQuarter = batchmates.slice(2 * quarterIndex, 3 * quarterIndex); // 20-29
-  const fourthQuarter = batchmates.slice(3 * quarterIndex); // 30-39
+  // Split the list into two halves for Left and Right sides
+  const halfIndex = Math.ceil(batchmates.length / 2);
+  const leftSideNames = batchmates.slice(0, halfIndex);
+  const rightSideNames = batchmates.slice(halfIndex);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -134,50 +132,18 @@ export default function BatchmatesPage() {
             My Batchmates
           </motion.h2>
 
-          {/* CENTER IMAGE (Tilted Card) */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7 }}
-            viewport={{ once: true }}
-            className="flex justify-center mb-16"
-          >
-            <TiltedCard
-              imageSrc={classPic}
-              altText="Class of 2025"
-              captionText="Batch 2025 - University of the Cordilleras"
-              containerHeight="400px"
-              containerWidth="600px"
-              imageHeight="400px"
-              imageWidth="600px"
-              rotateAmplitude={12}
-              scaleOnHover={1.1}
-              showMobileWarning={false}
-              showTooltip={true}
-              displayOverlayContent={true}
-              overlayContent={
-                <>
-                  <div className="absolute top-4 left-4 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full border border-white/10 flex items-center gap-2 pointer-events-none">
-                     <Camera className="w-3 h-3 text-accent" />
-                    <span className="text-[10px] text-white font-mono">CITCS 1C - A</span>
-                  </div>
-                </>
-              }
-            />
-          </motion.div>
-
-          {/* MAIN LAYOUT: Left Grid (2 Columns) - Right Grid (2 Columns) */}
+          {/* MAIN LAYOUT: Left Grid - Image - Right Grid */}
           <div className="flex flex-col xl:flex-row items-center justify-center gap-8 xl:gap-16">
             
-            {/* --- LEFT SIDE NAMES (First 2 Columns: firstQuarter and secondQuarter) --- */}
+            {/* --- LEFT SIDE NAMES (First 2 Columns) --- */}
             <motion.div 
               variants={containerVariants}
               initial="hidden"
               whileInView="show"
               viewport={{ once: true }}
-              className="grid grid-cols-2 gap-x-10 gap-y-1 text-left w-full xl:w-auto"
+              className="grid grid-cols-2 gap-x-10 gap-y-1 text-left order-2 xl:order-1 w-full xl:w-auto"
             >
-              {[...firstQuarter, ...secondQuarter].map((name, index) => (
+              {leftSideNames.map((name, index) => (
                 <motion.div
                   key={`left-${index}`}
                   variants={itemVariants}
@@ -191,15 +157,47 @@ export default function BatchmatesPage() {
               ))}
             </motion.div>
 
-            {/* --- RIGHT SIDE NAMES (Other 2 Columns: thirdQuarter and fourthQuarter) --- */}
+            {/* --- CENTER IMAGE (Tilted Card) --- */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.7 }}
+              viewport={{ once: true }}
+              className="order-1 xl:order-2 shrink-0 z-20 flex justify-center py-10 xl:py-0"
+            >
+              <TiltedCard
+                imageSrc={classPic}
+                altText="Class of 2025"
+                captionText="Batch 2025 - University of the Cordilleras"
+                containerHeight="400px"
+                containerWidth="600px"
+                imageHeight="400px"
+                imageWidth="600px"
+                rotateAmplitude={12}
+                scaleOnHover={1.1}
+                showMobileWarning={false}
+                showTooltip={true}
+                displayOverlayContent={true}
+                overlayContent={
+                  <>
+                    <div className="absolute top-4 left-4 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full border border-white/10 flex items-center gap-2 pointer-events-none">
+                       <Camera className="w-3 h-3 text-accent" />
+                      <span className="text-[10px] text-white font-mono">CITCS 1C - A</span>
+                    </div>
+                  </>
+                }
+              />
+            </motion.div>
+
+            {/* --- RIGHT SIDE NAMES (Next 2 Columns) --- */}
             <motion.div 
               variants={containerVariants}
               initial="hidden"
               whileInView="show"
               viewport={{ once: true }}
-              className="grid grid-cols-2 gap-x-10 gap-y-1 text-left w-full xl:w-auto"
+              className="grid grid-cols-2 gap-x-10 gap-y-1 text-left order-3 w-full xl:w-auto"
             >
-              {[...thirdQuarter, ...fourthQuarter].map((name, index) => (
+              {rightSideNames.map((name, index) => (
                 <motion.div
                   key={`right-${index}`}
                   variants={itemVariants}
