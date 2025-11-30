@@ -169,11 +169,11 @@ export default function FamilyPage() {
                       <div className="flex flex-col items-center text-center space-y-4">
                         
                         <div className="relative group">
-                          <div className={`absolute inset-0 rounded-full blur-md opacity-50 bg-current ${member.color}`}></div>
+                          <div className={`absolute inset-0 rounded-xl blur-md opacity-50 bg-current ${member.color}`}></div>
                           <img 
                             src={member.image} 
                             alt={member.role} 
-                            className="w-40 h-40 rounded-full object-cover border-4 border-white/10 relative z-10 shadow-xl group-hover:scale-105 transition-transform duration-300"
+                            className="w-52 h-52 rounded-xl object-cover border-4 border-white/10 relative z-10 shadow-xl group-hover:scale-105 transition-transform duration-300"
                           />
                           <div className="absolute bottom-2 right-2 z-20 bg-background p-2 rounded-full border border-border">
                             <Icon className={`w-5 h-5 ${member.color}`} />
@@ -181,21 +181,21 @@ export default function FamilyPage() {
                         </div>
 
                         <div className="pt-4 space-y-2">
-                          <h3 className="text-2xl font-bold text-foreground">
+                          <h3 className="text-3xl font-bold text-foreground">
                             {member.role}
                           </h3>
                           
-                          <p className={`font-medium ${member.color}`}>
+                          <p className={`font-medium text-lg ${member.color}`}>
                             {member.name}
                           </p>
 
-                          <p className="text-muted-foreground text-sm">
+                          <p className="text-muted-foreground text-base">
                             {member.age}
                           </p>
                           
                           <div className="w-12 h-1 bg-white/10 mx-auto my-3 rounded-full" />
                           
-                          <p className="text-muted-foreground text-sm leading-relaxed">
+                          <p className="text-muted-foreground text-base leading-relaxed">
                             {member.details}
                           </p>
                         </div>
