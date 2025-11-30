@@ -58,10 +58,12 @@ const batchmates = [
 ];
 
 export default function BatchmatesPage() {
-  // Split the list into two halves for Left and Right sides
-  const halfIndex = Math.ceil(batchmates.length / 2);
-  const leftSideNames = batchmates.slice(0, halfIndex);
-  const rightSideNames = batchmates.slice(halfIndex);
+  // Split the list into four quarters for Left and Right sides (2 columns each)
+  const quarterIndex = Math.ceil(batchmates.length / 4); // 10
+  const firstQuarter = batchmates.slice(0, quarterIndex); // 0-9
+  const secondQuarter = batchmates.slice(quarterIndex, 2 * quarterIndex); // 10-19
+  const thirdQuarter = batchmates.slice(2 * quarterIndex, 3 * quarterIndex); // 20-29
+  const fourthQuarter = batchmates.slice(3 * quarterIndex); // 30-39
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -164,10 +166,10 @@ export default function BatchmatesPage() {
             />
           </motion.div>
 
-          {/* MAIN LAYOUT: Left Grid - Right Grid */}
+          {/* MAIN LAYOUT: Left Grid (2 Columns) - Right Grid (2 Columns) */}
           <div className="flex flex-col xl:flex-row items-center justify-center gap-8 xl:gap-16">
             
-            {/* --- LEFT SIDE NAMES (2 Columns) --- */}
+            {/* --- LEFT SIDE NAMES (First 2 Columns: firstQuarter and secondQuarter) --- */}
             <motion.div 
               variants={containerVariants}
               initial="hidden"
@@ -175,7 +177,7 @@ export default function BatchmatesPage() {
               viewport={{ once: true }}
               className="grid grid-cols-2 gap-x-10 gap-y-1 text-left w-full xl:w-auto"
             >
-              {leftSideNames.map((name, index) => (
+              {[...firstQuarter, ...secondQuarter].map((name, index) => (
                 <motion.div
                   key={`left-${index}`}
                   variants={itemVariants}
@@ -189,7 +191,7 @@ export default function BatchmatesPage() {
               ))}
             </motion.div>
 
-            {/* --- RIGHT SIDE NAMES (2 Columns) --- */}
+            {/* --- RIGHT SIDE NAMES (Other 2 Columns: thirdQuarter and fourthQuarter) --- */}
             <motion.div 
               variants={containerVariants}
               initial="hidden"
@@ -197,7 +199,7 @@ export default function BatchmatesPage() {
               viewport={{ once: true }}
               className="grid grid-cols-2 gap-x-10 gap-y-1 text-left w-full xl:w-auto"
             >
-              {rightSideNames.map((name, index) => (
+              {[...thirdQuarter, ...fourthQuarter].map((name, index) => (
                 <motion.div
                   key={`right-${index}`}
                   variants={itemVariants}
