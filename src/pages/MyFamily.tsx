@@ -168,7 +168,7 @@ export default function FamilyPage() {
                     <PixelCard className="h-full p-8 bg-card/80 border border-border rounded-2xl backdrop-blur-lg hover:border-primary/50 transition-colors duration-300">
                       <div className="flex flex-col items-center text-center space-y-4">
                         
-                        <div className="relative group">
+                        <div className="relative group border-2 border-white/10 rounded-xl p-2">
                           <div className={`absolute inset-0 rounded-xl blur-md opacity-50 bg-current ${member.color}`}></div>
                           <img 
                             src={member.image} 
