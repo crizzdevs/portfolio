@@ -58,10 +58,12 @@ const batchmates = [
 ];
 
 export default function BatchmatesPage() {
-  // Split the list into two halves for Left and Right sides
-  const halfIndex = Math.ceil(batchmates.length / 2);
-  const leftSideNames = batchmates.slice(0, halfIndex);
-  const rightSideNames = batchmates.slice(halfIndex);
+  // Split the list into four quarters for Left and Right sides (2 columns each)
+  const quarterIndex = Math.ceil(batchmates.length / 4); // 10
+  const firstQuarter = batchmates.slice(0, quarterIndex); // 0-9
+  const secondQuarter = batchmates.slice(quarterIndex, 2 * quarterIndex); // 10-19
+  const thirdQuarter = batchmates.slice(2 * quarterIndex, 3 * quarterIndex); // 20-29
+  const fourthQuarter = batchmates.slice(3 * quarterIndex); // 30-39
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -132,23 +134,55 @@ export default function BatchmatesPage() {
             My Batchmates
           </motion.h2>
 
-          {/* MAIN LAYOUT: Left Grid - Image - Right Grid */}
+          {/* CENTER IMAGE (Tilted Card) */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.7 }}
+            viewport={{ once: true }}
+            className="flex justify-center mb-16"
+          >
+            <TiltedCard
+              imageSrc={classPic}
+              altText="Class of 2025"
+              captionText="Batch 2025 - University of the Cordilleras"
+              containerHeight="400px"
+              containerWidth="600px"
+              imageHeight="400px"
+              imageWidth="600px"
+              rotateAmplitude={12}
+              scaleOnHover={1.1}
+              showMobileWarning={false}
+              showTooltip={true}
+              displayOverlayContent={true}
+              overlayContent={
+                <>
+                  <div className="absolute top-4 left-4 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full border border-white/10 flex items-center gap-2 pointer-events-none">
+                     <Camera className="w-3 h-3 text-accent" />
+                    <span className="text-[10px] text-white font-mono">CITCS 1C - A</span>
+                  </div>
+                </>
+              }
+            />
+          </motion.div>
+
+          {/* MAIN LAYOUT: Left Grid (2 Columns) - Right Grid (2 Columns) */}
           <div className="flex flex-col xl:flex-row items-center justify-center gap-8 xl:gap-16">
             
-            {/* --- LEFT SIDE NAMES (First 2 Columns) --- */}
+            {/* --- LEFT SIDE NAMES (First 2 Columns: firstQuarter and secondQuarter) --- */}
             <motion.div 
               variants={containerVariants}
               initial="hidden"
               whileInView="show"
               viewport={{ once: true }}
-              className="grid grid-cols-2 gap-x-10 gap-y-4 text-left order-2 xl:order-1 w-full xl:w-auto"
+              className="grid grid-cols-2 gap-x-10 gap-y-1 text-left w-full xl:w-auto"
             >
-              {leftSideNames.map((name, index) => (
+              {[...firstQuarter, ...secondQuarter].map((name, index) => (
                 <motion.div
                   key={`left-${index}`}
                   variants={itemVariants}
                 >
-                  <PixelCard className="p-2 bg-muted/60 border border-border rounded-lg flex items-center justify-center text-center shadow-lg hover:scale-105 hover:border-primary/50 transition-all duration-300 w-fit h-fit">
+                  <PixelCard className="p-1 bg-muted/60 border border-border rounded-lg flex items-center justify-center text-center shadow-lg hover:scale-105 hover:border-primary/50 transition-all duration-300 w-fit h-fit">
                     <div className="text-foreground text-[12px] font-bold leading-tight uppercase tracking-wide whitespace-nowrap">
                       {name}
                     </div>
@@ -157,52 +191,20 @@ export default function BatchmatesPage() {
               ))}
             </motion.div>
 
-            {/* --- CENTER IMAGE (Tilted Card) --- */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.7 }}
-              viewport={{ once: true }}
-              className="order-1 xl:order-2 shrink-0 z-20 flex justify-center py-10 xl:py-0"
-            >
-              <TiltedCard
-                imageSrc={classPic}
-                altText="Class of 2025"
-                captionText="Batch 2025 - University of the Cordilleras"
-                containerHeight="400px"
-                containerWidth="600px"
-                imageHeight="400px"
-                imageWidth="600px"
-                rotateAmplitude={12}
-                scaleOnHover={1.1}
-                showMobileWarning={false}
-                showTooltip={true}
-                displayOverlayContent={true}
-                overlayContent={
-                  <>
-                    <div className="absolute top-4 left-4 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full border border-white/10 flex items-center gap-2 pointer-events-none">
-                       <Camera className="w-3 h-3 text-accent" />
-                      <span className="text-[10px] text-white font-mono">CITCS 1C - A</span>
-                    </div>
-                  </>
-                }
-              />
-            </motion.div>
-
-            {/* --- RIGHT SIDE NAMES (Next 2 Columns) --- */}
+            {/* --- RIGHT SIDE NAMES (Other 2 Columns: thirdQuarter and fourthQuarter) --- */}
             <motion.div 
               variants={containerVariants}
               initial="hidden"
               whileInView="show"
               viewport={{ once: true }}
-              className="grid grid-cols-2 gap-x-10 gap-y-4 text-left order-3 w-full xl:w-auto"
+              className="grid grid-cols-2 gap-x-10 gap-y-1 text-left w-full xl:w-auto"
             >
-              {rightSideNames.map((name, index) => (
+              {[...thirdQuarter, ...fourthQuarter].map((name, index) => (
                 <motion.div
                   key={`right-${index}`}
                   variants={itemVariants}
                 >
-                  <PixelCard className="p-2 bg-muted/60 border border-border rounded-lg flex items-center justify-center text-center shadow-lg hover:scale-105 hover:border-primary/50 transition-all duration-300 w-fit h-fit">
+                  <PixelCard className="p-1 bg-muted/60 border border-border rounded-lg flex items-center justify-center text-center shadow-lg hover:scale-105 hover:border-primary/50 transition-all duration-300 w-fit h-fit">
                     <div className="text-foreground text-[12px] font-bold leading-tight uppercase tracking-wide whitespace-nowrap">
                       {name}
                     </div>
