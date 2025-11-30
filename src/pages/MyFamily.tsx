@@ -58,7 +58,7 @@ const familyMembers = [
     age: "52 years old",
     details: "Owner of 4Js Cakes and Delicacies. A passionate baker creating custom cakes and sweets. Thank you for your sacrifices Mama!",
     icon: ChefHat,
-    color: "text-pink-500",
+    color: "text-blue-400",
     image: motherImg,
   },
   {
@@ -67,7 +67,7 @@ const familyMembers = [
     age: "58 years old",
     details: "Self-employed Freelance Carpenter. Skilled in woodworking, construction, and custom builds. Thanks for guiding me.",
     icon: Hammer,
-    color: "text-orange-500",
+    color: "text-blue-400",
     image: fatherImg,
   },
   {
