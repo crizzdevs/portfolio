@@ -76,7 +76,7 @@ const education = [
   },
   {
     year: "2025 - In Progress",
-    title: "Bachelor of Science in Computer Science",
+    title: "College (BS Computer Science)",
     institution: "University of the Cordilleras",
     description:
       "Focusing on learning different types of Programming Languages",
