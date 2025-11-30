@@ -80,9 +80,9 @@ export default function BatchmatesPage() {
     <div className="min-h-screen bg-background font-sans">
       <GameNav />
       
-      {/* Prev Button */}
+      {/* Navigation Buttons */}
       <motion.div
-        className="fixed bottom-4 left-4 z-40"
+        className="fixed bottom-4 right-4 z-40 flex gap-4"
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5, delay: 0.5 }}
@@ -94,15 +94,6 @@ export default function BatchmatesPage() {
           <ArrowLeft className="w-4 h-4" />
           PREV
         </Link>
-      </motion.div>
-
-      {/* Next Button */}
-      <motion.div
-        className="fixed bottom-4 right-4 z-40"
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.5, delay: 0.5 }}
-      >
         <Link
           to="/"
           className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground font-medium rounded-lg hover:bg-primary/90 transition-all duration-300 shadow-lg hover:shadow-xl text-sm"
@@ -144,13 +135,13 @@ export default function BatchmatesPage() {
           {/* MAIN LAYOUT: Left Grid - Image - Right Grid */}
           <div className="flex flex-col xl:flex-row items-center justify-center gap-8 xl:gap-16">
             
-            {/* --- LEFT SIDE NAMES (2 Columns) --- */}
+            {/* --- LEFT SIDE NAMES (1 Column) --- */}
             <motion.div 
               variants={containerVariants}
               initial="hidden"
               whileInView="show"
               viewport={{ once: true }}
-              className="grid grid-cols-2 gap-x-10 gap-y-1 text-left order-2 xl:order-1 w-full xl:w-auto"
+              className="grid grid-cols-1 gap-y-1 text-left order-2 xl:order-1 w-full xl:w-auto"
             >
               {leftSideNames.map((name, index) => (
                 <motion.div
@@ -178,10 +169,10 @@ export default function BatchmatesPage() {
                 imageSrc={classPic}
                 altText="Class of 2025"
                 captionText="Batch 2025 - University of the Cordilleras"
-                containerHeight="300px"
-                containerWidth="500px"
-                imageHeight="300px"
-                imageWidth="500px"
+                containerHeight="400px"
+                containerWidth="600px"
+                imageHeight="400px"
+                imageWidth="600px"
                 rotateAmplitude={12}
                 scaleOnHover={1.1}
                 showMobileWarning={false}
@@ -198,13 +189,13 @@ export default function BatchmatesPage() {
               />
             </motion.div>
 
-            {/* --- RIGHT SIDE NAMES (2 Columns) --- */}
+            {/* --- RIGHT SIDE NAMES (1 Column) --- */}
             <motion.div 
               variants={containerVariants}
               initial="hidden"
               whileInView="show"
               viewport={{ once: true }}
-              className="grid grid-cols-2 gap-x-10 gap-y-1 text-left order-3 w-full xl:w-auto"
+              className="grid grid-cols-1 gap-y-1 text-left order-3 w-full xl:w-auto"
             >
               {rightSideNames.map((name, index) => (
                 <motion.div
