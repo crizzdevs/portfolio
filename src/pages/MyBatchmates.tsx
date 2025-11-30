@@ -141,15 +141,15 @@ export default function BatchmatesPage() {
               initial="hidden"
               whileInView="show"
               viewport={{ once: true }}
-              className="grid grid-cols-2 gap-x-10 gap-y-4 text-left order-2 xl:order-1 w-full xl:w-auto"
+              className="grid grid-cols-2 gap-x-16 gap-y-1 text-left order-2 xl:order-1 w-full xl:w-auto"
             >
               {leftSideNames.map((name, index) => (
                 <motion.div
                   key={`left-${index}`}
                   variants={itemVariants}
                 >
-                  <PixelCard className="p-2 bg-muted/60 border border-border rounded-lg flex items-center justify-center text-center shadow-lg hover:scale-105 hover:border-primary/50 transition-all duration-300 w-fit h-fit">
-                    <div className="text-foreground text-[12px] font-bold leading-tight uppercase tracking-wide whitespace-nowrap">
+                  <PixelCard className="p-1 bg-muted/60 border border-border rounded-lg flex items-center justify-center text-center shadow-lg hover:scale-105 hover:border-primary/50 transition-all duration-300 w-fit h-fit">
+                    <div className="text-foreground text-[10px] font-bold leading-tight uppercase tracking-wide whitespace-nowrap">
                       {name}
                     </div>
                   </PixelCard>
@@ -195,15 +195,15 @@ export default function BatchmatesPage() {
               initial="hidden"
               whileInView="show"
               viewport={{ once: true }}
-              className="grid grid-cols-2 gap-x-10 gap-y-4 text-left order-3 w-full xl:w-auto"
+              className="grid grid-cols-2 gap-x-16 gap-y-1 text-left order-3 w-full xl:w-auto"
             >
               {rightSideNames.map((name, index) => (
                 <motion.div
                   key={`right-${index}`}
                   variants={itemVariants}
                 >
-                  <PixelCard className="p-2 bg-muted/60 border border-border rounded-lg flex items-center justify-center text-center shadow-lg hover:scale-105 hover:border-primary/50 transition-all duration-300 w-fit h-fit">
-                    <div className="text-foreground text-[12px] font-bold leading-tight uppercase tracking-wide whitespace-nowrap">
+                  <PixelCard className="p-1 bg-muted/60 border border-border rounded-lg flex items-center justify-center text-center shadow-lg hover:scale-105 hover:border-primary/50 transition-all duration-300 w-fit h-fit">
+                    <div className="text-foreground text-[10px] font-bold leading-tight uppercase tracking-wide whitespace-nowrap">
                       {name}
                     </div>
                   </PixelCard>
