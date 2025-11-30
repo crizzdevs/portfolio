@@ -1,9 +1,8 @@
 import { motion } from "framer-motion";
-import { ArrowLeft, Users, Camera } from "lucide-react";
+import { ArrowLeft, ArrowRight, GraduationCap, Trophy, Medal, Award, Crown, Feather, BookOpen, Star, Palette, Users, Shield } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
-import TiltedCard from "@/components/TiltedCard";
-import { PixelCard } from "@/components/PixelCard.tsx"; // Added import for PixelCard
-import classPic from "@/assets/class-picture.jpg";
+import { GameNav } from "@/components/GameNav";
+import { PixelCard } from "@/components/PixelCard.tsx";
 
 const GameNav = () => {
   const location = useLocation();
@@ -43,41 +42,54 @@ const GameNav = () => {
   );
 };
 
-// Complete list of 40 names
-const batchmates = [
-  "ABDULKADER, FAISAL", "ABEN, ZEIUS", "ABUAN, CRIS JULIAN", "AGALED, EDEZIE",
-  "ALAY-AY, PAUL RAYVER", "ALCUIZAR, JUSTIN", "ANAYDOS, CHEZEN", "ANTONIO, BLAS SEBASTIAN",
-  "ANTONIO, HART HENDRICKS", "ASPILAN, JOCHRISSE", "BAYAWA, SARRICK MAE", "BUGNOSEN, JEMIMAH",
-  "CALIMQUIM, MARIANNE ALEXEI", "DONATO, TOM IRIC", "DURANTE, JACOB", "FAJARDO, KATHRYN BEYONCE",
-  "FAJARDO, KATHRYZ BEYONCE", "FLORES, MARY ANGELYN", "GAPASIN, KEN CADE", "GONZALES, MHARVINNE LOUISSE",
-  "GUALDO, ROJAN JULES", "GUERRERO, DEWEY", "KERYAO, GRACE", "LORILLA, RONALD",
-  "LOZANO, KYRO CHRISTOPHER", "MAHILUM, DHELLMAR", "MENDOZA, JUSTINE KHURT", "NAPENAS, LEA",
-  "OBONGEN, GIAN CARLO", "PAGNAS, XHIRO CHIYAM", "PATIAG, JARED JANWEL", "POCLING, TRICIA",
-  "RAMOS, PRINCESS REIGN", "RODRIGUEZ, HARVEY", "RODRIGUEZ, SEAN VINCENT", "SANTOS, KENT SER FRANCIS",
-  "SEVILLA, RONNEL", "SILIN, CLARK JONATHAN", "UGADDAN, SHAQUIL HANZ", "VICENTE, EDISON"
+const curricular = [
+  "Consistent Honors Student",
+  "Editor in Chief - The Mega Flash (2023-2024)",
+  "Barkada Kontra Bisyo - President (2024-2025)",
+  "Outstanding Performance - Social Sciences (2024-2025)",
+  "Outstanding Performance - Research (2024-2025)",
+  "Outstanding Performance - Work Immersion (2024-2025)",
+  "Leadership Award - Gold Medal (2024-2025)",
+  "Champion - School Based Editorial Writing (2022-2023)",
+  "Champion - School Based Editorial Writing (2023-2024)",
+  "Champion - Digital Poster Making (2024-2025)",
 ];
 
-export default function BatchmatesPage() {
-  // Split the list into four quarters for Left and Right sides (2 columns each)
-  const quarterIndex = Math.ceil(batchmates.length / 4); // 10
-  const firstQuarter = batchmates.slice(0, quarterIndex); // 0-9
-  const secondQuarter = batchmates.slice(quarterIndex, 2 * quarterIndex); // 10-19
-  const thirdQuarter = batchmates.slice(2 * quarterIndex, 3 * quarterIndex); // 20-29
-  const fourthQuarter = batchmates.slice(3 * quarterIndex); // 30-39
+const extraCurricular = [
+  "UBBING 5th District - Internal Secretary (Ongoing)",
+  "Leadership Award - House of the Representatives",
+  "Champion - LDFOT Bread & Pastry Production (2024-2025)",
+  "2nd Place - Editorial Writing DSPC Elims (2024-2025)",
+  "2nd Place - LD Reading-in-Tandem (2024-2025)",
+  "3rd Place - Hydromusiklaban (2024-2025)",
+  "3rd Place - Likhawitin (2024-2025)",
+];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: { staggerChildren: 0.03 }
-    }
-  };
+const parseAchievement = (item) => {
+  const match = item.match(/^(.+?)\s*\(([^)]+)\)$/);
+  if (match) {
+    return { title: match[1].trim(), year: match[2].trim() };
+  }
+  return { title: item, year: "" };
+};
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 10 },
-    show: { opacity: 1, y: 0 }
-  };
+const getAchievementIcon = (title) => {
+  const lowerTitle = title.toLowerCase();
+  
+  if (lowerTitle.includes("consistent honors") || lowerTitle.includes("gold medal")) return Award;
+  if (lowerTitle.includes("leadership")) return Crown;
+  if (lowerTitle.includes("editor in chief")) return Feather;
+  if (lowerTitle.includes("outstanding performance")) return Star;
+  if (lowerTitle.includes("research")) return BookOpen;
+  if (lowerTitle.includes("work immersion") || lowerTitle.includes("social sciences")) return Shield;
+  if (lowerTitle.includes("champion") || lowerTitle.includes("winning")) return Trophy;
+  if (lowerTitle.includes("poster making")) return Palette;
+  if (lowerTitle.includes("president")) return Users;
+  
+  return GraduationCap;
+};
 
+export default function AchievementPage() {
   return (
     <div className="min-h-screen bg-background font-sans">
       <GameNav />
@@ -90,24 +102,23 @@ export default function BatchmatesPage() {
         transition={{ duration: 0.5, delay: 0.5 }}
       >
         <Link
-          to="/myfamily"
+          to="/education"
           className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground font-medium rounded-lg hover:bg-primary/90 transition-all duration-300 shadow-lg hover:shadow-xl text-sm"
         >
           <ArrowLeft className="w-4 h-4" />
           PREV
         </Link>
         <Link
-          to="/"
+          to="/myfamily"
           className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground font-medium rounded-lg hover:bg-primary/90 transition-all duration-300 shadow-lg hover:shadow-xl text-sm"
         >
-          <ArrowLeft className="w-4 h-4" />
-          Back to Home
+          NEXT
+          <ArrowRight className="w-4 h-4" />
         </Link>
       </motion.div>
 
-      <section id="batchmates" className="py-20 pt-24 text-foreground relative overflow-hidden flex flex-col items-center justify-center min-h-[80vh]">
-        {/* Background Particles */}
-        <div className="absolute inset-0 opacity-20 pointer-events-none">
+      <section id="achievements" className="py-10 pt-20 text-foreground relative overflow-hidden">
+        <div className="absolute inset-0 opacity-20">
           {[...Array(50)].map((_, i) => (
             <div
               key={i}
@@ -122,99 +133,90 @@ export default function BatchmatesPage() {
           ))}
         </div>
 
-        <div className="container mx-auto px-4 max-w-[1400px] relative z-10">
+        <div className="container mx-auto text-center px-6 max-w-7xl relative z-10">
           
           <motion.h2
-            className="text-4xl font-bold mb-16 text-primary flex items-center justify-center gap-3"
+            className="text-4xl font-bold mb-8 text-primary flex items-center justify-center gap-3"
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <Users className="w-8 h-8 text-purple-500" fill="currentColor" /> 
-            My Batchmates
+            <Medal className="w-6 h-6 text-purple-500" fill="currentColor" /> 
+            Achievements
           </motion.h2>
 
-          {/* CENTER IMAGE (Tilted Card) */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7 }}
-            viewport={{ once: true }}
-            className="flex justify-center mb-16"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="w-full mx-auto"
           >
-            <TiltedCard
-              imageSrc={classPic}
-              altText="Class of 2025"
-              captionText="Batch 2025 - University of the Cordilleras"
-              containerHeight="400px"
-              containerWidth="600px"
-              imageHeight="400px"
-              imageWidth="600px"
-              rotateAmplitude={12}
-              scaleOnHover={1.1}
-              showMobileWarning={false}
-              showTooltip={true}
-              displayOverlayContent={true}
-              overlayContent={
-                <>
-                  <div className="absolute top-4 left-4 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full border border-white/10 flex items-center gap-2 pointer-events-none">
-                     <Camera className="w-3 h-3 text-accent" />
-                    <span className="text-[10px] text-white font-mono">CITCS 1C - A</span>
-                  </div>
-                </>
-              }
-            />
-          </motion.div>
-
-          {/* MAIN LAYOUT: Left Grid (2 Columns) - Right Grid (2 Columns) */}
-          <div className="flex flex-col xl:flex-row items-center justify-center gap-8 xl:gap-16">
             
-            {/* --- LEFT SIDE NAMES (First 2 Columns: firstQuarter and secondQuarter) --- */}
-            <motion.div 
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true }}
-              className="grid grid-cols-2 gap-x-10 gap-y-1 text-left w-full xl:w-auto"
-            >
-              {[...firstQuarter, ...secondQuarter].map((name, index) => (
-                <motion.div
-                  key={`left-${index}`}
-                  variants={itemVariants}
-                >
-                  <PixelCard className="p-1 bg-muted/60 border border-border rounded-lg flex items-center justify-center text-center shadow-lg hover:scale-105 hover:border-primary/50 transition-all duration-300 w-fit h-fit">
-                    <div className="text-foreground text-[12px] font-bold leading-tight uppercase tracking-wide whitespace-nowrap">
-                      {name}
-                    </div>
-                  </PixelCard>
-                </motion.div>
-              ))}
-            </motion.div>
+            <div className="mb-6">
+              <h3 className="text-xl font-semibold text-primary mb-3 flex items-center gap-2 justify-center lg:justify-start">
+                <GraduationCap className="w-4 h-4 text-purple-500" />
+                Curricular
+              </h3>
+              <div className="grid grid-cols-5 gap-2 text-left"> 
+                {curricular.map((item, index) => {
+                  const { title, year } = parseAchievement(item);
+                  const Icon = getAchievementIcon(title);
+                  return (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.4, delay: index * 0.05 }}
+                      viewport={{ once: true }}
+                    >
+                      <PixelCard className="w-full h-28 p-2 bg-muted/60 border border-border rounded-lg flex flex-col items-center justify-center text-center shadow-lg hover:scale-105 hover:border-primary/50 transition-all duration-300"> 
+                        <Icon className="w-7 h-7 text-blue-500 mb-1" /> 
+                        <div className="text-foreground text-sm font-bold leading-tight line-clamp-3 mb-1">{title}</div>
+                        {year && (
+                          <div className="text-xs text-muted-foreground bg-background/50 px-1 py-0.5 rounded-full">
+                            {year}
+                          </div>
+                        )}
+                      </PixelCard>
+                    </motion.div>
+                  );
+                })}
+              </div>
+            </div>
 
-            {/* --- RIGHT SIDE NAMES (Other 2 Columns: thirdQuarter and fourthQuarter) --- */}
-            <motion.div 
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true }}
-              className="grid grid-cols-2 gap-x-10 gap-y-1 text-left w-full xl:w-auto"
-            >
-              {[...thirdQuarter, ...fourthQuarter].map((name, index) => (
-                <motion.div
-                  key={`right-${index}`}
-                  variants={itemVariants}
-                >
-                  <PixelCard className="p-1 bg-muted/60 border border-border rounded-lg flex items-center justify-center text-center shadow-lg hover:scale-105 hover:border-primary/50 transition-all duration-300 w-fit h-fit">
-                    <div className="text-foreground text-[12px] font-bold leading-tight uppercase tracking-wide whitespace-nowrap">
-                      {name}
-                    </div>
-                  </PixelCard>
-                </motion.div>
-              ))}
-            </motion.div>
+            <div className="mb-2"> 
+              <h3 className="text-xl font-semibold text-primary mb-3 flex items-center gap-2 justify-center lg:justify-start">
+                <Trophy className="w-4 h-4 text-purple-500" />
+                Extra Curricular
+              </h3>
+              <div className="grid grid-cols-5 gap-2 text-left"> 
+                {extraCurricular.map((item, index) => {
+                  const { title, year } = parseAchievement(item);
+                  const Icon = getAchievementIcon(title); 
+                  return (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.4, delay: index * 0.05 }}
+                      viewport={{ once: true }}
+                    >
+                      <PixelCard className="w-full h-28 p-2 bg-muted/60 border border-border rounded-lg flex flex-col items-center justify-center text-center shadow-lg hover:scale-105 hover:border-primary/50 transition-all duration-300"> 
+                        <Icon className="w-7 h-7 text-blue-500 mb-1" /> 
+                        <div className="text-foreground text-sm font-bold leading-tight line-clamp-3 mb-1">{title}</div>
+                        {year && (
+                          <div className="text-xs text-muted-foreground bg-background/50 px-1 py-0.5 rounded-full">
+                            {year}
+                          </div>
+                        )}
+                      </PixelCard>
+                    </motion.div>
+                  );
+                })}
+              </div>
+            </div>
 
-          </div>
-
+          </motion.div>
         </div>
       </section>
     </div>
