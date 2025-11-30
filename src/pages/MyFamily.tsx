@@ -168,12 +168,12 @@ export default function FamilyPage() {
                     <PixelCard className="h-full p-8 bg-card/80 border border-border rounded-2xl backdrop-blur-lg hover:border-primary/50 transition-colors duration-300">
                       <div className="flex flex-col items-center text-center space-y-4">
                         
-                        <div className="relative group border-2 border-white/10 rounded-xl p-2">
-                          <div className={`absolute inset-0 rounded-xl blur-md opacity-50 bg-current ${member.color}`}></div>
+                        <div className="relative group">
+                          <div className="absolute inset-0 rounded-full blur-md opacity-50 bg-blue-500"></div>
                           <img 
                             src={member.image} 
                             alt={member.role} 
-                            className="w-52 h-52 rounded-xl object-cover border-4 border-white/10 relative z-10 shadow-xl group-hover:scale-105 transition-transform duration-300"
+                            className="w-64 h-64 rounded-full object-cover border-4 border-white/10 relative z-10 shadow-xl group-hover:scale-105 transition-transform duration-300"
                           />
                           <div className="absolute bottom-2 right-2 z-20 bg-background p-2 rounded-full border border-border">
                             <Icon className={`w-5 h-5 ${member.color}`} />
@@ -181,21 +181,21 @@ export default function FamilyPage() {
                         </div>
 
                         <div className="pt-4 space-y-2">
-                          <h3 className="text-3xl font-bold text-foreground">
+                          <h3 className="text-2xl font-bold text-foreground">
                             {member.role}
                           </h3>
                           
-                          <p className={`font-medium text-lg ${member.color}`}>
+                          <p className={`font-medium text-base ${member.color}`}>
                             {member.name}
                           </p>
 
-                          <p className="text-muted-foreground text-base">
+                          <p className="text-muted-foreground text-sm">
                             {member.age}
                           </p>
                           
                           <div className="w-12 h-1 bg-white/10 mx-auto my-3 rounded-full" />
                           
-                          <p className="text-muted-foreground text-base leading-relaxed">
+                          <p className="text-muted-foreground text-sm leading-relaxed">
                             {member.details}
                           </p>
                         </div>
