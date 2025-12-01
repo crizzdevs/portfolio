@@ -4,7 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 import logoImg from "@/assets/logo.png"; 
 
 const navItems = [
-  { id: "home", label: "Home", to: "/", isPage: false },
+  { id: "aboutme", label: "About Me", to: "/", isPage: false },
   { id: "education", label: "Education", to: "/education", isPage: true },
   { id: "achievements", label: "Achievements", to: "/achievements", isPage: true },
   { id: "myfamily", label: "MyFamily", to: "/myfamily", isPage: true },
@@ -13,7 +13,7 @@ const navItems = [
 
 export const GameNav = () => {
   const location = useLocation();
-  const [active, setActive] = useState("home");
+  const [active, setActive] = useState("aboutme");
 
   useEffect(() => {
     const currentPath = location.pathname;
@@ -21,14 +21,14 @@ export const GameNav = () => {
     if (activeItem) {
       setActive(activeItem.id);
     } else if (currentPath === "/") {
-      setActive("home");
+      setActive("aboutme");
     }
   }, [location]);
 
   const handleNavClick = (id: string, to: string) => {
     setActive(id);
     
-    if (to === "/#home" || to === "/") {
+    if (to === "/#aboutme" || to === "/") {
       if (location.pathname === "/") {
          window.scrollTo({ top: 0, behavior: 'smooth' });
       }
