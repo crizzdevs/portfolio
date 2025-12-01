@@ -8,7 +8,7 @@ import classPic from "@/assets/class-picture.jpg";
 const GameNav = () => {
   const location = useLocation();
   const navItems = [
-    { id: "home", label: "Home", to: "/#home" },
+    { id: "aboutme", label: "About Me", to: "/#aboutme" },
     { id: "education", label: "Education", to: "/education", isPage: true },
     { id: "achievements", label: "Achievements", to: "/achievements", isPage: true },
     { id: "myfamily", label: "MyFamily", to: "/myfamily", isPage: true },
