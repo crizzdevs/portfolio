@@ -46,23 +46,21 @@ const curricular = [
   "Consistent Honors Student",
   "Editor in Chief - The Mega Flash (2023-2024)",
   "Barkada Kontra Bisyo - President (2024-2025)",
-  "Outstanding Performance - Social Sciences (2024-2025)",
-  "Outstanding Performance - Research (2024-2025)",
   "Outstanding Performance - Work Immersion (2024-2025)",
   "Leadership Award - Gold Medal (2024-2025)",
   "Champion - School Based Editorial Writing (2022-2023)",
   "Champion - School Based Editorial Writing (2023-2024)",
+  "Champion - School Based Editorial Writing (2024-2025)",
   "Champion - Digital Poster Making (2024-2025)",
 ];
 
 const extraCurricular = [
   "UBBING 5th District - Internal Secretary (Ongoing)",
   "Leadership Award - House of the Representatives",
-  "Champion - LDFOT Bread & Pastry Production (2024-2025)",
-  "2nd Place - Editorial Writing DSPC Elims (2024-2025)",
-  "2nd Place - LD Reading-in-Tandem (2024-2025)",
+  "Champion - District FOT Bread & Pastry Production (2024-2025)",
+  "2nd Place - Editorial Writing DSPC Elims (2017-2018)",
   "3rd Place - Hydromusiklaban (2024-2025)",
-  "3rd Place - Likhawitin (2024-2025)",
+  "Division Qualifier - Collaborative Publishing (2016-2017)",
 ];
 
 const parseAchievement = (item) => {
