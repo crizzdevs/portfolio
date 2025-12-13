@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import ReactDOM from "react-dom";
+import React from "react";
+import ReactDOM from "react-dom/client"; // use react-dom/client for React 18+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -15,47 +15,7 @@ import "./index.css";
 
 const queryClient = new QueryClient();
 
-const App = () => {
-  const [disableScroll] = useState(true); // Always disabled
-
-  useEffect(() => {
-    const preventScroll = (e: Event) => {
-      e.preventDefault();
-    };
-
-    if (disableScroll) {
-      document.body.style.overflow = 'hidden'; // CSS fallback
-      document.addEventListener('wheel', preventScroll, { passive: false });
-      document.addEventListener('touchmove', preventScroll, { passive: false });
-      document.addEventListener('keydown', (e: KeyboardEvent) => {
-        if (['ArrowUp', 'ArrowDown', 'Space'].includes(e.code)) {
-          e.preventDefault();
-        }
-      });
-    } else {
-      document.body.style.overflow = ''; // Restore (won't trigger since always true)
-      document.removeEventListener('wheel', preventScroll);
-      document.removeEventListener('touchmove', preventScroll);
-      document.removeEventListener('keydown', (e: KeyboardEvent) => {
-        if (['ArrowUp', 'ArrowDown', 'Space'].includes(e.code)) {
-          e.preventDefault();
-        }
-      });
-    }
-
-    return () => {
-      // Cleanup on unmount (resets scroll if component unmounts)
-      document.body.style.overflow = '';
-      document.removeEventListener('wheel', preventScroll);
-      document.removeEventListener('touchmove', preventScroll);
-      document.removeEventListener('keydown', (e: KeyboardEvent) => {
-        if (['ArrowUp', 'ArrowDown', 'Space'].includes(e.code)) {
-          e.preventDefault();
-        }
-      });
-    };
-  }, [disableScroll]);
-
+function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
@@ -68,11 +28,16 @@ const App = () => {
             <Route path="/achievements" element={<AchievementPage />} />
             <Route path="/myfamily" element={<MyFamily />} />
             <Route path="/mybatchmates" element={<MyBatchmates />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
       </TooltipProvider>
     </QueryClientProvider>
   );
-};
+}
 
 export default App;
+
+// Mount the App to the DOM
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<App />);
